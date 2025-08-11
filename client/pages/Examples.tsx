@@ -122,40 +122,90 @@ export default function Examples() {
           ))}
         </div>
 
-        {/* Coming Soon Section */}
-        <Card className="max-w-2xl mx-auto text-center">
-          <CardHeader>
-            <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Construction className="w-8 h-8 text-white" />
-            </div>
-            <CardTitle className="text-2xl">
-              Full Examples Coming Soon!
-            </CardTitle>
-            <CardDescription className="text-lg">
-              We're curating real resume examples from successful professionals
-              in every industry.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-6">
-            <div className="space-y-2">
-              <p className="font-medium text-slate-900">What you'll get:</p>
-              <ul className="text-sm text-slate-600 space-y-1">
-                <li>• Before and after resume transformations</li>
-                <li>• Industry-specific tips and annotations</li>
-                <li>• ATS optimization examples</li>
-                <li>• Downloadable templates based on examples</li>
-              </ul>
-            </div>
-            <div className="space-y-2">
-              <Button asChild>
-                <Link to="/builder">Start Building Your Resume Now</Link>
-              </Button>
-              <Button variant="outline" asChild>
-                <Link to="/templates">Browse Templates</Link>
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
+        {/* Sample Resumes Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            {
+              title: "Senior Software Engineer Resume",
+              industry: "Technology",
+              experience: "8+ years",
+              highlights: ["Full-stack development", "Team leadership", "System architecture"],
+            },
+            {
+              title: "Product Manager Resume",
+              industry: "SaaS",
+              experience: "5+ years",
+              highlights: ["Product strategy", "Cross-functional leadership", "Data-driven decisions"],
+            },
+            {
+              title: "UX Designer Resume",
+              industry: "Design",
+              experience: "6+ years",
+              highlights: ["User research", "Design systems", "Prototyping"],
+            },
+            {
+              title: "Marketing Manager Resume",
+              industry: "Digital Marketing",
+              experience: "4+ years",
+              highlights: ["Campaign management", "Analytics", "Content strategy"],
+            },
+            {
+              title: "Sales Director Resume",
+              industry: "Enterprise Sales",
+              experience: "10+ years",
+              highlights: ["Revenue growth", "Team building", "Client relationships"],
+            },
+            {
+              title: "Data Scientist Resume",
+              industry: "Analytics",
+              experience: "3+ years",
+              highlights: ["Machine learning", "Statistical analysis", "Python/R"],
+            },
+          ].map((example, index) => (
+            <Card key={index} className="group hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+              <CardHeader>
+                <div className="w-full h-40 bg-gradient-to-br from-slate-50 to-slate-100 rounded-lg mb-4 flex items-center justify-center relative overflow-hidden border border-slate-200">
+                  {/* Mock resume preview */}
+                  <div className="w-32 h-36 bg-white rounded shadow-sm border border-slate-300 flex flex-col p-2 text-xs">
+                    <div className="h-2 bg-slate-800 rounded mb-1"></div>
+                    <div className="h-1 bg-slate-400 rounded mb-2 w-2/3"></div>
+                    <div className="space-y-1 flex-1">
+                      <div className="h-1 bg-slate-600 rounded w-1/2"></div>
+                      <div className="h-0.5 bg-slate-400 rounded"></div>
+                      <div className="h-0.5 bg-slate-400 rounded w-3/4"></div>
+                      <div className="h-0.5 bg-slate-400 rounded w-2/3"></div>
+                      <div className="h-1 bg-slate-600 rounded w-1/3 mt-2"></div>
+                      <div className="h-0.5 bg-slate-400 rounded w-4/5"></div>
+                      <div className="h-0.5 bg-slate-400 rounded w-2/3"></div>
+                    </div>
+                  </div>
+                </div>
+                <CardTitle className="text-lg group-hover:text-blue-600 transition-colors">
+                  {example.title}
+                </CardTitle>
+                <CardDescription>
+                  <span className="text-sm font-medium text-slate-700">{example.industry}</span>
+                  <span className="text-xs text-slate-500 block">{example.experience}</span>
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-2">
+                  <p className="text-sm font-medium text-slate-900">Key highlights:</p>
+                  <ul className="text-xs text-slate-600 space-y-1">
+                    {example.highlights.map((highlight, i) => (
+                      <li key={i}>• {highlight}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="mt-4 space-y-2">
+                  <Button size="sm" className="w-full" asChild>
+                    <Link to="/builder">Use This Template</Link>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </div>
     </div>
   );
