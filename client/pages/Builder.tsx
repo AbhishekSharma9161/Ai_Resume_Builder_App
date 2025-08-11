@@ -59,6 +59,18 @@ interface Education {
   gpa?: string;
 }
 
+interface Project {
+  id: string;
+  name: string;
+  description: string;
+  technologies: string[];
+  url?: string;
+  githubUrl?: string;
+  startDate: string;
+  endDate: string;
+  current: boolean;
+}
+
 interface ResumeData {
   personalInfo: {
     fullName: string;
@@ -71,6 +83,7 @@ interface ResumeData {
   summary: string;
   experience: Experience[];
   education: Education[];
+  projects: Project[];
   skills: string[];
 }
 
@@ -87,6 +100,7 @@ export default function Builder() {
     summary: "",
     experience: [],
     education: [],
+    projects: [],
     skills: [],
   });
 
@@ -577,10 +591,11 @@ export default function Builder() {
           {/* Form Section */}
           <div className="space-y-6">
             <Tabs defaultValue="personal" className="w-full">
-              <TabsList className="grid w-full grid-cols-4">
+              <TabsList className="grid w-full grid-cols-5">
                 <TabsTrigger value="personal">Personal</TabsTrigger>
                 <TabsTrigger value="experience">Experience</TabsTrigger>
                 <TabsTrigger value="education">Education</TabsTrigger>
+                <TabsTrigger value="projects">Projects</TabsTrigger>
                 <TabsTrigger value="skills">Skills</TabsTrigger>
               </TabsList>
 
