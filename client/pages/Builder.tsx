@@ -276,8 +276,12 @@ export default function Builder() {
                 <Eye className="w-4 h-4 mr-2" />
                 Preview
               </Button>
-              <Button size="sm">
-                <Download className="w-4 h-4 mr-2" />
+              <Button size="sm" onClick={handleExportPDF} disabled={isExporting}>
+                {isExporting ? (
+                  <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                ) : (
+                  <Download className="w-4 h-4 mr-2" />
+                )}
                 Download PDF
               </Button>
             </div>
