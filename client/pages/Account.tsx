@@ -10,12 +10,12 @@ import Checkout from "@/components/Checkout";
 export default function Account() {
   const [showCheckout, setShowCheckout] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
-  
+
   // Mock user data - in production, get from auth context
   const currentUser = {
     id: "demo_user",
-    email: "john@example.com", 
-    name: "John Doe"
+    email: "john@example.com",
+    name: "John Doe",
   };
 
   const handleUpgrade = (planId: string) => {
@@ -68,7 +68,10 @@ export default function Account() {
 
           <Tabs defaultValue="subscription" className="space-y-6">
             <TabsList className="grid w-full grid-cols-4">
-              <TabsTrigger value="subscription" className="flex items-center gap-2">
+              <TabsTrigger
+                value="subscription"
+                className="flex items-center gap-2"
+              >
                 <CreditCard className="w-4 h-4" />
                 Subscription
               </TabsTrigger>
@@ -88,11 +91,11 @@ export default function Account() {
 
             {/* Subscription Tab */}
             <TabsContent value="subscription" className="space-y-6">
-              <SubscriptionCard 
+              <SubscriptionCard
                 userId={currentUser.id}
                 onUpgrade={handleUpgrade}
               />
-              
+
               {/* Billing History */}
               <Card>
                 <CardHeader>
@@ -103,7 +106,9 @@ export default function Account() {
                     <div className="flex items-center justify-between py-3 border-b">
                       <div>
                         <p className="font-medium">Professional Plan</p>
-                        <p className="text-sm text-slate-600">January 15, 2025</p>
+                        <p className="text-sm text-slate-600">
+                          January 15, 2025
+                        </p>
                       </div>
                       <div className="text-right">
                         <p className="font-medium">$9.99</p>
@@ -113,7 +118,9 @@ export default function Account() {
                     <div className="flex items-center justify-between py-3 border-b">
                       <div>
                         <p className="font-medium">Professional Plan</p>
-                        <p className="text-sm text-slate-600">December 15, 2024</p>
+                        <p className="text-sm text-slate-600">
+                          December 15, 2024
+                        </p>
                       </div>
                       <div className="text-right">
                         <p className="font-medium">$9.99</p>
@@ -139,11 +146,15 @@ export default function Account() {
                 <CardContent className="space-y-4">
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="text-sm font-medium text-slate-700">Full Name</label>
+                      <label className="text-sm font-medium text-slate-700">
+                        Full Name
+                      </label>
                       <p className="mt-1 text-slate-900">{currentUser.name}</p>
                     </div>
                     <div>
-                      <label className="text-sm font-medium text-slate-700">Email</label>
+                      <label className="text-sm font-medium text-slate-700">
+                        Email
+                      </label>
                       <p className="mt-1 text-slate-900">{currentUser.email}</p>
                     </div>
                   </div>
@@ -162,7 +173,9 @@ export default function Account() {
                   <div className="text-center py-8 text-slate-500">
                     <FileText className="w-12 h-12 mx-auto mb-4 opacity-50" />
                     <p>No saved resumes yet</p>
-                    <p className="text-sm mb-4">Create your first resume to see it here</p>
+                    <p className="text-sm mb-4">
+                      Create your first resume to see it here
+                    </p>
                     <Button asChild>
                       <Link to="/builder">Create Resume</Link>
                     </Button>
@@ -182,25 +195,37 @@ export default function Account() {
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="font-medium">Email Notifications</p>
-                        <p className="text-sm text-slate-600">Receive updates about your account</p>
+                        <p className="text-sm text-slate-600">
+                          Receive updates about your account
+                        </p>
                       </div>
-                      <Button variant="outline" size="sm">Configure</Button>
+                      <Button variant="outline" size="sm">
+                        Configure
+                      </Button>
                     </div>
-                    
+
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="font-medium">Data Export</p>
-                        <p className="text-sm text-slate-600">Download your data</p>
+                        <p className="text-sm text-slate-600">
+                          Download your data
+                        </p>
                       </div>
-                      <Button variant="outline" size="sm">Export</Button>
+                      <Button variant="outline" size="sm">
+                        Export
+                      </Button>
                     </div>
-                    
+
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="font-medium">Delete Account</p>
-                        <p className="text-sm text-slate-600">Permanently delete your account</p>
+                        <p className="text-sm text-slate-600">
+                          Permanently delete your account
+                        </p>
                       </div>
-                      <Button variant="destructive" size="sm">Delete</Button>
+                      <Button variant="destructive" size="sm">
+                        Delete
+                      </Button>
                     </div>
                   </div>
                 </CardContent>

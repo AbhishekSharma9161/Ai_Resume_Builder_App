@@ -20,11 +20,16 @@ interface CheckoutProps {
   userId?: string;
 }
 
-export default function Checkout({ planId, isOpen, onClose, userId = "demo_user" }: CheckoutProps) {
+export default function Checkout({
+  planId,
+  isOpen,
+  onClose,
+  userId = "demo_user",
+}: CheckoutProps) {
   const [isProcessing, setIsProcessing] = useState(false);
   const { toast } = useToast();
 
-  const plan = paymentPlans.find(p => p.id === planId);
+  const plan = paymentPlans.find((p) => p.id === planId);
 
   if (!plan || plan.price === 0) {
     return null;
@@ -42,7 +47,6 @@ export default function Checkout({ planId, isOpen, onClose, userId = "demo_user"
       setTimeout(() => {
         window.location.href = `/payment/success?session_id=cs_demo_${Date.now()}&plan=${planId}`;
       }, 2000);
-
     } catch (error) {
       toast({
         title: "Payment Error",
@@ -72,7 +76,9 @@ export default function Checkout({ planId, isOpen, onClose, userId = "demo_user"
               <CardTitle className="text-2xl">{plan.name}</CardTitle>
               <div className="text-3xl font-bold">
                 ${plan.price}
-                <span className="text-lg font-normal text-slate-600">/{plan.interval}</span>
+                <span className="text-lg font-normal text-slate-600">
+                  /{plan.interval}
+                </span>
               </div>
               <Badge variant="secondary">7-day free trial</Badge>
             </div>
@@ -95,14 +101,19 @@ export default function Checkout({ planId, isOpen, onClose, userId = "demo_user"
                 <AlertCircle className="w-4 h-4 text-blue-600 mt-0.5" />
                 <div className="text-sm text-blue-800">
                   <p className="font-medium">7-day free trial</p>
-                  <p>You won't be charged until {new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toLocaleDateString()}</p>
+                  <p>
+                    You won't be charged until{" "}
+                    {new Date(
+                      Date.now() + 7 * 24 * 60 * 60 * 1000,
+                    ).toLocaleDateString()}
+                  </p>
                 </div>
               </div>
             </div>
 
             <div className="space-y-3">
-              <Button 
-                className="w-full" 
+              <Button
+                className="w-full"
                 size="lg"
                 onClick={handleCheckout}
                 disabled={isProcessing}
@@ -119,7 +130,7 @@ export default function Checkout({ planId, isOpen, onClose, userId = "demo_user"
                   </>
                 )}
               </Button>
-              
+
               <Button variant="outline" className="w-full" onClick={onClose}>
                 Cancel
               </Button>

@@ -7,8 +7,8 @@ import { Badge } from "@/components/ui/badge";
 
 export default function PaymentSuccess() {
   const [searchParams] = useSearchParams();
-  const sessionId = searchParams.get('session_id');
-  const planId = searchParams.get('plan');
+  const sessionId = searchParams.get("session_id");
+  const planId = searchParams.get("plan");
   const [isVerified, setIsVerified] = useState(false);
 
   useEffect(() => {
@@ -18,9 +18,14 @@ export default function PaymentSuccess() {
     }
   }, [sessionId]);
 
-  const planName = planId === 'professional' ? 'Professional' : planId === 'executive' ? 'Executive' : 'Professional';
-  const trialDays = planId === 'executive' ? 14 : 7;
-  const monthlyPrice = planId === 'executive' ? '$19.99' : '$9.99';
+  const planName =
+    planId === "professional"
+      ? "Professional"
+      : planId === "executive"
+        ? "Executive"
+        : "Professional";
+  const trialDays = planId === "executive" ? 14 : 7;
+  const monthlyPrice = planId === "executive" ? "$19.99" : "$9.99";
 
   return (
     <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4">
@@ -36,7 +41,7 @@ export default function PaymentSuccess() {
             Welcome to ResumeAI Premium! Your subscription is now active.
           </p>
         </CardHeader>
-        
+
         <CardContent className="space-y-6">
           {/* Subscription Details */}
           <div className="bg-green-50 border border-green-200 rounded-lg p-4">
@@ -52,7 +57,9 @@ export default function PaymentSuccess() {
               <div className="flex justify-between">
                 <span>Trial ends:</span>
                 <span className="font-medium">
-                  {new Date(Date.now() + trialDays * 24 * 60 * 60 * 1000).toLocaleDateString()}
+                  {new Date(
+                    Date.now() + trialDays * 24 * 60 * 60 * 1000,
+                  ).toLocaleDateString()}
                 </span>
               </div>
               <div className="flex justify-between">
@@ -65,12 +72,14 @@ export default function PaymentSuccess() {
           {/* What's Next */}
           <div className="space-y-4">
             <h3 className="font-semibold text-slate-900">What's next?</h3>
-            
+
             <div className="space-y-3">
               <div className="flex items-start gap-3 p-3 bg-slate-50 rounded-lg">
                 <FileText className="w-5 h-5 text-blue-600 mt-0.5" />
                 <div>
-                  <h4 className="font-medium text-slate-900">Start building your resume</h4>
+                  <h4 className="font-medium text-slate-900">
+                    Start building your resume
+                  </h4>
                   <p className="text-sm text-slate-600">
                     Access 50+ premium templates and AI-powered suggestions
                   </p>
@@ -80,7 +89,9 @@ export default function PaymentSuccess() {
               <div className="flex items-start gap-3 p-3 bg-slate-50 rounded-lg">
                 <CreditCard className="w-5 h-5 text-purple-600 mt-0.5" />
                 <div>
-                  <h4 className="font-medium text-slate-900">Manage your subscription</h4>
+                  <h4 className="font-medium text-slate-900">
+                    Manage your subscription
+                  </h4>
                   <p className="text-sm text-slate-600">
                     View billing details and manage your account settings
                   </p>
@@ -98,7 +109,7 @@ export default function PaymentSuccess() {
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Link>
             </Button>
-            
+
             <Button asChild variant="outline" className="w-full">
               <Link to="/account">
                 <CreditCard className="w-4 h-4 mr-2" />
@@ -109,7 +120,10 @@ export default function PaymentSuccess() {
 
           {/* Receipt Info */}
           <div className="text-center text-sm text-slate-500 border-t pt-4">
-            <p>Transaction ID: {sessionId || 'txn_' + Math.random().toString(36).substr(2, 9)}</p>
+            <p>
+              Transaction ID:{" "}
+              {sessionId || "txn_" + Math.random().toString(36).substr(2, 9)}
+            </p>
             <p>A receipt has been sent to your email address</p>
           </div>
         </CardContent>

@@ -4,26 +4,26 @@ import { z } from "zod";
 // Payment plan configuration
 export const paymentPlans = [
   {
-    id: 'free',
-    name: 'Starter',
+    id: "free",
+    name: "Starter",
     price: 0,
-    interval: 'month',
-    stripePriceId: null
+    interval: "month",
+    stripePriceId: null,
   },
   {
-    id: 'professional',
-    name: 'Professional', 
+    id: "professional",
+    name: "Professional",
     price: 9.99,
-    interval: 'month',
-    stripePriceId: 'price_professional_monthly'
+    interval: "month",
+    stripePriceId: "price_professional_monthly",
   },
   {
-    id: 'executive',
-    name: 'Executive',
+    id: "executive",
+    name: "Executive",
     price: 19.99,
-    interval: 'month',
-    stripePriceId: 'price_executive_monthly'
-  }
+    interval: "month",
+    stripePriceId: "price_executive_monthly",
+  },
 ];
 
 const CreateCheckoutSessionSchema = z.object({
@@ -36,11 +36,12 @@ const CreateCheckoutSessionSchema = z.object({
 // Create Stripe checkout session
 export const createCheckoutSession: RequestHandler = async (req, res) => {
   try {
-    const { planId, userId, successUrl, cancelUrl } = CreateCheckoutSessionSchema.parse(req.body);
-    
-    const plan = paymentPlans.find(p => p.id === planId);
+    const { planId, userId, successUrl, cancelUrl } =
+      CreateCheckoutSessionSchema.parse(req.body);
+
+    const plan = paymentPlans.find((p) => p.id === planId);
     if (!plan || plan.price === 0) {
-      return res.status(400).json({ error: 'Invalid plan selected' });
+      return res.status(400).json({ error: "Invalid plan selected" });
     }
 
     // In production, create actual Stripe session:
@@ -72,13 +73,13 @@ export const createCheckoutSession: RequestHandler = async (req, res) => {
     // Mock response for demo
     const mockSession = {
       sessionId: `cs_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
-      url: `/payment/success?session_id=cs_${Date.now()}&plan=${planId}`
+      url: `/payment/success?session_id=cs_${Date.now()}&plan=${planId}`,
     };
 
     res.json(mockSession);
   } catch (error) {
-    console.error('Checkout session creation failed:', error);
-    res.status(500).json({ error: 'Failed to create checkout session' });
+    console.error("Checkout session creation failed:", error);
+    res.status(500).json({ error: "Failed to create checkout session" });
   }
 };
 
@@ -120,11 +121,11 @@ export const handleWebhook: RequestHandler = async (req, res) => {
     */
 
     // Mock webhook handling for demo
-    console.log('Webhook received:', req.body);
+    console.log("Webhook received:", req.body);
     res.json({ received: true });
   } catch (error) {
-    console.error('Webhook handling failed:', error);
-    res.status(500).json({ error: 'Webhook handling failed' });
+    console.error("Webhook handling failed:", error);
+    res.status(500).json({ error: "Webhook handling failed" });
   }
 };
 
@@ -132,7 +133,7 @@ export const handleWebhook: RequestHandler = async (req, res) => {
 export const getUserSubscription: RequestHandler = async (req, res) => {
   try {
     const { userId } = req.params;
-    
+
     // In production, fetch from database
     /*
     const subscription = await db.subscription.findFirst({
@@ -143,18 +144,18 @@ export const getUserSubscription: RequestHandler = async (req, res) => {
 
     // Mock subscription for demo
     const mockSubscription = {
-      id: 'sub_' + Math.random().toString(36).substr(2, 9),
-      planId: 'free',
-      status: 'active',
+      id: "sub_" + Math.random().toString(36).substr(2, 9),
+      planId: "free",
+      status: "active",
       currentPeriodEnd: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
       cancelAtPeriodEnd: false,
-      trialEnd: null
+      trialEnd: null,
     };
 
     res.json(mockSubscription);
   } catch (error) {
-    console.error('Failed to get subscription:', error);
-    res.status(500).json({ error: 'Failed to get subscription' });
+    console.error("Failed to get subscription:", error);
+    res.status(500).json({ error: "Failed to get subscription" });
   }
 };
 
@@ -162,7 +163,7 @@ export const getUserSubscription: RequestHandler = async (req, res) => {
 export const cancelSubscription: RequestHandler = async (req, res) => {
   try {
     const { subscriptionId } = req.params;
-    
+
     // In production, cancel Stripe subscription:
     /*
     const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
@@ -179,11 +180,11 @@ export const cancelSubscription: RequestHandler = async (req, res) => {
     */
 
     // Mock cancellation for demo
-    console.log('Subscription cancelled:', subscriptionId);
+    console.log("Subscription cancelled:", subscriptionId);
     res.json({ success: true, cancelAtPeriodEnd: true });
   } catch (error) {
-    console.error('Failed to cancel subscription:', error);
-    res.status(500).json({ error: 'Failed to cancel subscription' });
+    console.error("Failed to cancel subscription:", error);
+    res.status(500).json({ error: "Failed to cancel subscription" });
   }
 };
 
@@ -191,7 +192,7 @@ export const cancelSubscription: RequestHandler = async (req, res) => {
 export const resumeSubscription: RequestHandler = async (req, res) => {
   try {
     const { subscriptionId } = req.params;
-    
+
     // In production, resume Stripe subscription:
     /*
     const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
@@ -208,26 +209,26 @@ export const resumeSubscription: RequestHandler = async (req, res) => {
     */
 
     // Mock resume for demo
-    console.log('Subscription resumed:', subscriptionId);
+    console.log("Subscription resumed:", subscriptionId);
     res.json({ success: true, cancelAtPeriodEnd: false });
   } catch (error) {
-    console.error('Failed to resume subscription:', error);
-    res.status(500).json({ error: 'Failed to resume subscription' });
+    console.error("Failed to resume subscription:", error);
+    res.status(500).json({ error: "Failed to resume subscription" });
   }
 };
 
 // Helper functions for webhook handling
 async function handleSubscriptionCreated(session: any) {
   // Create subscription record in database
-  console.log('New subscription created:', session);
+  console.log("New subscription created:", session);
 }
 
 async function handlePaymentSucceeded(invoice: any) {
   // Update payment history in database
-  console.log('Payment succeeded:', invoice);
+  console.log("Payment succeeded:", invoice);
 }
 
 async function handleSubscriptionCancelled(subscription: any) {
   // Update subscription status in database
-  console.log('Subscription cancelled:', subscription);
+  console.log("Subscription cancelled:", subscription);
 }

@@ -2,15 +2,19 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Crown, 
-  Calendar, 
-  CreditCard, 
-  AlertCircle, 
+import {
+  Crown,
+  Calendar,
+  CreditCard,
+  AlertCircle,
   CheckCircle,
-  Loader2 
+  Loader2,
 } from "lucide-react";
-import { paymentService, paymentPlans, Subscription } from "@/lib/payment-service";
+import {
+  paymentService,
+  paymentPlans,
+  Subscription,
+} from "@/lib/payment-service";
 import { useToast } from "@/hooks/use-toast";
 
 interface SubscriptionCardProps {
@@ -18,7 +22,10 @@ interface SubscriptionCardProps {
   onUpgrade?: (planId: string) => void;
 }
 
-export default function SubscriptionCard({ userId, onUpgrade }: SubscriptionCardProps) {
+export default function SubscriptionCard({
+  userId,
+  onUpgrade,
+}: SubscriptionCardProps) {
   const [subscription, setSubscription] = useState<Subscription | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isUpdating, setIsUpdating] = useState(false);
@@ -44,16 +51,16 @@ export default function SubscriptionCard({ userId, onUpgrade }: SubscriptionCard
   };
 
   const handleCancelSubscription = async () => {
-    if (!subscription || subscription.planId === 'free') return;
+    if (!subscription || subscription.planId === "free") return;
 
     setIsUpdating(true);
     try {
       await paymentService.cancelSubscription(subscription.id);
       setSubscription({
         ...subscription,
-        cancelAtPeriodEnd: true
+        cancelAtPeriodEnd: true,
       });
-      
+
       toast({
         title: "Subscription Cancelled",
         description: "Your subscription will end at the current period.",
@@ -77,9 +84,9 @@ export default function SubscriptionCard({ userId, onUpgrade }: SubscriptionCard
       await paymentService.resumeSubscription(subscription.id);
       setSubscription({
         ...subscription,
-        cancelAtPeriodEnd: false
+        cancelAtPeriodEnd: false,
       });
-      
+
       toast({
         title: "Subscription Resumed",
         description: "Your subscription has been reactivated.",
@@ -115,9 +122,11 @@ export default function SubscriptionCard({ userId, onUpgrade }: SubscriptionCard
     );
   }
 
-  const currentPlan = paymentPlans.find(plan => plan.id === subscription.planId);
-  const isFreePlan = subscription.planId === 'free';
-  const isPremiumPlan = subscription.planId !== 'free';
+  const currentPlan = paymentPlans.find(
+    (plan) => plan.id === subscription.planId,
+  );
+  const isFreePlan = subscription.planId === "free";
+  const isPremiumPlan = subscription.planId !== "free";
 
   return (
     <Card className={isPremiumPlan ? "border-blue-200 bg-blue-50/50" : ""}>
@@ -127,11 +136,11 @@ export default function SubscriptionCard({ userId, onUpgrade }: SubscriptionCard
             {isPremiumPlan && <Crown className="w-5 h-5 text-blue-600" />}
             Current Plan: {currentPlan?.name}
           </CardTitle>
-          <Badge 
-            variant={subscription.status === 'active' ? 'default' : 'secondary'}
-            className={subscription.status === 'active' ? 'bg-green-600' : ''}
+          <Badge
+            variant={subscription.status === "active" ? "default" : "secondary"}
+            className={subscription.status === "active" ? "bg-green-600" : ""}
           >
-            {subscription.status === 'active' ? (
+            {subscription.status === "active" ? (
               <>
                 <CheckCircle className="w-3 h-3 mr-1" />
                 Active
@@ -142,20 +151,24 @@ export default function SubscriptionCard({ userId, onUpgrade }: SubscriptionCard
           </Badge>
         </div>
       </CardHeader>
-      
+
       <CardContent className="space-y-4">
         {/* Plan Details */}
         <div className="grid grid-cols-2 gap-4 text-sm">
           <div>
             <p className="text-slate-600">Price</p>
             <p className="font-semibold">
-              {isFreePlan ? 'Free' : `$${currentPlan?.price}/${currentPlan?.interval}`}
+              {isFreePlan
+                ? "Free"
+                : `$${currentPlan?.price}/${currentPlan?.interval}`}
             </p>
           </div>
           <div>
             <p className="text-slate-600">Next billing</p>
             <p className="font-semibold">
-              {isFreePlan ? 'N/A' : subscription.currentPeriodEnd.toLocaleDateString()}
+              {isFreePlan
+                ? "N/A"
+                : subscription.currentPeriodEnd.toLocaleDateString()}
             </p>
           </div>
         </div>
@@ -167,7 +180,10 @@ export default function SubscriptionCard({ userId, onUpgrade }: SubscriptionCard
               <AlertCircle className="w-4 h-4 text-orange-600 mt-0.5" />
               <div className="text-sm text-orange-800">
                 <p className="font-medium">Subscription Ending</p>
-                <p>Your subscription will end on {subscription.currentPeriodEnd.toLocaleDateString()}</p>
+                <p>
+                  Your subscription will end on{" "}
+                  {subscription.currentPeriodEnd.toLocaleDateString()}
+                </p>
               </div>
             </div>
           </div>
@@ -175,7 +191,9 @@ export default function SubscriptionCard({ userId, onUpgrade }: SubscriptionCard
 
         {/* Current Plan Features */}
         <div>
-          <p className="text-sm font-medium text-slate-900 mb-2">Plan Features:</p>
+          <p className="text-sm font-medium text-slate-900 mb-2">
+            Plan Features:
+          </p>
           <ul className="text-sm text-slate-600 space-y-1">
             {currentPlan?.features.slice(0, 3).map((feature, index) => (
               <li key={index} className="flex items-center">
@@ -194,9 +212,9 @@ export default function SubscriptionCard({ userId, onUpgrade }: SubscriptionCard
         {/* Action Buttons */}
         <div className="space-y-2 pt-2">
           {isFreePlan ? (
-            <Button 
-              className="w-full" 
-              onClick={() => onUpgrade?.('professional')}
+            <Button
+              className="w-full"
+              onClick={() => onUpgrade?.("professional")}
             >
               <Crown className="w-4 h-4 mr-2" />
               Upgrade to Professional
@@ -204,8 +222,8 @@ export default function SubscriptionCard({ userId, onUpgrade }: SubscriptionCard
           ) : (
             <div className="space-y-2">
               {subscription.cancelAtPeriodEnd ? (
-                <Button 
-                  className="w-full" 
+                <Button
+                  className="w-full"
                   variant="outline"
                   onClick={handleResumeSubscription}
                   disabled={isUpdating}
@@ -219,16 +237,16 @@ export default function SubscriptionCard({ userId, onUpgrade }: SubscriptionCard
                 </Button>
               ) : (
                 <>
-                  <Button 
-                    className="w-full" 
+                  <Button
+                    className="w-full"
                     variant="outline"
-                    onClick={() => onUpgrade?.('executive')}
+                    onClick={() => onUpgrade?.("executive")}
                   >
                     <Crown className="w-4 h-4 mr-2" />
                     Upgrade to Executive
                   </Button>
-                  <Button 
-                    variant="destructive" 
+                  <Button
+                    variant="destructive"
                     size="sm"
                     className="w-full"
                     onClick={handleCancelSubscription}
