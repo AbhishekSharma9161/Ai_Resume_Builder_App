@@ -454,6 +454,36 @@ export default function Builder() {
     }
   };
 
+  const handleATSCheck = async () => {
+    if (!resumeData.personalInfo.fullName) {
+      toast({
+        title: "Missing Information",
+        description: "Please add your basic information first.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsLoadingAI(true);
+    try {
+      const atsResult = await aiService.getATSScore(resumeData);
+
+      toast({
+        title: `ATS Score: ${atsResult.score}%`,
+        description: `${atsResult.feedback} ${atsResult.suggestions.slice(0, 2).join(' ')}`,
+        duration: 8000,
+      });
+    } catch (error) {
+      toast({
+        title: "ATS Check Error",
+        description: "Unable to analyze your resume at this time. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoadingAI(false);
+    }
+  };
+
   const handleSaveResume = async () => {
     if (!resumeData.personalInfo.fullName) {
       toast({
