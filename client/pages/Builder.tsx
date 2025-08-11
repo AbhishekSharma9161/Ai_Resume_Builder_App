@@ -931,6 +931,166 @@ export default function Builder() {
                 </Card>
               </TabsContent>
 
+              {/* Projects */}
+              <TabsContent value="projects" className="space-y-6">
+                <Card>
+                  <CardHeader>
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <CardTitle>Projects</CardTitle>
+                        <CardDescription>
+                          Showcase your personal and professional projects
+                        </CardDescription>
+                      </div>
+                      <Button onClick={addProject} size="sm">
+                        <Plus className="w-4 h-4 mr-2" />
+                        Add Project
+                      </Button>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="space-y-6">
+                    {resumeData.projects.map((project, index) => (
+                      <div
+                        key={project.id}
+                        className="border rounded-lg p-4 space-y-4"
+                      >
+                        <div className="flex items-center justify-between">
+                          <h4 className="font-medium">Project {index + 1}</h4>
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => removeProject(project.id)}
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </Button>
+                        </div>
+                        <div className="grid grid-cols-2 gap-4">
+                          <div>
+                            <Label>Project Name</Label>
+                            <Input
+                              value={project.name}
+                              onChange={(e) =>
+                                updateProject(project.id, "name", e.target.value)
+                              }
+                              placeholder="My Awesome Project"
+                            />
+                          </div>
+                          <div>
+                            <Label>Project URL (Optional)</Label>
+                            <Input
+                              value={project.url}
+                              onChange={(e) =>
+                                updateProject(project.id, "url", e.target.value)
+                              }
+                              placeholder="https://myproject.com"
+                            />
+                          </div>
+                        </div>
+                        <div className="grid grid-cols-2 gap-4">
+                          <div>
+                            <Label>GitHub URL (Optional)</Label>
+                            <Input
+                              value={project.githubUrl}
+                              onChange={(e) =>
+                                updateProject(
+                                  project.id,
+                                  "githubUrl",
+                                  e.target.value,
+                                )
+                              }
+                              placeholder="https://github.com/user/project"
+                            />
+                          </div>
+                          <div>
+                            <Label>Technologies Used</Label>
+                            <Input
+                              value={project.technologies.join(", ")}
+                              onChange={(e) =>
+                                updateProject(
+                                  project.id,
+                                  "technologies",
+                                  e.target.value.split(", ").filter(Boolean),
+                                )
+                              }
+                              placeholder="React, Node.js, MongoDB"
+                            />
+                          </div>
+                        </div>
+                        <div className="grid grid-cols-2 gap-4">
+                          <div>
+                            <Label>Start Date</Label>
+                            <Input
+                              type="month"
+                              value={project.startDate}
+                              onChange={(e) =>
+                                updateProject(
+                                  project.id,
+                                  "startDate",
+                                  e.target.value,
+                                )
+                              }
+                            />
+                          </div>
+                          <div>
+                            <Label>End Date</Label>
+                            <Input
+                              type="month"
+                              value={project.endDate}
+                              onChange={(e) =>
+                                updateProject(
+                                  project.id,
+                                  "endDate",
+                                  e.target.value,
+                                )
+                              }
+                              disabled={project.current}
+                            />
+                          </div>
+                        </div>
+                        <div>
+                          <Label>Project Description</Label>
+                          <Textarea
+                            value={project.description}
+                            onChange={(e) =>
+                              updateProject(
+                                project.id,
+                                "description",
+                                e.target.value,
+                              )
+                            }
+                            placeholder="Describe what you built, the problems you solved, and the impact..."
+                            rows={3}
+                          />
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="mt-2"
+                            onClick={() => handleAIOptimizeProject(project.id)}
+                            disabled={isLoadingAI || !project.description.trim()}
+                          >
+                            {isLoadingAI ? (
+                              <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                            ) : (
+                              <Brain className="w-4 h-4 mr-2" />
+                            )}
+                            AI Optimize
+                          </Button>
+                        </div>
+                      </div>
+                    ))}
+                    {resumeData.projects.length === 0 && (
+                      <div className="text-center py-8 text-slate-500">
+                        <FileText className="w-12 h-12 mx-auto mb-4 opacity-50" />
+                        <p>No projects added yet</p>
+                        <p className="text-sm">
+                          Click "Add Project" to showcase your work
+                        </p>
+                      </div>
+                    )}
+                  </CardContent>
+                </Card>
+              </TabsContent>
+
               {/* Education */}
               <TabsContent value="education" className="space-y-6">
                 <Card>
