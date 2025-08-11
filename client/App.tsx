@@ -17,6 +17,8 @@ import CareerAdvice from "./pages/CareerAdvice";
 import About from "./pages/About";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
+import PaymentSuccess from "./pages/PaymentSuccess";
+import Account from "./pages/Account";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
