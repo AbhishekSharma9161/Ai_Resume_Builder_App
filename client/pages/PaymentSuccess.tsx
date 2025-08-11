@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 export default function PaymentSuccess() {
   const [searchParams] = useSearchParams();
   const sessionId = searchParams.get('session_id');
+  const planId = searchParams.get('plan');
   const [isVerified, setIsVerified] = useState(false);
 
   useEffect(() => {
@@ -16,6 +17,10 @@ export default function PaymentSuccess() {
       setIsVerified(true);
     }
   }, [sessionId]);
+
+  const planName = planId === 'professional' ? 'Professional' : planId === 'executive' ? 'Executive' : 'Professional';
+  const trialDays = planId === 'executive' ? 14 : 7;
+  const monthlyPrice = planId === 'executive' ? '$19.99' : '$9.99';
 
   return (
     <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4">
