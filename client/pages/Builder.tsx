@@ -370,6 +370,44 @@ export default function Builder() {
     }
   };
 
+  const handleAIOptimizeProject = async (projectId: string) => {
+    const project = resumeData.projects.find((proj) => proj.id === projectId);
+    if (!project || !project.description) {
+      toast({
+        title: "Missing Information",
+        description: "Please add a project description first to optimize it.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsLoadingAI(true);
+    try {
+      const suggestions = await aiService.optimizeJobDescription(
+        project.description,
+        `${project.name} project`,
+      );
+
+      if (suggestions.length > 0) {
+        updateProject(projectId, "description", suggestions[0].content);
+        toast({
+          title: "Project Description Optimized",
+          description:
+            "Your project description has been enhanced with AI suggestions.",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "AI Service Error",
+        description:
+          "Unable to optimize project description at this time. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoadingAI(false);
+    }
+  };
+
   const handleAISkillsOptimization = async () => {
     if (resumeData.skills.length === 0) {
       toast({
