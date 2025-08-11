@@ -33,23 +33,22 @@ export default function Checkout({ planId, isOpen, onClose, userId = "demo_user"
   const handleCheckout = async () => {
     setIsProcessing(true);
     try {
-      const session = await paymentService.createCheckoutSession(planId, userId);
-      
       toast({
-        title: "Redirecting to checkout...",
-        description: "You'll be taken to our secure payment page.",
+        title: "Starting your free trial...",
+        description: "Setting up your premium account.",
       });
 
-      // In production, redirect to Stripe checkout
-      // window.location.href = session.url;
-      
+      // For demo purposes, simulate payment processing and redirect to success page
+      setTimeout(() => {
+        window.location.href = `/payment/success?session_id=cs_demo_${Date.now()}&plan=${planId}`;
+      }, 2000);
+
     } catch (error) {
       toast({
         title: "Payment Error",
         description: "Unable to process payment. Please try again.",
         variant: "destructive",
       });
-    } finally {
       setIsProcessing(false);
     }
   };
