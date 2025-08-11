@@ -10,6 +10,13 @@ import {
   deleteResume,
 } from "./routes/resumes";
 import { createUser, getUserByEmail, getUser } from "./routes/users";
+import {
+  createCheckoutSession,
+  handleWebhook,
+  getUserSubscription,
+  cancelSubscription,
+  resumeSubscription,
+} from "./routes/payments";
 
 export function createServer() {
   const app = express();
