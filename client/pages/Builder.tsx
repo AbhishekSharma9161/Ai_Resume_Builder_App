@@ -305,6 +305,96 @@ export default function Builder() {
     }
   };
 
+  const handleSaveResume = async () => {
+    if (!resumeData.personalInfo.fullName) {
+      toast({
+        title: "Missing Information",
+        description: "Please add your name before saving your resume.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!currentUser) {
+      // For demo purposes, create a temporary user
+      // In production, you'd have proper authentication
+      const tempUser = await dbService.createUser({
+        email: resumeData.personalInfo.email || "user@example.com",
+        name: resumeData.personalInfo.fullName
+      });
+      setCurrentUser(tempUser);
+    }
+
+    setIsSaving(true);
+    try {
+      const userId = currentUser?.id || "";
+      const resumeDataToSave = {
+        title: resumeTitle,
+        ...resumeData
+      };
+
+      if (currentResumeId) {
+        // Update existing resume
+        await dbService.updateResume(currentResumeId, resumeDataToSave);
+        toast({
+          title: "Resume Updated",
+          description: "Your resume has been saved successfully.",
+        });
+      } else {
+        // Create new resume
+        const result = await dbService.saveResume(userId, resumeDataToSave);
+        setCurrentResumeId(result.id);
+        toast({
+          title: "Resume Saved",
+          description: "Your resume has been saved successfully.",
+        });
+      }
+      setShowSaveDialog(false);
+    } catch (error) {
+      toast({
+        title: "Save Error",
+        description: "Unable to save your resume. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
+  const handleLoadResume = async (resumeId: string) => {
+    try {
+      const loadedResume = await dbService.getResume(resumeId);
+
+      setResumeData({
+        personalInfo: loadedResume.personalInfo,
+        summary: loadedResume.summary || "",
+        experience: loadedResume.experience.map(exp => ({
+          ...exp,
+          id: exp.id || Date.now().toString()
+        })),
+        education: loadedResume.education.map(edu => ({
+          ...edu,
+          id: edu.id || Date.now().toString()
+        })),
+        skills: loadedResume.skills
+      });
+
+      setResumeTitle(loadedResume.title);
+      setCurrentResumeId(loadedResume.id!);
+
+      toast({
+        title: "Resume Loaded",
+        description: "Your resume has been loaded successfully.",
+      });
+    } catch (error) {
+      toast({
+        title: "Load Error",
+        description: "Unable to load resume. Please try again.",
+        variant: "destructive",
+      });
+    }
+  };
+
   const handleExportPDF = async () => {
     if (!resumeData.personalInfo.fullName) {
       toast({
