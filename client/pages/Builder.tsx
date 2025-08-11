@@ -223,6 +223,81 @@ export default function Builder() {
     }
   };
 
+  const handleAIOptimizeExperience = async (experienceId: string) => {
+    const experience = resumeData.experience.find(exp => exp.id === experienceId);
+    if (!experience || !experience.description) {
+      toast({
+        title: "Missing Information",
+        description: "Please add a job description first to optimize it.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsLoadingAI(true);
+    try {
+      const suggestions = await aiService.optimizeJobDescription(experience.description, experience.position);
+
+      if (suggestions.length > 0) {
+        updateExperience(experienceId, "description", suggestions[0].content);
+        toast({
+          title: "Description Optimized",
+          description: "Your job description has been enhanced with AI suggestions.",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "AI Service Error",
+        description: "Unable to optimize description at this time. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoadingAI(false);
+    }
+  };
+
+  const handleAISkillsOptimization = async () => {
+    if (resumeData.skills.length === 0) {
+      toast({
+        title: "No Skills Added",
+        description: "Please add some skills first before optimizing.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    const jobTitle = resumeData.experience[0]?.position || "Professional";
+
+    setIsLoadingAI(true);
+    try {
+      // Get ATS score and suggestions
+      const atsResult = await aiService.getATSScore(resumeData);
+      const skillSuggestions = await aiService.suggestSkills(jobTitle, resumeData.skills);
+
+      // Add top 2 missing skills if any
+      if (skillSuggestions.length > 0) {
+        const newSkills = skillSuggestions.slice(0, 2).map(s => s.skill);
+        setResumeData(prev => ({
+          ...prev,
+          skills: [...prev.skills, ...newSkills]
+        }));
+      }
+
+      toast({
+        title: "Skills Optimized",
+        description: `Added ${skillSuggestions.slice(0, 2).length} high-impact skills. ATS Score: ${atsResult.score}%`,
+      });
+    } catch (error) {
+      toast({
+        title: "AI Service Error",
+        description: "Unable to optimize skills at this time. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoadingAI(false);
+    }
+  };
+
   const handleExportPDF = async () => {
     if (!resumeData.personalInfo.fullName) {
       toast({
