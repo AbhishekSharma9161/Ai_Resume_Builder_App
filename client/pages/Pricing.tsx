@@ -1,5 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { ArrowLeft, FileText, Construction } from "lucide-react";
 
@@ -21,7 +27,9 @@ export default function Pricing() {
                 <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
                   <FileText className="w-4 h-4 text-white" />
                 </div>
-                <span className="text-xl font-bold text-slate-900">Pricing</span>
+                <span className="text-xl font-bold text-slate-900">
+                  Pricing
+                </span>
               </div>
             </div>
           </div>
@@ -36,12 +44,14 @@ export default function Pricing() {
             </div>
             <CardTitle className="text-2xl">Pricing Coming Soon!</CardTitle>
             <CardDescription className="text-lg">
-              We're finalizing our pricing plans to offer you the best value for professional resume building.
+              We're finalizing our pricing plans to offer you the best value for
+              professional resume building.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
             <p className="text-slate-600">
-              For now, enjoy our free resume builder with all features available at no cost.
+              For now, enjoy our free resume builder with all features available
+              at no cost.
             </p>
             <div className="space-y-2">
               <p className="font-medium text-slate-900">What we're planning:</p>
@@ -53,9 +63,7 @@ export default function Pricing() {
               </ul>
             </div>
             <Button asChild>
-              <Link to="/builder">
-                Start Building for Free
-              </Link>
+              <Link to="/builder">Start Building for Free</Link>
             </Button>
           </CardContent>
         </Card>

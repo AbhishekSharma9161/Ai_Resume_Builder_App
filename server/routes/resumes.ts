@@ -15,22 +15,26 @@ const CreateResumeSchema = z.object({
     linkedin: z.string().optional(),
   }),
   summary: z.string().optional(),
-  experience: z.array(z.object({
-    company: z.string(),
-    position: z.string(),
-    startDate: z.string(),
-    endDate: z.string().optional(),
-    current: z.boolean(),
-    description: z.string().optional(),
-  })),
-  education: z.array(z.object({
-    school: z.string(),
-    degree: z.string(),
-    fieldOfStudy: z.string(),
-    startDate: z.string(),
-    endDate: z.string(),
-    gpa: z.string().optional(),
-  })),
+  experience: z.array(
+    z.object({
+      company: z.string(),
+      position: z.string(),
+      startDate: z.string(),
+      endDate: z.string().optional(),
+      current: z.boolean(),
+      description: z.string().optional(),
+    }),
+  ),
+  education: z.array(
+    z.object({
+      school: z.string(),
+      degree: z.string(),
+      fieldOfStudy: z.string(),
+      startDate: z.string(),
+      endDate: z.string(),
+      gpa: z.string().optional(),
+    }),
+  ),
   skills: z.array(z.string()),
 });
 
@@ -38,7 +42,7 @@ const CreateResumeSchema = z.object({
 export const createResume: RequestHandler = async (req, res) => {
   try {
     const data = CreateResumeSchema.parse(req.body);
-    
+
     const resume = await prisma.resume.create({
       data: {
         title: data.title,
@@ -52,36 +56,36 @@ export const createResume: RequestHandler = async (req, res) => {
         summary: data.summary,
         skills: data.skills,
         experiences: {
-          create: data.experience.map(exp => ({
+          create: data.experience.map((exp) => ({
             company: exp.company,
             position: exp.position,
             startDate: exp.startDate,
             endDate: exp.endDate,
             current: exp.current,
             description: exp.description,
-          }))
+          })),
         },
         education: {
-          create: data.education.map(edu => ({
+          create: data.education.map((edu) => ({
             school: edu.school,
             degree: edu.degree,
             fieldOfStudy: edu.fieldOfStudy,
             startDate: edu.startDate,
             endDate: edu.endDate,
             gpa: edu.gpa,
-          }))
-        }
+          })),
+        },
       },
       include: {
         experiences: true,
         education: true,
-      }
+      },
     });
 
     res.status(201).json({ id: resume.id });
   } catch (error) {
-    console.error('Error creating resume:', error);
-    res.status(500).json({ error: 'Failed to create resume' });
+    console.error("Error creating resume:", error);
+    res.status(500).json({ error: "Failed to create resume" });
   }
 };
 
@@ -89,17 +93,17 @@ export const createResume: RequestHandler = async (req, res) => {
 export const getUserResumes: RequestHandler = async (req, res) => {
   try {
     const { userId } = req.params;
-    
+
     const resumes = await prisma.resume.findMany({
       where: { userId },
       include: {
         experiences: true,
         education: true,
       },
-      orderBy: { updatedAt: 'desc' }
+      orderBy: { updatedAt: "desc" },
     });
 
-    const formattedResumes = resumes.map(resume => ({
+    const formattedResumes = resumes.map((resume) => ({
       id: resume.id,
       title: resume.title,
       personalInfo: {
@@ -111,7 +115,7 @@ export const getUserResumes: RequestHandler = async (req, res) => {
         linkedin: resume.linkedin,
       },
       summary: resume.summary,
-      experience: resume.experiences.map(exp => ({
+      experience: resume.experiences.map((exp) => ({
         id: exp.id,
         company: exp.company,
         position: exp.position,
@@ -120,7 +124,7 @@ export const getUserResumes: RequestHandler = async (req, res) => {
         current: exp.current,
         description: exp.description,
       })),
-      education: resume.education.map(edu => ({
+      education: resume.education.map((edu) => ({
         id: edu.id,
         school: edu.school,
         degree: edu.degree,
@@ -136,8 +140,8 @@ export const getUserResumes: RequestHandler = async (req, res) => {
 
     res.json(formattedResumes);
   } catch (error) {
-    console.error('Error fetching resumes:', error);
-    res.status(500).json({ error: 'Failed to fetch resumes' });
+    console.error("Error fetching resumes:", error);
+    res.status(500).json({ error: "Failed to fetch resumes" });
   }
 };
 
@@ -145,17 +149,17 @@ export const getUserResumes: RequestHandler = async (req, res) => {
 export const getResume: RequestHandler = async (req, res) => {
   try {
     const { id } = req.params;
-    
+
     const resume = await prisma.resume.findUnique({
       where: { id },
       include: {
         experiences: true,
         education: true,
-      }
+      },
     });
 
     if (!resume) {
-      return res.status(404).json({ error: 'Resume not found' });
+      return res.status(404).json({ error: "Resume not found" });
     }
 
     const formattedResume = {
@@ -170,7 +174,7 @@ export const getResume: RequestHandler = async (req, res) => {
         linkedin: resume.linkedin,
       },
       summary: resume.summary,
-      experience: resume.experiences.map(exp => ({
+      experience: resume.experiences.map((exp) => ({
         id: exp.id,
         company: exp.company,
         position: exp.position,
@@ -179,7 +183,7 @@ export const getResume: RequestHandler = async (req, res) => {
         current: exp.current,
         description: exp.description,
       })),
-      education: resume.education.map(edu => ({
+      education: resume.education.map((edu) => ({
         id: edu.id,
         school: edu.school,
         degree: edu.degree,
@@ -195,8 +199,8 @@ export const getResume: RequestHandler = async (req, res) => {
 
     res.json(formattedResume);
   } catch (error) {
-    console.error('Error fetching resume:', error);
-    res.status(500).json({ error: 'Failed to fetch resume' });
+    console.error("Error fetching resume:", error);
+    res.status(500).json({ error: "Failed to fetch resume" });
   }
 };
 
@@ -219,14 +223,14 @@ export const updateResume: RequestHandler = async (req, res) => {
         linkedin: data.personalInfo?.linkedin,
         summary: data.summary,
         skills: data.skills,
-      }
+      },
     });
 
     // Update experiences
     if (data.experience) {
       // Delete existing experiences
       await prisma.experience.deleteMany({
-        where: { resumeId: id }
+        where: { resumeId: id },
       });
 
       // Create new experiences
@@ -239,7 +243,7 @@ export const updateResume: RequestHandler = async (req, res) => {
           endDate: exp.endDate,
           current: exp.current,
           description: exp.description,
-        }))
+        })),
       });
     }
 
@@ -247,7 +251,7 @@ export const updateResume: RequestHandler = async (req, res) => {
     if (data.education) {
       // Delete existing education
       await prisma.education.deleteMany({
-        where: { resumeId: id }
+        where: { resumeId: id },
       });
 
       // Create new education
@@ -260,14 +264,14 @@ export const updateResume: RequestHandler = async (req, res) => {
           startDate: edu.startDate,
           endDate: edu.endDate,
           gpa: edu.gpa,
-        }))
+        })),
       });
     }
 
     res.json({ success: true });
   } catch (error) {
-    console.error('Error updating resume:', error);
-    res.status(500).json({ error: 'Failed to update resume' });
+    console.error("Error updating resume:", error);
+    res.status(500).json({ error: "Failed to update resume" });
   }
 };
 
@@ -277,12 +281,12 @@ export const deleteResume: RequestHandler = async (req, res) => {
     const { id } = req.params;
 
     await prisma.resume.delete({
-      where: { id }
+      where: { id },
     });
 
     res.json({ success: true });
   } catch (error) {
-    console.error('Error deleting resume:', error);
-    res.status(500).json({ error: 'Failed to delete resume' });
+    console.error("Error deleting resume:", error);
+    res.status(500).json({ error: "Failed to delete resume" });
   }
 };

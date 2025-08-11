@@ -10,7 +10,7 @@ export default function Privacy() {
         "How we protect your information",
         "Cookie and tracking policies",
         "Your rights and choices",
-        "Contact information for privacy concerns"
+        "Contact information for privacy concerns",
       ]}
     />
   );

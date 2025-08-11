@@ -10,7 +10,7 @@ export default function CareerAdvice() {
         "Salary negotiation strategies",
         "Career transition guidance",
         "Professional networking advice",
-        "Job search best practices"
+        "Job search best practices",
       ]}
     />
   );

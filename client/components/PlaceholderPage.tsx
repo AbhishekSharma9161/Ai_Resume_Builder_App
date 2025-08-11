@@ -1,5 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { ArrowLeft, FileText, Construction } from "lucide-react";
 
@@ -9,7 +15,11 @@ interface PlaceholderPageProps {
   features?: string[];
 }
 
-export default function PlaceholderPage({ title, description, features = [] }: PlaceholderPageProps) {
+export default function PlaceholderPage({
+  title,
+  description,
+  features = [],
+}: PlaceholderPageProps) {
   return (
     <div className="min-h-screen bg-slate-50">
       {/* Header */}
@@ -27,7 +37,9 @@ export default function PlaceholderPage({ title, description, features = [] }: P
                 <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
                   <FileText className="w-4 h-4 text-white" />
                 </div>
-                <span className="text-xl font-bold text-slate-900">{title}</span>
+                <span className="text-xl font-bold text-slate-900">
+                  {title}
+                </span>
               </div>
             </div>
           </div>
@@ -41,9 +53,7 @@ export default function PlaceholderPage({ title, description, features = [] }: P
               <Construction className="w-8 h-8 text-white" />
             </div>
             <CardTitle className="text-2xl">Coming Soon!</CardTitle>
-            <CardDescription className="text-lg">
-              {description}
-            </CardDescription>
+            <CardDescription className="text-lg">{description}</CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
             {features.length > 0 && (
@@ -58,14 +68,10 @@ export default function PlaceholderPage({ title, description, features = [] }: P
             )}
             <div className="space-y-2">
               <Button asChild>
-                <Link to="/builder">
-                  Start Building Your Resume Now
-                </Link>
+                <Link to="/builder">Start Building Your Resume Now</Link>
               </Button>
               <Button variant="outline" asChild>
-                <Link to="/templates">
-                  Browse Templates
-                </Link>
+                <Link to="/templates">Browse Templates</Link>
               </Button>
             </div>
           </CardContent>

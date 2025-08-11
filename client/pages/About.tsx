@@ -10,7 +10,7 @@ export default function About() {
         "The team behind ResumeAI",
         "AI technology and innovation",
         "Success stories from users",
-        "Company values and vision"
+        "Company values and vision",
       ]}
     />
   );

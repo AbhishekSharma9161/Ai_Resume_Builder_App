@@ -1,8 +1,23 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
-import { ArrowRight, Brain, Download, FileText, Sparkles, Star, Users, Zap } from "lucide-react";
+import {
+  ArrowRight,
+  Brain,
+  Download,
+  FileText,
+  Sparkles,
+  Star,
+  Users,
+  Zap,
+} from "lucide-react";
 
 export default function Index() {
   return (
@@ -17,13 +32,22 @@ export default function Index() {
             <span className="text-xl font-bold text-slate-900">ResumeAI</span>
           </div>
           <div className="hidden md:flex items-center space-x-6">
-            <Link to="/templates" className="text-slate-600 hover:text-slate-900 transition-colors">
+            <Link
+              to="/templates"
+              className="text-slate-600 hover:text-slate-900 transition-colors"
+            >
               Templates
             </Link>
-            <Link to="/examples" className="text-slate-600 hover:text-slate-900 transition-colors">
+            <Link
+              to="/examples"
+              className="text-slate-600 hover:text-slate-900 transition-colors"
+            >
               Examples
             </Link>
-            <Link to="/pricing" className="text-slate-600 hover:text-slate-900 transition-colors">
+            <Link
+              to="/pricing"
+              className="text-slate-600 hover:text-slate-900 transition-colors"
+            >
               Pricing
             </Link>
             <Button asChild size="sm">
@@ -62,8 +86,9 @@ export default function Index() {
             </span>
           </h1>
           <p className="text-xl text-slate-600 mb-8 max-w-3xl mx-auto">
-            Create professional, ATS-optimized resumes in minutes with our AI-powered builder.
-            Get personalized suggestions, smart formatting, and industry-specific content.
+            Create professional, ATS-optimized resumes in minutes with our
+            AI-powered builder. Get personalized suggestions, smart formatting,
+            and industry-specific content.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="text-base">
@@ -99,26 +124,58 @@ export default function Index() {
             Why Choose ResumeAI?
           </h2>
           <p className="text-slate-600 max-w-2xl mx-auto">
-            Our AI-powered platform combines advanced technology with professional design 
-            to help you create resumes that get results.
+            Our AI-powered platform combines advanced technology with
+            professional design to help you create resumes that get results.
           </p>
         </div>
-        
+
         <div className="grid md:grid-cols-3 gap-8">
           <Card className="border-0 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group relative overflow-hidden">
             {/* AI Brain Pattern Background */}
             <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-cyan-50 opacity-50"></div>
             <div className="absolute top-0 right-0 w-32 h-32 opacity-10">
               {/* Neural network pattern */}
-              <svg viewBox="0 0 100 100" className="w-full h-full text-blue-600">
+              <svg
+                viewBox="0 0 100 100"
+                className="w-full h-full text-blue-600"
+              >
                 <defs>
-                  <pattern id="neural" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                    <circle cx="10" cy="10" r="2" fill="currentColor" opacity="0.3"/>
-                    <line x1="10" y1="10" x2="30" y2="10" stroke="currentColor" strokeWidth="0.5" opacity="0.2"/>
-                    <line x1="10" y1="10" x2="10" y2="30" stroke="currentColor" strokeWidth="0.5" opacity="0.2"/>
+                  <pattern
+                    id="neural"
+                    x="0"
+                    y="0"
+                    width="20"
+                    height="20"
+                    patternUnits="userSpaceOnUse"
+                  >
+                    <circle
+                      cx="10"
+                      cy="10"
+                      r="2"
+                      fill="currentColor"
+                      opacity="0.3"
+                    />
+                    <line
+                      x1="10"
+                      y1="10"
+                      x2="30"
+                      y2="10"
+                      stroke="currentColor"
+                      strokeWidth="0.5"
+                      opacity="0.2"
+                    />
+                    <line
+                      x1="10"
+                      y1="10"
+                      x2="10"
+                      y2="30"
+                      stroke="currentColor"
+                      strokeWidth="0.5"
+                      opacity="0.2"
+                    />
                   </pattern>
                 </defs>
-                <rect width="100" height="100" fill="url(#neural)"/>
+                <rect width="100" height="100" fill="url(#neural)" />
               </svg>
             </div>
             <div className="absolute bottom-2 right-2 opacity-20">
@@ -133,10 +190,13 @@ export default function Index() {
               <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                 <Brain className="w-6 h-6 text-white" />
               </div>
-              <CardTitle className="group-hover:text-blue-600 transition-colors">AI-Powered Content</CardTitle>
+              <CardTitle className="group-hover:text-blue-600 transition-colors">
+                AI-Powered Content
+              </CardTitle>
               <CardDescription>
-                Get intelligent suggestions for job descriptions, skills, and achievements
-                tailored to your industry with advanced machine learning.
+                Get intelligent suggestions for job descriptions, skills, and
+                achievements tailored to your industry with advanced machine
+                learning.
               </CardDescription>
             </CardHeader>
           </Card>
@@ -163,10 +223,12 @@ export default function Index() {
               <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                 <Zap className="w-6 h-6 text-white" />
               </div>
-              <CardTitle className="group-hover:text-purple-600 transition-colors">ATS Optimization</CardTitle>
+              <CardTitle className="group-hover:text-purple-600 transition-colors">
+                ATS Optimization
+              </CardTitle>
               <CardDescription>
-                Our AI ensures your resume passes Applicant Tracking Systems with
-                optimized formatting, keywords, and structure analysis.
+                Our AI ensures your resume passes Applicant Tracking Systems
+                with optimized formatting, keywords, and structure analysis.
               </CardDescription>
             </CardHeader>
           </Card>
@@ -203,10 +265,12 @@ export default function Index() {
               <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                 <FileText className="w-6 h-6 text-white" />
               </div>
-              <CardTitle className="group-hover:text-green-600 transition-colors">Professional Templates</CardTitle>
+              <CardTitle className="group-hover:text-green-600 transition-colors">
+                Professional Templates
+              </CardTitle>
               <CardDescription>
-                Choose from dozens of professionally designed templates that work
-                across all industries and career levels, all ATS-optimized.
+                Choose from dozens of professionally designed templates that
+                work across all industries and career levels, all ATS-optimized.
               </CardDescription>
             </CardHeader>
           </Card>
@@ -249,9 +313,12 @@ export default function Index() {
                   <div className="w-1.5 h-1.5 bg-purple-500 rounded-full m-1"></div>
                 </div>
               </div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">Add Your Information</h3>
+              <h3 className="text-xl font-semibold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
+                Add Your Information
+              </h3>
               <p className="text-slate-600 group-hover:text-slate-700 transition-colors">
-                Simply input your basic details, work experience, and skills. Our AI will help optimize everything.
+                Simply input your basic details, work experience, and skills.
+                Our AI will help optimize everything.
               </p>
               {/* Interactive preview */}
               <div className="mt-4 p-3 bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
@@ -277,9 +344,12 @@ export default function Index() {
                   <div className="w-1.5 h-1.5 bg-indigo-500 rounded-full m-1"></div>
                 </div>
               </div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-3 group-hover:text-purple-600 transition-colors">Choose a Template</h3>
+              <h3 className="text-xl font-semibold text-slate-900 mb-3 group-hover:text-purple-600 transition-colors">
+                Choose a Template
+              </h3>
               <p className="text-slate-600 group-hover:text-slate-700 transition-colors">
-                Select from our collection of professional templates designed for different industries and roles.
+                Select from our collection of professional templates designed
+                for different industries and roles.
               </p>
               <div className="mt-4 p-3 bg-gradient-to-br from-purple-50 to-indigo-50 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
                 <div className="grid grid-cols-3 gap-1">
@@ -304,9 +374,12 @@ export default function Index() {
                   <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full m-1"></div>
                 </div>
               </div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-3 group-hover:text-green-600 transition-colors">Download & Apply</h3>
+              <h3 className="text-xl font-semibold text-slate-900 mb-3 group-hover:text-green-600 transition-colors">
+                Download & Apply
+              </h3>
               <p className="text-slate-600 group-hover:text-slate-700 transition-colors">
-                Get your polished resume in multiple formats and start applying to your dream jobs immediately.
+                Get your polished resume in multiple formats and start applying
+                to your dream jobs immediately.
               </p>
               <div className="mt-4 p-3 bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
                 <div className="flex justify-center space-x-2">
@@ -323,7 +396,11 @@ export default function Index() {
 
           {/* CTA Button */}
           <div className="text-center mt-12">
-            <Button asChild size="lg" className="text-base animate-pulse hover:animate-none">
+            <Button
+              asChild
+              size="lg"
+              className="text-base animate-pulse hover:animate-none"
+            >
               <Link to="/builder">
                 Get Started Now <ArrowRight className="w-4 h-4 ml-2" />
               </Link>
@@ -339,10 +416,15 @@ export default function Index() {
             Ready to Build Your Dream Resume?
           </h2>
           <p className="text-blue-100 mb-8 max-w-2xl mx-auto text-lg">
-            Join thousands of job seekers who've landed their dream jobs with ResumeAI. 
-            Start building your professional resume today.
+            Join thousands of job seekers who've landed their dream jobs with
+            ResumeAI. Start building your professional resume today.
           </p>
-          <Button asChild size="lg" variant="secondary" className="text-base font-semibold">
+          <Button
+            asChild
+            size="lg"
+            variant="secondary"
+            className="text-base font-semibold"
+          >
             <Link to="/builder">
               Get Started for Free <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
@@ -365,31 +447,94 @@ export default function Index() {
                 Build professional resumes with the power of AI
               </p>
             </div>
-            
+
             <div>
               <h3 className="font-semibold mb-4">Product</h3>
               <ul className="space-y-2 text-slate-400">
-                <li><Link to="/builder" className="hover:text-white transition-colors">Resume Builder</Link></li>
-                <li><Link to="/templates" className="hover:text-white transition-colors">Templates</Link></li>
-                <li><Link to="/examples" className="hover:text-white transition-colors">Examples</Link></li>
+                <li>
+                  <Link
+                    to="/builder"
+                    className="hover:text-white transition-colors"
+                  >
+                    Resume Builder
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/templates"
+                    className="hover:text-white transition-colors"
+                  >
+                    Templates
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/examples"
+                    className="hover:text-white transition-colors"
+                  >
+                    Examples
+                  </Link>
+                </li>
               </ul>
             </div>
-            
+
             <div>
               <h3 className="font-semibold mb-4">Resources</h3>
               <ul className="space-y-2 text-slate-400">
-                <li><Link to="/tips" className="hover:text-white transition-colors">Resume Tips</Link></li>
-                <li><Link to="/cover-letters" className="hover:text-white transition-colors">Cover Letters</Link></li>
-                <li><Link to="/career-advice" className="hover:text-white transition-colors">Career Advice</Link></li>
+                <li>
+                  <Link
+                    to="/tips"
+                    className="hover:text-white transition-colors"
+                  >
+                    Resume Tips
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/cover-letters"
+                    className="hover:text-white transition-colors"
+                  >
+                    Cover Letters
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/career-advice"
+                    className="hover:text-white transition-colors"
+                  >
+                    Career Advice
+                  </Link>
+                </li>
               </ul>
             </div>
 
             <div>
               <h3 className="font-semibold mb-4">Company</h3>
               <ul className="space-y-2 text-slate-400">
-                <li><Link to="/about" className="hover:text-white transition-colors">About</Link></li>
-                <li><Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link></li>
-                <li><Link to="/terms" className="hover:text-white transition-colors">Terms</Link></li>
+                <li>
+                  <Link
+                    to="/about"
+                    className="hover:text-white transition-colors"
+                  >
+                    About
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/privacy"
+                    className="hover:text-white transition-colors"
+                  >
+                    Privacy
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/terms"
+                    className="hover:text-white transition-colors"
+                  >
+                    Terms
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>

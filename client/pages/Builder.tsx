@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -8,12 +14,30 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Download, Eye, FileText, Plus, Trash2, Brain, Loader2, Save, FolderOpen } from "lucide-react";
+import {
+  ArrowLeft,
+  Download,
+  Eye,
+  FileText,
+  Plus,
+  Trash2,
+  Brain,
+  Loader2,
+  Save,
+  FolderOpen,
+} from "lucide-react";
 import { aiService } from "@/lib/ai-service";
 import { exportToPDF } from "@/lib/pdf-export";
 import { dbService } from "@/lib/database";
 import { useToast } from "@/hooks/use-toast";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 interface Experience {
   id: string;
@@ -70,7 +94,11 @@ export default function Builder() {
   const [isLoadingAI, setIsLoadingAI] = useState(false);
   const [isExporting, setIsExporting] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
-  const [currentUser, setCurrentUser] = useState<{ id: string; email: string; name: string } | null>(null);
+  const [currentUser, setCurrentUser] = useState<{
+    id: string;
+    email: string;
+    name: string;
+  } | null>(null);
   const [currentResumeId, setCurrentResumeId] = useState<string | null>(null);
   const [resumeTitle, setResumeTitle] = useState("My Resume");
   const [showSaveDialog, setShowSaveDialog] = useState(false);
@@ -86,25 +114,29 @@ export default function Builder() {
       current: false,
       description: "",
     };
-    setResumeData(prev => ({
+    setResumeData((prev) => ({
       ...prev,
-      experience: [...prev.experience, newExp]
+      experience: [...prev.experience, newExp],
     }));
   };
 
   const removeExperience = (id: string) => {
-    setResumeData(prev => ({
+    setResumeData((prev) => ({
       ...prev,
-      experience: prev.experience.filter(exp => exp.id !== id)
+      experience: prev.experience.filter((exp) => exp.id !== id),
     }));
   };
 
-  const updateExperience = (id: string, field: keyof Experience, value: string | boolean) => {
-    setResumeData(prev => ({
+  const updateExperience = (
+    id: string,
+    field: keyof Experience,
+    value: string | boolean,
+  ) => {
+    setResumeData((prev) => ({
       ...prev,
-      experience: prev.experience.map(exp =>
-        exp.id === id ? { ...exp, [field]: value } : exp
-      )
+      experience: prev.experience.map((exp) =>
+        exp.id === id ? { ...exp, [field]: value } : exp,
+      ),
     }));
   };
 
@@ -118,52 +150,59 @@ export default function Builder() {
       endDate: "",
       gpa: "",
     };
-    setResumeData(prev => ({
+    setResumeData((prev) => ({
       ...prev,
-      education: [...prev.education, newEdu]
+      education: [...prev.education, newEdu],
     }));
   };
 
   const removeEducation = (id: string) => {
-    setResumeData(prev => ({
+    setResumeData((prev) => ({
       ...prev,
-      education: prev.education.filter(edu => edu.id !== id)
+      education: prev.education.filter((edu) => edu.id !== id),
     }));
   };
 
-  const updateEducation = (id: string, field: keyof Education, value: string) => {
-    setResumeData(prev => ({
+  const updateEducation = (
+    id: string,
+    field: keyof Education,
+    value: string,
+  ) => {
+    setResumeData((prev) => ({
       ...prev,
-      education: prev.education.map(edu =>
-        edu.id === id ? { ...edu, [field]: value } : edu
-      )
+      education: prev.education.map((edu) =>
+        edu.id === id ? { ...edu, [field]: value } : edu,
+      ),
     }));
   };
 
   const addSkill = () => {
     if (currentSkill.trim()) {
-      setResumeData(prev => ({
+      setResumeData((prev) => ({
         ...prev,
-        skills: [...prev.skills, currentSkill.trim()]
+        skills: [...prev.skills, currentSkill.trim()],
       }));
       setCurrentSkill("");
     }
   };
 
   const removeSkill = (skillToRemove: string) => {
-    setResumeData(prev => ({
+    setResumeData((prev) => ({
       ...prev,
-      skills: prev.skills.filter(skill => skill !== skillToRemove)
+      skills: prev.skills.filter((skill) => skill !== skillToRemove),
     }));
   };
 
-  const handlePersonalInfoChange = (field: keyof typeof resumeData.personalInfo, value: string) => {
-    setResumeData(prev => ({
+  const handlePersonalInfoChange = (
+    field: keyof typeof resumeData.personalInfo,
+    value: string,
+  ) => {
+    setResumeData((prev) => ({
       ...prev,
       personalInfo: {
         ...prev.personalInfo,
-        [field]: value
-      }
+        [field]: value,
+      },
     }));
   };
 
@@ -180,20 +219,26 @@ export default function Builder() {
     setIsLoadingAI(true);
     try {
       const jobTitle = resumeData.experience[0]?.position || "Professional";
-      const experienceList = resumeData.experience.map(exp => exp.company);
-      const suggestions = await aiService.generateSummary(jobTitle, experienceList, resumeData.skills);
+      const experienceList = resumeData.experience.map((exp) => exp.company);
+      const suggestions = await aiService.generateSummary(
+        jobTitle,
+        experienceList,
+        resumeData.skills,
+      );
 
       if (suggestions.length > 0) {
-        setResumeData(prev => ({ ...prev, summary: suggestions[0].content }));
+        setResumeData((prev) => ({ ...prev, summary: suggestions[0].content }));
         toast({
           title: "AI Suggestion Applied",
-          description: "Professional summary has been generated based on your information.",
+          description:
+            "Professional summary has been generated based on your information.",
         });
       }
     } catch (error) {
       toast({
         title: "AI Service Error",
-        description: "Unable to generate suggestions at this time. Please try again.",
+        description:
+          "Unable to generate suggestions at this time. Please try again.",
         variant: "destructive",
       });
     } finally {
@@ -206,13 +251,16 @@ export default function Builder() {
 
     setIsLoadingAI(true);
     try {
-      const suggestions = await aiService.suggestSkills(jobTitle, resumeData.skills);
+      const suggestions = await aiService.suggestSkills(
+        jobTitle,
+        resumeData.skills,
+      );
 
       if (suggestions.length > 0) {
-        const newSkills = suggestions.slice(0, 3).map(s => s.skill);
-        setResumeData(prev => ({
+        const newSkills = suggestions.slice(0, 3).map((s) => s.skill);
+        setResumeData((prev) => ({
           ...prev,
-          skills: [...prev.skills, ...newSkills]
+          skills: [...prev.skills, ...newSkills],
         }));
         toast({
           title: "Skills Added",
@@ -231,7 +279,9 @@ export default function Builder() {
   };
 
   const handleAIOptimizeExperience = async (experienceId: string) => {
-    const experience = resumeData.experience.find(exp => exp.id === experienceId);
+    const experience = resumeData.experience.find(
+      (exp) => exp.id === experienceId,
+    );
     if (!experience || !experience.description) {
       toast({
         title: "Missing Information",
@@ -243,19 +293,24 @@ export default function Builder() {
 
     setIsLoadingAI(true);
     try {
-      const suggestions = await aiService.optimizeJobDescription(experience.description, experience.position);
+      const suggestions = await aiService.optimizeJobDescription(
+        experience.description,
+        experience.position,
+      );
 
       if (suggestions.length > 0) {
         updateExperience(experienceId, "description", suggestions[0].content);
         toast({
           title: "Description Optimized",
-          description: "Your job description has been enhanced with AI suggestions.",
+          description:
+            "Your job description has been enhanced with AI suggestions.",
         });
       }
     } catch (error) {
       toast({
         title: "AI Service Error",
-        description: "Unable to optimize description at this time. Please try again.",
+        description:
+          "Unable to optimize description at this time. Please try again.",
         variant: "destructive",
       });
     } finally {
@@ -279,14 +334,17 @@ export default function Builder() {
     try {
       // Get ATS score and suggestions
       const atsResult = await aiService.getATSScore(resumeData);
-      const skillSuggestions = await aiService.suggestSkills(jobTitle, resumeData.skills);
+      const skillSuggestions = await aiService.suggestSkills(
+        jobTitle,
+        resumeData.skills,
+      );
 
       // Add top 2 missing skills if any
       if (skillSuggestions.length > 0) {
-        const newSkills = skillSuggestions.slice(0, 2).map(s => s.skill);
-        setResumeData(prev => ({
+        const newSkills = skillSuggestions.slice(0, 2).map((s) => s.skill);
+        setResumeData((prev) => ({
           ...prev,
-          skills: [...prev.skills, ...newSkills]
+          skills: [...prev.skills, ...newSkills],
         }));
       }
 
@@ -297,7 +355,8 @@ export default function Builder() {
     } catch (error) {
       toast({
         title: "AI Service Error",
-        description: "Unable to optimize skills at this time. Please try again.",
+        description:
+          "Unable to optimize skills at this time. Please try again.",
         variant: "destructive",
       });
     } finally {
@@ -320,7 +379,7 @@ export default function Builder() {
       // In production, you'd have proper authentication
       const tempUser = await dbService.createUser({
         email: resumeData.personalInfo.email || "user@example.com",
-        name: resumeData.personalInfo.fullName
+        name: resumeData.personalInfo.fullName,
       });
       setCurrentUser(tempUser);
     }
@@ -330,7 +389,7 @@ export default function Builder() {
       const userId = currentUser?.id || "";
       const resumeDataToSave = {
         title: resumeTitle,
-        ...resumeData
+        ...resumeData,
       };
 
       if (currentResumeId) {
@@ -368,15 +427,15 @@ export default function Builder() {
       setResumeData({
         personalInfo: loadedResume.personalInfo,
         summary: loadedResume.summary || "",
-        experience: loadedResume.experience.map(exp => ({
+        experience: loadedResume.experience.map((exp) => ({
           ...exp,
-          id: exp.id || Date.now().toString()
+          id: exp.id || Date.now().toString(),
         })),
-        education: loadedResume.education.map(edu => ({
+        education: loadedResume.education.map((edu) => ({
           ...edu,
-          id: edu.id || Date.now().toString()
+          id: edu.id || Date.now().toString(),
         })),
-        skills: loadedResume.skills
+        skills: loadedResume.skills,
       });
 
       setResumeTitle(loadedResume.title);
@@ -440,7 +499,9 @@ export default function Builder() {
                 <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
                   <FileText className="w-4 h-4 text-white" />
                 </div>
-                <span className="text-xl font-bold text-slate-900">ResumeAI Builder</span>
+                <span className="text-xl font-bold text-slate-900">
+                  ResumeAI Builder
+                </span>
               </div>
             </div>
             <div className="flex items-center space-x-2">
@@ -478,7 +539,7 @@ export default function Builder() {
                       ) : (
                         <Save className="w-4 h-4 mr-2" />
                       )}
-                      {currentResumeId ? 'Update Resume' : 'Save Resume'}
+                      {currentResumeId ? "Update Resume" : "Save Resume"}
                     </Button>
                   </div>
                 </DialogContent>
@@ -494,7 +555,11 @@ export default function Builder() {
                 Preview
               </Button>
 
-              <Button size="sm" onClick={handleExportPDF} disabled={isExporting}>
+              <Button
+                size="sm"
+                onClick={handleExportPDF}
+                disabled={isExporting}
+              >
                 {isExporting ? (
                   <Loader2 className="w-4 h-4 mr-2 animate-spin" />
                 ) : (
@@ -535,7 +600,9 @@ export default function Builder() {
                         <Input
                           id="fullName"
                           value={resumeData.personalInfo.fullName}
-                          onChange={(e) => handlePersonalInfoChange("fullName", e.target.value)}
+                          onChange={(e) =>
+                            handlePersonalInfoChange("fullName", e.target.value)
+                          }
                           placeholder="John Doe"
                         />
                       </div>
@@ -545,7 +612,9 @@ export default function Builder() {
                           id="email"
                           type="email"
                           value={resumeData.personalInfo.email}
-                          onChange={(e) => handlePersonalInfoChange("email", e.target.value)}
+                          onChange={(e) =>
+                            handlePersonalInfoChange("email", e.target.value)
+                          }
                           placeholder="john@example.com"
                         />
                       </div>
@@ -556,7 +625,9 @@ export default function Builder() {
                         <Input
                           id="phone"
                           value={resumeData.personalInfo.phone}
-                          onChange={(e) => handlePersonalInfoChange("phone", e.target.value)}
+                          onChange={(e) =>
+                            handlePersonalInfoChange("phone", e.target.value)
+                          }
                           placeholder="+1 (555) 123-4567"
                         />
                       </div>
@@ -565,7 +636,9 @@ export default function Builder() {
                         <Input
                           id="location"
                           value={resumeData.personalInfo.location}
-                          onChange={(e) => handlePersonalInfoChange("location", e.target.value)}
+                          onChange={(e) =>
+                            handlePersonalInfoChange("location", e.target.value)
+                          }
                           placeholder="New York, NY"
                         />
                       </div>
@@ -576,7 +649,9 @@ export default function Builder() {
                         <Input
                           id="website"
                           value={resumeData.personalInfo.website}
-                          onChange={(e) => handlePersonalInfoChange("website", e.target.value)}
+                          onChange={(e) =>
+                            handlePersonalInfoChange("website", e.target.value)
+                          }
                           placeholder="https://johndoe.com"
                         />
                       </div>
@@ -585,7 +660,9 @@ export default function Builder() {
                         <Input
                           id="linkedin"
                           value={resumeData.personalInfo.linkedin}
-                          onChange={(e) => handlePersonalInfoChange("linkedin", e.target.value)}
+                          onChange={(e) =>
+                            handlePersonalInfoChange("linkedin", e.target.value)
+                          }
                           placeholder="https://linkedin.com/in/johndoe"
                         />
                       </div>
@@ -595,7 +672,12 @@ export default function Builder() {
                       <Textarea
                         id="summary"
                         value={resumeData.summary}
-                        onChange={(e) => setResumeData(prev => ({ ...prev, summary: e.target.value }))}
+                        onChange={(e) =>
+                          setResumeData((prev) => ({
+                            ...prev,
+                            summary: e.target.value,
+                          }))
+                        }
                         placeholder="Write a brief summary of your professional background and goals..."
                         rows={4}
                       />
@@ -637,9 +719,14 @@ export default function Builder() {
                   </CardHeader>
                   <CardContent className="space-y-6">
                     {resumeData.experience.map((exp, index) => (
-                      <div key={exp.id} className="border rounded-lg p-4 space-y-4">
+                      <div
+                        key={exp.id}
+                        className="border rounded-lg p-4 space-y-4"
+                      >
                         <div className="flex items-center justify-between">
-                          <h4 className="font-medium">Experience {index + 1}</h4>
+                          <h4 className="font-medium">
+                            Experience {index + 1}
+                          </h4>
                           <Button
                             variant="ghost"
                             size="sm"
@@ -653,7 +740,13 @@ export default function Builder() {
                             <Label>Company</Label>
                             <Input
                               value={exp.company}
-                              onChange={(e) => updateExperience(exp.id, "company", e.target.value)}
+                              onChange={(e) =>
+                                updateExperience(
+                                  exp.id,
+                                  "company",
+                                  e.target.value,
+                                )
+                              }
                               placeholder="Company Name"
                             />
                           </div>
@@ -661,7 +754,13 @@ export default function Builder() {
                             <Label>Position</Label>
                             <Input
                               value={exp.position}
-                              onChange={(e) => updateExperience(exp.id, "position", e.target.value)}
+                              onChange={(e) =>
+                                updateExperience(
+                                  exp.id,
+                                  "position",
+                                  e.target.value,
+                                )
+                              }
                               placeholder="Job Title"
                             />
                           </div>
@@ -672,7 +771,13 @@ export default function Builder() {
                             <Input
                               type="month"
                               value={exp.startDate}
-                              onChange={(e) => updateExperience(exp.id, "startDate", e.target.value)}
+                              onChange={(e) =>
+                                updateExperience(
+                                  exp.id,
+                                  "startDate",
+                                  e.target.value,
+                                )
+                              }
                             />
                           </div>
                           <div>
@@ -680,7 +785,13 @@ export default function Builder() {
                             <Input
                               type="month"
                               value={exp.endDate}
-                              onChange={(e) => updateExperience(exp.id, "endDate", e.target.value)}
+                              onChange={(e) =>
+                                updateExperience(
+                                  exp.id,
+                                  "endDate",
+                                  e.target.value,
+                                )
+                              }
                               disabled={exp.current}
                             />
                           </div>
@@ -689,7 +800,13 @@ export default function Builder() {
                           <Label>Description</Label>
                           <Textarea
                             value={exp.description}
-                            onChange={(e) => updateExperience(exp.id, "description", e.target.value)}
+                            onChange={(e) =>
+                              updateExperience(
+                                exp.id,
+                                "description",
+                                e.target.value,
+                              )
+                            }
                             placeholder="Describe your responsibilities and achievements..."
                             rows={3}
                           />
@@ -714,7 +831,9 @@ export default function Builder() {
                       <div className="text-center py-8 text-slate-500">
                         <FileText className="w-12 h-12 mx-auto mb-4 opacity-50" />
                         <p>No work experience added yet</p>
-                        <p className="text-sm">Click "Add Experience" to get started</p>
+                        <p className="text-sm">
+                          Click "Add Experience" to get started
+                        </p>
                       </div>
                     )}
                   </CardContent>
@@ -740,7 +859,10 @@ export default function Builder() {
                   </CardHeader>
                   <CardContent className="space-y-6">
                     {resumeData.education.map((edu, index) => (
-                      <div key={edu.id} className="border rounded-lg p-4 space-y-4">
+                      <div
+                        key={edu.id}
+                        className="border rounded-lg p-4 space-y-4"
+                      >
                         <div className="flex items-center justify-between">
                           <h4 className="font-medium">Education {index + 1}</h4>
                           <Button
@@ -756,7 +878,13 @@ export default function Builder() {
                             <Label>School</Label>
                             <Input
                               value={edu.school}
-                              onChange={(e) => updateEducation(edu.id, "school", e.target.value)}
+                              onChange={(e) =>
+                                updateEducation(
+                                  edu.id,
+                                  "school",
+                                  e.target.value,
+                                )
+                              }
                               placeholder="University Name"
                             />
                           </div>
@@ -764,7 +892,13 @@ export default function Builder() {
                             <Label>Degree</Label>
                             <Input
                               value={edu.degree}
-                              onChange={(e) => updateEducation(edu.id, "degree", e.target.value)}
+                              onChange={(e) =>
+                                updateEducation(
+                                  edu.id,
+                                  "degree",
+                                  e.target.value,
+                                )
+                              }
                               placeholder="Bachelor of Science"
                             />
                           </div>
@@ -774,7 +908,13 @@ export default function Builder() {
                             <Label>Field of Study</Label>
                             <Input
                               value={edu.fieldOfStudy}
-                              onChange={(e) => updateEducation(edu.id, "fieldOfStudy", e.target.value)}
+                              onChange={(e) =>
+                                updateEducation(
+                                  edu.id,
+                                  "fieldOfStudy",
+                                  e.target.value,
+                                )
+                              }
                               placeholder="Computer Science"
                             />
                           </div>
@@ -782,7 +922,9 @@ export default function Builder() {
                             <Label>GPA (Optional)</Label>
                             <Input
                               value={edu.gpa}
-                              onChange={(e) => updateEducation(edu.id, "gpa", e.target.value)}
+                              onChange={(e) =>
+                                updateEducation(edu.id, "gpa", e.target.value)
+                              }
                               placeholder="3.8"
                             />
                           </div>
@@ -793,7 +935,13 @@ export default function Builder() {
                             <Input
                               type="month"
                               value={edu.startDate}
-                              onChange={(e) => updateEducation(edu.id, "startDate", e.target.value)}
+                              onChange={(e) =>
+                                updateEducation(
+                                  edu.id,
+                                  "startDate",
+                                  e.target.value,
+                                )
+                              }
                             />
                           </div>
                           <div>
@@ -801,7 +949,13 @@ export default function Builder() {
                             <Input
                               type="month"
                               value={edu.endDate}
-                              onChange={(e) => updateEducation(edu.id, "endDate", e.target.value)}
+                              onChange={(e) =>
+                                updateEducation(
+                                  edu.id,
+                                  "endDate",
+                                  e.target.value,
+                                )
+                              }
                             />
                           </div>
                         </div>
@@ -811,7 +965,9 @@ export default function Builder() {
                       <div className="text-center py-8 text-slate-500">
                         <FileText className="w-12 h-12 mx-auto mb-4 opacity-50" />
                         <p>No education added yet</p>
-                        <p className="text-sm">Click "Add Education" to get started</p>
+                        <p className="text-sm">
+                          Click "Add Education" to get started
+                        </p>
                       </div>
                     )}
                   </CardContent>
@@ -833,13 +989,17 @@ export default function Builder() {
                         value={currentSkill}
                         onChange={(e) => setCurrentSkill(e.target.value)}
                         placeholder="Enter a skill"
-                        onKeyPress={(e) => e.key === 'Enter' && addSkill()}
+                        onKeyPress={(e) => e.key === "Enter" && addSkill()}
                       />
                       <Button onClick={addSkill}>Add</Button>
                     </div>
                     <div className="flex flex-wrap gap-2">
                       {resumeData.skills.map((skill, index) => (
-                        <Badge key={index} variant="secondary" className="text-sm">
+                        <Badge
+                          key={index}
+                          variant="secondary"
+                          className="text-sm"
+                        >
                           {skill}
                           <button
                             onClick={() => removeSkill(skill)}
@@ -853,7 +1013,9 @@ export default function Builder() {
                     {resumeData.skills.length === 0 && (
                       <div className="text-center py-8 text-slate-500">
                         <p>No skills added yet</p>
-                        <p className="text-sm">Add skills that are relevant to your target job</p>
+                        <p className="text-sm">
+                          Add skills that are relevant to your target job
+                        </p>
                       </div>
                     )}
                     <div className="space-y-2">
@@ -897,9 +1059,7 @@ export default function Builder() {
             <Card>
               <CardHeader>
                 <CardTitle>Resume Preview</CardTitle>
-                <CardDescription>
-                  See how your resume will look
-                </CardDescription>
+                <CardDescription>See how your resume will look</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="bg-white border-2 border-slate-200 rounded-lg p-6 min-h-[800px] shadow-sm">
@@ -911,38 +1071,55 @@ export default function Builder() {
                         {resumeData.personalInfo.fullName || "Your Name"}
                       </h1>
                       <div className="text-slate-600 text-sm mt-2 space-y-1">
-                        {resumeData.personalInfo.email && <div>{resumeData.personalInfo.email}</div>}
-                        {resumeData.personalInfo.phone && <div>{resumeData.personalInfo.phone}</div>}
-                        {resumeData.personalInfo.location && <div>{resumeData.personalInfo.location}</div>}
+                        {resumeData.personalInfo.email && (
+                          <div>{resumeData.personalInfo.email}</div>
+                        )}
+                        {resumeData.personalInfo.phone && (
+                          <div>{resumeData.personalInfo.phone}</div>
+                        )}
+                        {resumeData.personalInfo.location && (
+                          <div>{resumeData.personalInfo.location}</div>
+                        )}
                       </div>
                     </div>
 
                     {/* Summary */}
                     {resumeData.summary && (
                       <div>
-                        <h2 className="text-lg font-semibold text-slate-900 mb-2">Professional Summary</h2>
-                        <p className="text-slate-700 text-sm leading-relaxed">{resumeData.summary}</p>
+                        <h2 className="text-lg font-semibold text-slate-900 mb-2">
+                          Professional Summary
+                        </h2>
+                        <p className="text-slate-700 text-sm leading-relaxed">
+                          {resumeData.summary}
+                        </p>
                       </div>
                     )}
 
                     {/* Experience */}
                     {resumeData.experience.length > 0 && (
                       <div>
-                        <h2 className="text-lg font-semibold text-slate-900 mb-3">Work Experience</h2>
+                        <h2 className="text-lg font-semibold text-slate-900 mb-3">
+                          Work Experience
+                        </h2>
                         <div className="space-y-4">
                           {resumeData.experience.map((exp) => (
                             <div key={exp.id}>
                               <div className="flex justify-between items-start mb-1">
-                                <h3 className="font-medium text-slate-900">{exp.position || "Position"}</h3>
+                                <h3 className="font-medium text-slate-900">
+                                  {exp.position || "Position"}
+                                </h3>
                                 <span className="text-sm text-slate-600">
-                                  {exp.startDate} - {exp.current ? "Present" : exp.endDate}
+                                  {exp.startDate} -{" "}
+                                  {exp.current ? "Present" : exp.endDate}
                                 </span>
                               </div>
                               <div className="text-slate-700 font-medium text-sm mb-2">
                                 {exp.company || "Company Name"}
                               </div>
                               {exp.description && (
-                                <p className="text-slate-600 text-sm leading-relaxed">{exp.description}</p>
+                                <p className="text-slate-600 text-sm leading-relaxed">
+                                  {exp.description}
+                                </p>
                               )}
                             </div>
                           ))}
@@ -953,13 +1130,16 @@ export default function Builder() {
                     {/* Education */}
                     {resumeData.education.length > 0 && (
                       <div>
-                        <h2 className="text-lg font-semibold text-slate-900 mb-3">Education</h2>
+                        <h2 className="text-lg font-semibold text-slate-900 mb-3">
+                          Education
+                        </h2>
                         <div className="space-y-3">
                           {resumeData.education.map((edu) => (
                             <div key={edu.id}>
                               <div className="flex justify-between items-start mb-1">
                                 <h3 className="font-medium text-slate-900">
-                                  {edu.degree || "Degree"} in {edu.fieldOfStudy || "Field"}
+                                  {edu.degree || "Degree"} in{" "}
+                                  {edu.fieldOfStudy || "Field"}
                                 </h3>
                                 <span className="text-sm text-slate-600">
                                   {edu.startDate} - {edu.endDate}
@@ -967,7 +1147,9 @@ export default function Builder() {
                               </div>
                               <div className="text-slate-700 text-sm">
                                 {edu.school || "School Name"}
-                                {edu.gpa && <span className="ml-2">• GPA: {edu.gpa}</span>}
+                                {edu.gpa && (
+                                  <span className="ml-2">• GPA: {edu.gpa}</span>
+                                )}
                               </div>
                             </div>
                           ))}
@@ -978,7 +1160,9 @@ export default function Builder() {
                     {/* Skills */}
                     {resumeData.skills.length > 0 && (
                       <div>
-                        <h2 className="text-lg font-semibold text-slate-900 mb-3">Skills</h2>
+                        <h2 className="text-lg font-semibold text-slate-900 mb-3">
+                          Skills
+                        </h2>
                         <div className="flex flex-wrap gap-2">
                           {resumeData.skills.map((skill, index) => (
                             <span

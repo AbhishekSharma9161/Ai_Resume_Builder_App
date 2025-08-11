@@ -2,7 +2,13 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import { handleDemo } from "./routes/demo";
-import { createResume, getUserResumes, getResume, updateResume, deleteResume } from "./routes/resumes";
+import {
+  createResume,
+  getUserResumes,
+  getResume,
+  updateResume,
+  deleteResume,
+} from "./routes/resumes";
 import { createUser, getUserByEmail, getUser } from "./routes/users";
 
 export function createServer() {

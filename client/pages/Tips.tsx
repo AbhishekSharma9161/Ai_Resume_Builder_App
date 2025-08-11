@@ -10,7 +10,7 @@ export default function Tips() {
         "ATS optimization strategies",
         "Common resume mistakes to avoid",
         "How to showcase achievements effectively",
-        "Keyword optimization techniques"
+        "Keyword optimization techniques",
       ]}
     />
   );

@@ -10,7 +10,7 @@ export default function Terms() {
         "Service availability and limitations",
         "Intellectual property rights",
         "Payment and subscription terms",
-        "Dispute resolution procedures"
+        "Dispute resolution procedures",
       ]}
     />
   );

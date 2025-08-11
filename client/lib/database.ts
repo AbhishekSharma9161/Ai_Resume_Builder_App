@@ -42,7 +42,7 @@ interface User {
 
 export class DatabaseService {
   private static instance: DatabaseService;
-  
+
   static getInstance(): DatabaseService {
     if (!DatabaseService.instance) {
       DatabaseService.instance = new DatabaseService();
@@ -51,46 +51,52 @@ export class DatabaseService {
   }
 
   // Save resume to database
-  async saveResume(userId: string, resumeData: ResumeData): Promise<{ id: string }> {
+  async saveResume(
+    userId: string,
+    resumeData: ResumeData,
+  ): Promise<{ id: string }> {
     try {
-      const response = await fetch('/api/resumes', {
-        method: 'POST',
+      const response = await fetch("/api/resumes", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           userId,
-          ...resumeData
+          ...resumeData,
         }),
       });
 
       if (!response.ok) {
-        throw new Error('Failed to save resume');
+        throw new Error("Failed to save resume");
       }
 
       return await response.json();
     } catch (error) {
-      console.error('Error saving resume:', error);
+      console.error("Error saving resume:", error);
       throw error;
     }
   }
 
   // Update existing resume
-  async updateResume(resumeId: string, resumeData: Partial<ResumeData>): Promise<void> {
+  async updateResume(
+    resumeId: string,
+    resumeData: Partial<ResumeData>,
+  ): Promise<void> {
     try {
       const response = await fetch(`/api/resumes/${resumeId}`, {
-        method: 'PUT',
+        method: "PUT",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(resumeData),
       });
 
       if (!response.ok) {
-        throw new Error('Failed to update resume');
+        throw new Error("Failed to update resume");
       }
     } catch (error) {
-      console.error('Error updating resume:', error);
+      console.error("Error updating resume:", error);
       throw error;
     }
   }
@@ -99,14 +105,14 @@ export class DatabaseService {
   async getUserResumes(userId: string): Promise<ResumeData[]> {
     try {
       const response = await fetch(`/api/users/${userId}/resumes`);
-      
+
       if (!response.ok) {
-        throw new Error('Failed to fetch resumes');
+        throw new Error("Failed to fetch resumes");
       }
 
       return await response.json();
     } catch (error) {
-      console.error('Error fetching resumes:', error);
+      console.error("Error fetching resumes:", error);
       throw error;
     }
   }
@@ -115,14 +121,14 @@ export class DatabaseService {
   async getResume(resumeId: string): Promise<ResumeData> {
     try {
       const response = await fetch(`/api/resumes/${resumeId}`);
-      
+
       if (!response.ok) {
-        throw new Error('Failed to fetch resume');
+        throw new Error("Failed to fetch resume");
       }
 
       return await response.json();
     } catch (error) {
-      console.error('Error fetching resume:', error);
+      console.error("Error fetching resume:", error);
       throw error;
     }
   }
@@ -131,14 +137,14 @@ export class DatabaseService {
   async deleteResume(resumeId: string): Promise<void> {
     try {
       const response = await fetch(`/api/resumes/${resumeId}`, {
-        method: 'DELETE',
+        method: "DELETE",
       });
 
       if (!response.ok) {
-        throw new Error('Failed to delete resume');
+        throw new Error("Failed to delete resume");
       }
     } catch (error) {
-      console.error('Error deleting resume:', error);
+      console.error("Error deleting resume:", error);
       throw error;
     }
   }
@@ -146,46 +152,48 @@ export class DatabaseService {
   // Create user
   async createUser(userData: { email: string; name: string }): Promise<User> {
     try {
-      const response = await fetch('/api/users', {
-        method: 'POST',
+      const response = await fetch("/api/users", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(userData),
       });
 
       if (!response.ok) {
-        throw new Error('Failed to create user');
+        throw new Error("Failed to create user");
       }
 
       return await response.json();
     } catch (error) {
-      console.error('Error creating user:', error);
+      console.error("Error creating user:", error);
       throw error;
     }
   }
 
   // Get templates
-  async getTemplates(): Promise<Array<{
-    id: string;
-    name: string;
-    category: string;
-    description: string;
-    thumbnail?: string;
-    featured: boolean;
-    rating?: number;
-    downloads: number;
-  }>> {
+  async getTemplates(): Promise<
+    Array<{
+      id: string;
+      name: string;
+      category: string;
+      description: string;
+      thumbnail?: string;
+      featured: boolean;
+      rating?: number;
+      downloads: number;
+    }>
+  > {
     try {
-      const response = await fetch('/api/templates');
-      
+      const response = await fetch("/api/templates");
+
       if (!response.ok) {
-        throw new Error('Failed to fetch templates');
+        throw new Error("Failed to fetch templates");
       }
 
       return await response.json();
     } catch (error) {
-      console.error('Error fetching templates:', error);
+      console.error("Error fetching templates:", error);
       throw error;
     }
   }

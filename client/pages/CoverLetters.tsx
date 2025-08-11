@@ -10,7 +10,7 @@ export default function CoverLetters() {
         "Industry-specific examples",
         "Personalization strategies",
         "How to address hiring managers",
-        "AI-powered cover letter suggestions"
+        "AI-powered cover letter suggestions",
       ]}
     />
   );

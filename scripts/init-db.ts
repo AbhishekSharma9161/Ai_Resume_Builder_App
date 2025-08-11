@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
@@ -16,7 +16,7 @@ async function main() {
       },
       {
         name: "Creative Designer",
-        category: "Creative", 
+        category: "Creative",
         description: "Eye-catching design for creative professionals",
         featured: false,
         rating: 4.8,
@@ -48,10 +48,10 @@ async function main() {
       });
     }
 
-    console.log('✅ Database initialized successfully!');
-    console.log('📋 Created sample templates');
+    console.log("✅ Database initialized successfully!");
+    console.log("📋 Created sample templates");
   } catch (error) {
-    console.error('❌ Error initializing database:', error);
+    console.error("❌ Error initializing database:", error);
   } finally {
     await prisma.$disconnect();
   }
