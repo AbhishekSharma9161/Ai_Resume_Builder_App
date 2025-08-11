@@ -160,6 +160,97 @@ export default function Builder() {
     }));
   };
 
+  const handleAISummaryGeneration = async () => {
+    if (!resumeData.personalInfo.fullName) {
+      toast({
+        title: "Missing Information",
+        description: "Please add your name first to generate AI suggestions.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsLoadingAI(true);
+    try {
+      const jobTitle = resumeData.experience[0]?.position || "Professional";
+      const experienceList = resumeData.experience.map(exp => exp.company);
+      const suggestions = await aiService.generateSummary(jobTitle, experienceList, resumeData.skills);
+
+      if (suggestions.length > 0) {
+        setResumeData(prev => ({ ...prev, summary: suggestions[0].content }));
+        toast({
+          title: "AI Suggestion Applied",
+          description: "Professional summary has been generated based on your information.",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "AI Service Error",
+        description: "Unable to generate suggestions at this time. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoadingAI(false);
+    }
+  };
+
+  const handleAISkillSuggestions = async () => {
+    const jobTitle = resumeData.experience[0]?.position || "Professional";
+
+    setIsLoadingAI(true);
+    try {
+      const suggestions = await aiService.suggestSkills(jobTitle, resumeData.skills);
+
+      if (suggestions.length > 0) {
+        const newSkills = suggestions.slice(0, 3).map(s => s.skill);
+        setResumeData(prev => ({
+          ...prev,
+          skills: [...prev.skills, ...newSkills]
+        }));
+        toast({
+          title: "Skills Added",
+          description: `Added ${newSkills.length} relevant skills based on your role.`,
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "AI Service Error",
+        description: "Unable to suggest skills at this time. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoadingAI(false);
+    }
+  };
+
+  const handleExportPDF = async () => {
+    if (!resumeData.personalInfo.fullName) {
+      toast({
+        title: "Missing Information",
+        description: "Please add your name before exporting your resume.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsExporting(true);
+    try {
+      exportToPDF(resumeData);
+      toast({
+        title: "Resume Exported",
+        description: "Your resume has been downloaded as a PDF.",
+      });
+    } catch (error) {
+      toast({
+        title: "Export Error",
+        description: "Unable to export your resume. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsExporting(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-slate-50">
       {/* Header */}
