@@ -2,7 +2,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Target, Zap, Award, Eye, TrendingUp, CheckCircle } from "lucide-react";
+import {
+  ArrowLeft,
+  Target,
+  Zap,
+  Award,
+  Eye,
+  TrendingUp,
+  CheckCircle,
+} from "lucide-react";
 
 export default function Tips() {
   return (
@@ -38,8 +46,8 @@ export default function Tips() {
             Expert Resume Writing Tips
           </h1>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Transform your resume from ordinary to extraordinary with these proven strategies 
-            from hiring managers and career experts.
+            Transform your resume from ordinary to extraordinary with these
+            proven strategies from hiring managers and career experts.
           </p>
         </div>
 
@@ -47,20 +55,28 @@ export default function Tips() {
         <div className="grid md:grid-cols-3 gap-6 mb-12">
           <Card className="text-center bg-gradient-to-br from-blue-50 to-cyan-50">
             <CardContent className="py-6">
-              <div className="text-3xl font-bold text-blue-600 mb-2">6 seconds</div>
-              <div className="text-slate-600">Average time recruiters spend reading a resume</div>
+              <div className="text-3xl font-bold text-blue-600 mb-2">
+                6 seconds
+              </div>
+              <div className="text-slate-600">
+                Average time recruiters spend reading a resume
+              </div>
             </CardContent>
           </Card>
           <Card className="text-center bg-gradient-to-br from-purple-50 to-indigo-50">
             <CardContent className="py-6">
               <div className="text-3xl font-bold text-purple-600 mb-2">75%</div>
-              <div className="text-slate-600">Of resumes are filtered out by ATS systems</div>
+              <div className="text-slate-600">
+                Of resumes are filtered out by ATS systems
+              </div>
             </CardContent>
           </Card>
           <Card className="text-center bg-gradient-to-br from-green-50 to-emerald-50">
             <CardContent className="py-6">
               <div className="text-3xl font-bold text-green-600 mb-2">40%</div>
-              <div className="text-slate-600">Higher interview rate with optimized resumes</div>
+              <div className="text-slate-600">
+                Higher interview rate with optimized resumes
+              </div>
             </CardContent>
           </Card>
         </div>
@@ -79,8 +95,8 @@ export default function Tips() {
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-slate-600">
-                75% of resumes never reach human eyes due to Applicant Tracking Systems (ATS). 
-                Here's how to beat the bots:
+                75% of resumes never reach human eyes due to Applicant Tracking
+                Systems (ATS). Here's how to beat the bots:
               </p>
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="space-y-3">
@@ -89,11 +105,16 @@ export default function Tips() {
                     Do This:
                   </h4>
                   <ul className="space-y-2 text-slate-600 text-sm">
-                    <li>• Use standard section headings (Experience, Education, Skills)</li>
+                    <li>
+                      • Use standard section headings (Experience, Education,
+                      Skills)
+                    </li>
                     <li>• Include keywords from the job description</li>
                     <li>• Use simple, clean formatting</li>
                     <li>• Save as .docx or .pdf as requested</li>
-                    <li>• Use standard fonts (Arial, Calibri, Times New Roman)</li>
+                    <li>
+                      • Use standard fonts (Arial, Calibri, Times New Roman)
+                    </li>
                   </ul>
                 </div>
                 <div className="space-y-3">
@@ -119,22 +140,35 @@ export default function Tips() {
                 <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-lg flex items-center justify-center">
                   <Award className="w-5 h-5 text-white" />
                 </div>
-                <CardTitle className="text-xl">Quantify Your Achievements</CardTitle>
+                <CardTitle className="text-xl">
+                  Quantify Your Achievements
+                </CardTitle>
                 <Badge variant="secondary">High Impact</Badge>
               </div>
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-slate-600">
-                Numbers speak louder than words. Transform weak bullet points into powerful statements:
+                Numbers speak louder than words. Transform weak bullet points
+                into powerful statements:
               </p>
               <div className="space-y-4">
                 <div className="bg-red-50 border-l-4 border-red-400 p-4">
-                  <div className="text-red-700 font-medium">❌ Weak Example:</div>
-                  <div className="text-red-600 text-sm">"Responsible for managing social media accounts"</div>
+                  <div className="text-red-700 font-medium">
+                    ❌ Weak Example:
+                  </div>
+                  <div className="text-red-600 text-sm">
+                    "Responsible for managing social media accounts"
+                  </div>
                 </div>
                 <div className="bg-green-50 border-l-4 border-green-400 p-4">
-                  <div className="text-green-700 font-medium">✅ Strong Example:</div>
-                  <div className="text-green-600 text-sm">"Managed 5 social media accounts, increasing follower engagement by 150% and driving $50K in quarterly revenue through targeted campaigns"</div>
+                  <div className="text-green-700 font-medium">
+                    ✅ Strong Example:
+                  </div>
+                  <div className="text-green-600 text-sm">
+                    "Managed 5 social media accounts, increasing follower
+                    engagement by 150% and driving $50K in quarterly revenue
+                    through targeted campaigns"
+                  </div>
                 </div>
               </div>
               <div className="bg-slate-100 p-4 rounded-lg">
@@ -159,17 +193,22 @@ export default function Tips() {
                 <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center">
                   <Eye className="w-5 h-5 text-white" />
                 </div>
-                <CardTitle className="text-xl">Format for Readability</CardTitle>
+                <CardTitle className="text-xl">
+                  Format for Readability
+                </CardTitle>
                 <Badge variant="secondary">Essential</Badge>
               </div>
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-slate-600">
-                Remember, you have 6 seconds to make an impression. Make every second count:
+                Remember, you have 6 seconds to make an impression. Make every
+                second count:
               </p>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-3">
-                  <h4 className="font-semibold text-slate-900">Structure & Length:</h4>
+                  <h4 className="font-semibold text-slate-900">
+                    Structure & Length:
+                  </h4>
                   <ul className="space-y-2 text-slate-600 text-sm">
                     <li>• Keep it to 1-2 pages maximum</li>
                     <li>• Use reverse chronological order</li>
@@ -179,7 +218,9 @@ export default function Tips() {
                   </ul>
                 </div>
                 <div className="space-y-3">
-                  <h4 className="font-semibold text-slate-900">Contact Information:</h4>
+                  <h4 className="font-semibold text-slate-900">
+                    Contact Information:
+                  </h4>
                   <ul className="space-y-2 text-slate-600 text-sm">
                     <li>• Professional email address</li>
                     <li>• LinkedIn profile URL</li>
@@ -198,7 +239,9 @@ export default function Tips() {
                 <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
                   <TrendingUp className="w-5 h-5 text-white" />
                 </div>
-                <CardTitle className="text-xl">Industry-Specific Tips</CardTitle>
+                <CardTitle className="text-xl">
+                  Industry-Specific Tips
+                </CardTitle>
                 <Badge variant="secondary">Specialized</Badge>
               </div>
             </CardHeader>
@@ -206,7 +249,9 @@ export default function Tips() {
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-4">
                   <div>
-                    <h4 className="font-semibold text-slate-900 mb-2">Tech & Engineering:</h4>
+                    <h4 className="font-semibold text-slate-900 mb-2">
+                      Tech & Engineering:
+                    </h4>
                     <ul className="space-y-1 text-slate-600 text-sm">
                       <li>• Include GitHub/portfolio links</li>
                       <li>• List programming languages and tools</li>
@@ -215,7 +260,9 @@ export default function Tips() {
                     </ul>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-slate-900 mb-2">Sales & Marketing:</h4>
+                    <h4 className="font-semibold text-slate-900 mb-2">
+                      Sales & Marketing:
+                    </h4>
                     <ul className="space-y-1 text-slate-600 text-sm">
                       <li>• Lead with revenue numbers</li>
                       <li>• Show quota attainment percentages</li>
@@ -226,7 +273,9 @@ export default function Tips() {
                 </div>
                 <div className="space-y-4">
                   <div>
-                    <h4 className="font-semibold text-slate-900 mb-2">Creative Fields:</h4>
+                    <h4 className="font-semibold text-slate-900 mb-2">
+                      Creative Fields:
+                    </h4>
                     <ul className="space-y-1 text-slate-600 text-sm">
                       <li>• Include link to portfolio</li>
                       <li>• Mention software proficiency</li>
@@ -235,7 +284,9 @@ export default function Tips() {
                     </ul>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-slate-900 mb-2">Management:</h4>
+                    <h4 className="font-semibold text-slate-900 mb-2">
+                      Management:
+                    </h4>
                     <ul className="space-y-1 text-slate-600 text-sm">
                       <li>• Show team size and budget managed</li>
                       <li>• Include process improvements</li>
@@ -256,13 +307,11 @@ export default function Tips() {
               Ready to Apply These Tips?
             </h2>
             <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-              Our AI-powered resume builder automatically implements these best practices 
-              to create resumes that get results.
+              Our AI-powered resume builder automatically implements these best
+              practices to create resumes that get results.
             </p>
             <Button size="lg" variant="secondary" asChild>
-              <Link to="/builder">
-                Build Your Resume Now
-              </Link>
+              <Link to="/builder">Build Your Resume Now</Link>
             </Button>
           </CardContent>
         </Card>

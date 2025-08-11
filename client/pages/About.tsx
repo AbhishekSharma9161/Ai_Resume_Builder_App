@@ -1,7 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Users, Target, Lightbulb, Award, Heart, Rocket } from "lucide-react";
+import {
+  ArrowLeft,
+  Users,
+  Target,
+  Lightbulb,
+  Award,
+  Heart,
+  Rocket,
+} from "lucide-react";
 
 export default function About() {
   return (
@@ -37,8 +45,9 @@ export default function About() {
             Empowering Careers with AI
           </h1>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            ResumeAI was founded with a simple mission: to democratize access to professional 
-            resume writing by combining artificial intelligence with career expertise.
+            ResumeAI was founded with a simple mission: to democratize access to
+            professional resume writing by combining artificial intelligence
+            with career expertise.
           </p>
         </div>
 
@@ -49,13 +58,16 @@ export default function About() {
               <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-lg flex items-center justify-center mb-4">
                 <Target className="w-6 h-6 text-white" />
               </div>
-              <CardTitle className="text-2xl text-blue-900">Our Mission</CardTitle>
+              <CardTitle className="text-2xl text-blue-900">
+                Our Mission
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-blue-800">
-                To level the playing field in job applications by providing everyone access to 
-                professional-quality resume writing, regardless of their background or budget. 
-                We believe great talent deserves great presentation.
+                To level the playing field in job applications by providing
+                everyone access to professional-quality resume writing,
+                regardless of their background or budget. We believe great
+                talent deserves great presentation.
               </p>
             </CardContent>
           </Card>
@@ -65,13 +77,15 @@ export default function About() {
               <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-lg flex items-center justify-center mb-4">
                 <Lightbulb className="w-6 h-6 text-white" />
               </div>
-              <CardTitle className="text-2xl text-purple-900">Our Vision</CardTitle>
+              <CardTitle className="text-2xl text-purple-900">
+                Our Vision
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-purple-800">
-                To become the world's most trusted career advancement platform, where AI and 
-                human expertise combine to unlock opportunities and accelerate professional growth 
-                for millions of job seekers.
+                To become the world's most trusted career advancement platform,
+                where AI and human expertise combine to unlock opportunities and
+                accelerate professional growth for millions of job seekers.
               </p>
             </CardContent>
           </Card>
@@ -87,20 +101,24 @@ export default function About() {
           </CardHeader>
           <CardContent className="space-y-4 text-slate-600 text-lg leading-relaxed">
             <p>
-              Founded in 2023 by a team of career counselors, AI researchers, and hiring managers, 
-              ResumeAI emerged from a shared frustration with the job application process. We saw 
-              talented individuals struggle to articulate their value, while recruiters sifted through 
-              poorly formatted resumes that didn't showcase the person behind the paper.
+              Founded in 2023 by a team of career counselors, AI researchers,
+              and hiring managers, ResumeAI emerged from a shared frustration
+              with the job application process. We saw talented individuals
+              struggle to articulate their value, while recruiters sifted
+              through poorly formatted resumes that didn't showcase the person
+              behind the paper.
             </p>
             <p>
-              Our breakthrough came when we realized that the same AI technology powering language 
-              models could be fine-tuned to understand resume best practices, industry standards, 
-              and ATS requirements. By training our models on millions of successful resumes and 
-              job descriptions, we created an AI that thinks like a career expert.
+              Our breakthrough came when we realized that the same AI technology
+              powering language models could be fine-tuned to understand resume
+              best practices, industry standards, and ATS requirements. By
+              training our models on millions of successful resumes and job
+              descriptions, we created an AI that thinks like a career expert.
             </p>
             <p>
-              Today, ResumeAI has helped over 100,000 job seekers land their dream jobs, with our 
-              users reporting a 40% higher callback rate compared to their previous resumes.
+              Today, ResumeAI has helped over 100,000 job seekers land their
+              dream jobs, with our users reporting a 40% higher callback rate
+              compared to their previous resumes.
             </p>
           </CardContent>
         </Card>
@@ -120,8 +138,9 @@ export default function About() {
               </CardHeader>
               <CardContent>
                 <p className="text-slate-600">
-                  Professional resume writing shouldn't be a luxury. We make career advancement 
-                  tools accessible to everyone, regardless of budget or background.
+                  Professional resume writing shouldn't be a luxury. We make
+                  career advancement tools accessible to everyone, regardless of
+                  budget or background.
                 </p>
               </CardContent>
             </Card>
@@ -135,8 +154,9 @@ export default function About() {
               </CardHeader>
               <CardContent>
                 <p className="text-slate-600">
-                  We obsess over quality, continuously refining our AI models and templates 
-                  based on the latest hiring trends and user feedback.
+                  We obsess over quality, continuously refining our AI models
+                  and templates based on the latest hiring trends and user
+                  feedback.
                 </p>
               </CardContent>
             </Card>
@@ -150,8 +170,9 @@ export default function About() {
               </CardHeader>
               <CardContent>
                 <p className="text-slate-600">
-                  We believe in honest feedback, clear pricing, and ethical AI. Your data 
-                  belongs to you, and we're transparent about how we use it.
+                  We believe in honest feedback, clear pricing, and ethical AI.
+                  Your data belongs to you, and we're transparent about how we
+                  use it.
                 </p>
               </CardContent>
             </Card>
@@ -166,7 +187,9 @@ export default function About() {
             </h2>
             <div className="grid md:grid-cols-4 gap-8 text-center">
               <div>
-                <div className="text-4xl font-bold text-cyan-300 mb-2">100K+</div>
+                <div className="text-4xl font-bold text-cyan-300 mb-2">
+                  100K+
+                </div>
                 <div className="text-blue-100">Resumes Created</div>
               </div>
               <div>
@@ -174,7 +197,9 @@ export default function About() {
                 <div className="text-blue-100">Higher Callback Rate</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-cyan-300 mb-2">500+</div>
+                <div className="text-4xl font-bold text-cyan-300 mb-2">
+                  500+
+                </div>
                 <div className="text-blue-100">Template Designs</div>
               </div>
               <div>
@@ -192,7 +217,8 @@ export default function About() {
           </CardHeader>
           <CardContent className="text-center space-y-4">
             <p className="text-slate-600">
-              Have questions about our mission or want to join our team? We'd love to hear from you.
+              Have questions about our mission or want to join our team? We'd
+              love to hear from you.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild>

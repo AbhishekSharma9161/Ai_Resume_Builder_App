@@ -2,7 +2,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
-import { ArrowLeft, FileText, Mail, User, Target, Star, CheckCircle } from "lucide-react";
+import {
+  ArrowLeft,
+  FileText,
+  Mail,
+  User,
+  Target,
+  Star,
+  CheckCircle,
+} from "lucide-react";
 
 export default function CoverLetters() {
   return (
@@ -38,8 +46,9 @@ export default function CoverLetters() {
             Master the Art of Cover Letters
           </h1>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            A compelling cover letter can be the difference between landing an interview 
-            and being overlooked. Learn how to write letters that open doors.
+            A compelling cover letter can be the difference between landing an
+            interview and being overlooked. Learn how to write letters that open
+            doors.
           </p>
         </div>
 
@@ -58,28 +67,36 @@ export default function CoverLetters() {
                   1
                 </div>
                 <h3 className="font-semibold text-slate-900 mb-2">Header</h3>
-                <p className="text-sm text-slate-600">Your contact info and the employer's details</p>
+                <p className="text-sm text-slate-600">
+                  Your contact info and the employer's details
+                </p>
               </div>
               <div className="text-center">
                 <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full flex items-center justify-center mx-auto text-white font-bold text-lg mb-3">
                   2
                 </div>
                 <h3 className="font-semibold text-slate-900 mb-2">Opening</h3>
-                <p className="text-sm text-slate-600">Hook them with a strong first paragraph</p>
+                <p className="text-sm text-slate-600">
+                  Hook them with a strong first paragraph
+                </p>
               </div>
               <div className="text-center">
                 <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto text-white font-bold text-lg mb-3">
                   3
                 </div>
                 <h3 className="font-semibold text-slate-900 mb-2">Body</h3>
-                <p className="text-sm text-slate-600">Showcase your relevant experience and skills</p>
+                <p className="text-sm text-slate-600">
+                  Showcase your relevant experience and skills
+                </p>
               </div>
               <div className="text-center">
                 <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto text-white font-bold text-lg mb-3">
                   4
                 </div>
                 <h3 className="font-semibold text-slate-900 mb-2">Closing</h3>
-                <p className="text-sm text-slate-600">Professional sign-off with next steps</p>
+                <p className="text-sm text-slate-600">
+                  Professional sign-off with next steps
+                </p>
               </div>
             </div>
           </CardContent>
@@ -92,31 +109,46 @@ export default function CoverLetters() {
                 <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
                   <Target className="w-5 h-5 text-white" />
                 </div>
-                <CardTitle className="text-xl">Opening Paragraph That Hooks</CardTitle>
+                <CardTitle className="text-xl">
+                  Opening Paragraph That Hooks
+                </CardTitle>
                 <Badge variant="secondary">Critical</Badge>
               </div>
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-slate-600">
-                Your opening paragraph should grab attention immediately. Avoid generic openers 
-                and lead with your value proposition.
+                Your opening paragraph should grab attention immediately. Avoid
+                generic openers and lead with your value proposition.
               </p>
-              
+
               <div className="space-y-4">
                 <div className="bg-red-50 border-l-4 border-red-400 p-4">
-                  <div className="text-red-700 font-medium">❌ Generic Opening:</div>
-                  <div className="text-red-600 text-sm">"I am writing to apply for the position advertised on your website."</div>
+                  <div className="text-red-700 font-medium">
+                    ❌ Generic Opening:
+                  </div>
+                  <div className="text-red-600 text-sm">
+                    "I am writing to apply for the position advertised on your
+                    website."
+                  </div>
                 </div>
                 <div className="bg-green-50 border-l-4 border-green-400 p-4">
-                  <div className="text-green-700 font-medium">✅ Strong Opening:</div>
-                  <div className="text-green-600 text-sm">"As a marketing manager who increased lead generation by 300% at my previous company, I'm excited to bring my proven track record of growth to the Marketing Director role at [Company]."</div>
+                  <div className="text-green-700 font-medium">
+                    ✅ Strong Opening:
+                  </div>
+                  <div className="text-green-600 text-sm">
+                    "As a marketing manager who increased lead generation by
+                    300% at my previous company, I'm excited to bring my proven
+                    track record of growth to the Marketing Director role at
+                    [Company]."
+                  </div>
                 </div>
               </div>
 
               <div className="bg-slate-100 p-4 rounded-lg">
                 <h4 className="font-semibold mb-2">Opening Formula:</h4>
                 <p className="text-sm text-slate-600">
-                  [Relevant Achievement/Experience] + [How it relates to their needs] + [Enthusiasm for the role]
+                  [Relevant Achievement/Experience] + [How it relates to their
+                  needs] + [Enthusiasm for the role]
                 </p>
               </div>
             </CardContent>
@@ -128,15 +160,18 @@ export default function CoverLetters() {
                 <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-lg flex items-center justify-center">
                   <Star className="w-5 h-5 text-white" />
                 </div>
-                <CardTitle className="text-xl">Research & Personalization</CardTitle>
+                <CardTitle className="text-xl">
+                  Research & Personalization
+                </CardTitle>
                 <Badge variant="secondary">High Impact</Badge>
               </div>
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-slate-600">
-                Generic cover letters are obvious and ineffective. Show you've done your homework:
+                Generic cover letters are obvious and ineffective. Show you've
+                done your homework:
               </p>
-              
+
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-3">
                   <h4 className="font-semibold text-slate-900 flex items-center">
@@ -152,9 +187,13 @@ export default function CoverLetters() {
                   </ul>
                 </div>
                 <div className="space-y-3">
-                  <h4 className="font-semibold text-slate-900">Personalization Examples:</h4>
+                  <h4 className="font-semibold text-slate-900">
+                    Personalization Examples:
+                  </h4>
                   <ul className="space-y-2 text-slate-600 text-sm">
-                    <li>"I was impressed by [Company]'s recent expansion into..."</li>
+                    <li>
+                      "I was impressed by [Company]'s recent expansion into..."
+                    </li>
                     <li>"Your commitment to [value] aligns with my..."</li>
                     <li>"I noticed [Company] is launching [product]..."</li>
                     <li>"Having used [Company's product], I understand..."</li>
@@ -176,24 +215,40 @@ export default function CoverLetters() {
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-slate-600">
-                Don't just repeat your resume. Use specific examples that demonstrate your value:
+                Don't just repeat your resume. Use specific examples that
+                demonstrate your value:
               </p>
-              
+
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-                  <h4 className="font-semibold text-red-700 mb-2">❌ Telling:</h4>
+                  <h4 className="font-semibold text-red-700 mb-2">
+                    ❌ Telling:
+                  </h4>
                   <div className="space-y-2 text-red-600 text-sm">
-                    <p>"I am a hard worker with excellent communication skills."</p>
+                    <p>
+                      "I am a hard worker with excellent communication skills."
+                    </p>
                     <p>"I have strong leadership abilities."</p>
                     <p>"I am detail-oriented and organized."</p>
                   </div>
                 </div>
                 <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                  <h4 className="font-semibold text-green-700 mb-2">✅ Showing:</h4>
+                  <h4 className="font-semibold text-green-700 mb-2">
+                    ✅ Showing:
+                  </h4>
                   <div className="space-y-2 text-green-600 text-sm">
-                    <p>"I consistently exceeded sales targets by 25% while maintaining a 98% customer satisfaction rate."</p>
-                    <p>"I led a cross-functional team of 12 to deliver a $2M project 3 weeks ahead of schedule."</p>
-                    <p>"My attention to detail caught a critical error that saved the company $50K in potential losses."</p>
+                    <p>
+                      "I consistently exceeded sales targets by 25% while
+                      maintaining a 98% customer satisfaction rate."
+                    </p>
+                    <p>
+                      "I led a cross-functional team of 12 to deliver a $2M
+                      project 3 weeks ahead of schedule."
+                    </p>
+                    <p>
+                      "My attention to detail caught a critical error that saved
+                      the company $50K in potential losses."
+                    </p>
                   </div>
                 </div>
               </div>
@@ -202,63 +257,93 @@ export default function CoverLetters() {
 
           <Card>
             <CardHeader>
-              <CardTitle className="text-xl">Industry-Specific Templates</CardTitle>
+              <CardTitle className="text-xl">
+                Industry-Specific Templates
+              </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <Card className="bg-blue-50 border-blue-200">
                   <CardHeader>
-                    <CardTitle className="text-lg text-blue-900">Technology</CardTitle>
+                    <CardTitle className="text-lg text-blue-900">
+                      Technology
+                    </CardTitle>
                   </CardHeader>
                   <CardContent className="text-sm space-y-2">
-                    <p className="text-blue-800"><strong>Opening:</strong> Lead with a technical achievement</p>
+                    <p className="text-blue-800">
+                      <strong>Opening:</strong> Lead with a technical
+                      achievement
+                    </p>
                     <p className="text-blue-700">
-                      "As a full-stack developer who optimized database queries 
+                      "As a full-stack developer who optimized database queries
                       to reduce load times by 40%..."
                     </p>
-                    <p className="text-blue-800"><strong>Focus:</strong> Technical skills, project impact, problem-solving</p>
+                    <p className="text-blue-800">
+                      <strong>Focus:</strong> Technical skills, project impact,
+                      problem-solving
+                    </p>
                   </CardContent>
                 </Card>
 
                 <Card className="bg-purple-50 border-purple-200">
                   <CardHeader>
-                    <CardTitle className="text-lg text-purple-900">Marketing</CardTitle>
+                    <CardTitle className="text-lg text-purple-900">
+                      Marketing
+                    </CardTitle>
                   </CardHeader>
                   <CardContent className="text-sm space-y-2">
-                    <p className="text-purple-800"><strong>Opening:</strong> Lead with campaign results</p>
-                    <p className="text-purple-700">
-                      "Having generated $2M in pipeline through a targeted 
-                      ABM campaign..."
+                    <p className="text-purple-800">
+                      <strong>Opening:</strong> Lead with campaign results
                     </p>
-                    <p className="text-purple-800"><strong>Focus:</strong> ROI, growth metrics, creativity</p>
+                    <p className="text-purple-700">
+                      "Having generated $2M in pipeline through a targeted ABM
+                      campaign..."
+                    </p>
+                    <p className="text-purple-800">
+                      <strong>Focus:</strong> ROI, growth metrics, creativity
+                    </p>
                   </CardContent>
                 </Card>
 
                 <Card className="bg-green-50 border-green-200">
                   <CardHeader>
-                    <CardTitle className="text-lg text-green-900">Sales</CardTitle>
+                    <CardTitle className="text-lg text-green-900">
+                      Sales
+                    </CardTitle>
                   </CardHeader>
                   <CardContent className="text-sm space-y-2">
-                    <p className="text-green-800"><strong>Opening:</strong> Lead with revenue numbers</p>
-                    <p className="text-green-700">
-                      "After closing $5M in new business while maintaining 
-                      120% of quota..."
+                    <p className="text-green-800">
+                      <strong>Opening:</strong> Lead with revenue numbers
                     </p>
-                    <p className="text-green-800"><strong>Focus:</strong> Revenue, quota attainment, relationship building</p>
+                    <p className="text-green-700">
+                      "After closing $5M in new business while maintaining 120%
+                      of quota..."
+                    </p>
+                    <p className="text-green-800">
+                      <strong>Focus:</strong> Revenue, quota attainment,
+                      relationship building
+                    </p>
                   </CardContent>
                 </Card>
 
                 <Card className="bg-orange-50 border-orange-200">
                   <CardHeader>
-                    <CardTitle className="text-lg text-orange-900">Healthcare</CardTitle>
+                    <CardTitle className="text-lg text-orange-900">
+                      Healthcare
+                    </CardTitle>
                   </CardHeader>
                   <CardContent className="text-sm space-y-2">
-                    <p className="text-orange-800"><strong>Opening:</strong> Lead with patient impact</p>
+                    <p className="text-orange-800">
+                      <strong>Opening:</strong> Lead with patient impact
+                    </p>
                     <p className="text-orange-700">
-                      "Having improved patient satisfaction scores by 30% 
+                      "Having improved patient satisfaction scores by 30%
                       through process optimization..."
                     </p>
-                    <p className="text-orange-800"><strong>Focus:</strong> Patient outcomes, compliance, teamwork</p>
+                    <p className="text-orange-800">
+                      <strong>Focus:</strong> Patient outcomes, compliance,
+                      teamwork
+                    </p>
                   </CardContent>
                 </Card>
               </div>
@@ -267,12 +352,16 @@ export default function CoverLetters() {
 
           <Card>
             <CardHeader>
-              <CardTitle className="text-xl">Common Mistakes to Avoid</CardTitle>
+              <CardTitle className="text-xl">
+                Common Mistakes to Avoid
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-3">
-                  <h4 className="font-semibold text-red-700">❌ Don't Do This:</h4>
+                  <h4 className="font-semibold text-red-700">
+                    ❌ Don't Do This:
+                  </h4>
                   <ul className="space-y-2 text-slate-600 text-sm">
                     <li>• Start with "To Whom It May Concern"</li>
                     <li>• Repeat everything from your resume</li>
@@ -283,7 +372,9 @@ export default function CoverLetters() {
                   </ul>
                 </div>
                 <div className="space-y-3">
-                  <h4 className="font-semibold text-green-700">✅ Do This Instead:</h4>
+                  <h4 className="font-semibold text-green-700">
+                    ✅ Do This Instead:
+                  </h4>
                   <ul className="space-y-2 text-slate-600 text-sm">
                     <li>• Address the hiring manager by name</li>
                     <li>• Complement your resume with new details</li>
@@ -305,13 +396,11 @@ export default function CoverLetters() {
               Ready to Write Your Winning Cover Letter?
             </h2>
             <p className="text-purple-100 mb-6 max-w-2xl mx-auto">
-              Start with a professional resume that gives you the foundation 
-              for compelling cover letters.
+              Start with a professional resume that gives you the foundation for
+              compelling cover letters.
             </p>
             <Button size="lg" variant="secondary" asChild>
-              <Link to="/builder">
-                Build Your Resume First
-              </Link>
+              <Link to="/builder">Build Your Resume First</Link>
             </Button>
           </CardContent>
         </Card>

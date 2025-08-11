@@ -129,13 +129,21 @@ export default function Examples() {
               title: "Senior Software Engineer Resume",
               industry: "Technology",
               experience: "8+ years",
-              highlights: ["Full-stack development", "Team leadership", "System architecture"],
+              highlights: [
+                "Full-stack development",
+                "Team leadership",
+                "System architecture",
+              ],
             },
             {
               title: "Product Manager Resume",
               industry: "SaaS",
               experience: "5+ years",
-              highlights: ["Product strategy", "Cross-functional leadership", "Data-driven decisions"],
+              highlights: [
+                "Product strategy",
+                "Cross-functional leadership",
+                "Data-driven decisions",
+              ],
             },
             {
               title: "UX Designer Resume",
@@ -147,22 +155,37 @@ export default function Examples() {
               title: "Marketing Manager Resume",
               industry: "Digital Marketing",
               experience: "4+ years",
-              highlights: ["Campaign management", "Analytics", "Content strategy"],
+              highlights: [
+                "Campaign management",
+                "Analytics",
+                "Content strategy",
+              ],
             },
             {
               title: "Sales Director Resume",
               industry: "Enterprise Sales",
               experience: "10+ years",
-              highlights: ["Revenue growth", "Team building", "Client relationships"],
+              highlights: [
+                "Revenue growth",
+                "Team building",
+                "Client relationships",
+              ],
             },
             {
               title: "Data Scientist Resume",
               industry: "Analytics",
               experience: "3+ years",
-              highlights: ["Machine learning", "Statistical analysis", "Python/R"],
+              highlights: [
+                "Machine learning",
+                "Statistical analysis",
+                "Python/R",
+              ],
             },
           ].map((example, index) => (
-            <Card key={index} className="group hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+            <Card
+              key={index}
+              className="group hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+            >
               <CardHeader>
                 <div className="w-full h-40 bg-gradient-to-br from-slate-50 to-slate-100 rounded-lg mb-4 flex items-center justify-center relative overflow-hidden border border-slate-200">
                   {/* Mock resume preview */}
@@ -184,13 +207,19 @@ export default function Examples() {
                   {example.title}
                 </CardTitle>
                 <CardDescription>
-                  <span className="text-sm font-medium text-slate-700">{example.industry}</span>
-                  <span className="text-xs text-slate-500 block">{example.experience}</span>
+                  <span className="text-sm font-medium text-slate-700">
+                    {example.industry}
+                  </span>
+                  <span className="text-xs text-slate-500 block">
+                    {example.experience}
+                  </span>
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-2">
-                  <p className="text-sm font-medium text-slate-900">Key highlights:</p>
+                  <p className="text-sm font-medium text-slate-900">
+                    Key highlights:
+                  </p>
                   <ul className="text-xs text-slate-600 space-y-1">
                     {example.highlights.map((highlight, i) => (
                       <li key={i}>• {highlight}</li>

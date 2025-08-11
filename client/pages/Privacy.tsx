@@ -35,9 +35,7 @@ export default function Privacy() {
           <h1 className="text-4xl font-bold text-slate-900 mb-4">
             Privacy Policy
           </h1>
-          <p className="text-xl text-slate-600">
-            Last updated: January 2025
-          </p>
+          <p className="text-xl text-slate-600">Last updated: January 2025</p>
         </div>
 
         <div className="space-y-8">
@@ -47,19 +45,25 @@ export default function Privacy() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <h4 className="font-semibold text-slate-900 mb-2">Personal Information</h4>
+                <h4 className="font-semibold text-slate-900 mb-2">
+                  Personal Information
+                </h4>
                 <p className="text-slate-600">
-                  We collect information you provide directly to us, including your name, email address, 
-                  work experience, education, skills, and other resume-related information when you use 
-                  our resume building service.
+                  We collect information you provide directly to us, including
+                  your name, email address, work experience, education, skills,
+                  and other resume-related information when you use our resume
+                  building service.
                 </p>
               </div>
               <div>
-                <h4 className="font-semibold text-slate-900 mb-2">Usage Information</h4>
+                <h4 className="font-semibold text-slate-900 mb-2">
+                  Usage Information
+                </h4>
                 <p className="text-slate-600">
-                  We automatically collect certain information about your device and how you interact 
-                  with our service, including your IP address, browser type, pages visited, and 
-                  time spent on our platform.
+                  We automatically collect certain information about your device
+                  and how you interact with our service, including your IP
+                  address, browser type, pages visited, and time spent on our
+                  platform.
                 </p>
               </div>
             </CardContent>
@@ -75,8 +79,12 @@ export default function Privacy() {
                 <li>• Process your payments and manage your account</li>
                 <li>• Send you important updates about our service</li>
                 <li>• Improve our platform and develop new features</li>
-                <li>• Provide customer support and respond to your inquiries</li>
-                <li>• Comply with legal obligations and protect against fraud</li>
+                <li>
+                  • Provide customer support and respond to your inquiries
+                </li>
+                <li>
+                  • Comply with legal obligations and protect against fraud
+                </li>
               </ul>
             </CardContent>
           </Card>
@@ -87,13 +95,15 @@ export default function Privacy() {
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-slate-600">
-                We implement appropriate security measures to protect your personal information against 
-                unauthorized access, alteration, disclosure, or destruction. Your data is encrypted 
-                in transit and at rest using industry-standard encryption protocols.
+                We implement appropriate security measures to protect your
+                personal information against unauthorized access, alteration,
+                disclosure, or destruction. Your data is encrypted in transit
+                and at rest using industry-standard encryption protocols.
               </p>
               <p className="text-slate-600">
-                We never sell your personal information to third parties. Your resume data belongs 
-                to you, and we provide tools to export or delete your information at any time.
+                We never sell your personal information to third parties. Your
+                resume data belongs to you, and we provide tools to export or
+                delete your information at any time.
               </p>
             </CardContent>
           </Card>
@@ -120,9 +130,10 @@ export default function Privacy() {
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-slate-600">
-                We use cookies and similar technologies to enhance your experience, analyze usage 
-                patterns, and provide personalized content. You can control cookie settings through 
-                your browser preferences.
+                We use cookies and similar technologies to enhance your
+                experience, analyze usage patterns, and provide personalized
+                content. You can control cookie settings through your browser
+                preferences.
               </p>
             </CardContent>
           </Card>
@@ -133,13 +144,15 @@ export default function Privacy() {
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-slate-600">
-                If you have any questions about this Privacy Policy or our data practices, 
-                please contact us at:
+                If you have any questions about this Privacy Policy or our data
+                practices, please contact us at:
               </p>
               <div className="bg-slate-100 p-4 rounded-lg">
                 <p className="text-slate-700">
-                  <strong>Email:</strong> privacy@resumeai.com<br />
-                  <strong>Address:</strong> 123 Innovation Drive, San Francisco, CA 94105
+                  <strong>Email:</strong> privacy@resumeai.com
+                  <br />
+                  <strong>Address:</strong> 123 Innovation Drive, San Francisco,
+                  CA 94105
                 </p>
               </div>
             </CardContent>

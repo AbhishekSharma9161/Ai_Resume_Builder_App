@@ -38,8 +38,9 @@ export default function Pricing() {
             Simple, Transparent Pricing
           </h1>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Choose the plan that works best for your career goals. All plans include 
-            our AI-powered resume optimization and professional templates.
+            Choose the plan that works best for your career goals. All plans
+            include our AI-powered resume optimization and professional
+            templates.
           </p>
         </div>
 
@@ -57,11 +58,15 @@ export default function Pricing() {
               <CardTitle className="text-2xl">Starter</CardTitle>
               <div className="text-3xl font-bold">
                 $0
-                <span className="text-lg font-normal text-slate-600">/month</span>
+                <span className="text-lg font-normal text-slate-600">
+                  /month
+                </span>
               </div>
             </CardHeader>
             <CardContent className="space-y-4">
-              <p className="text-slate-600">Perfect for getting started with your first professional resume.</p>
+              <p className="text-slate-600">
+                Perfect for getting started with your first professional resume.
+              </p>
               <ul className="space-y-3">
                 <li className="flex items-center text-sm">
                   <Check className="w-4 h-4 text-green-500 mr-3" />
@@ -100,16 +105,27 @@ export default function Pricing() {
                 <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
                   <Zap className="w-6 h-6 text-white" />
                 </div>
-                <Badge variant="outline" className="border-blue-500 text-blue-700">Most Popular</Badge>
+                <Badge
+                  variant="outline"
+                  className="border-blue-500 text-blue-700"
+                >
+                  Most Popular
+                </Badge>
               </div>
-              <CardTitle className="text-2xl text-blue-900">Professional</CardTitle>
+              <CardTitle className="text-2xl text-blue-900">
+                Professional
+              </CardTitle>
               <div className="text-3xl font-bold text-blue-900">
                 $9.99
-                <span className="text-lg font-normal text-blue-600">/month</span>
+                <span className="text-lg font-normal text-blue-600">
+                  /month
+                </span>
               </div>
             </CardHeader>
             <CardContent className="space-y-4">
-              <p className="text-blue-800">Everything you need for a successful job search campaign.</p>
+              <p className="text-blue-800">
+                Everything you need for a successful job search campaign.
+              </p>
               <ul className="space-y-3">
                 <li className="flex items-center text-sm">
                   <Check className="w-4 h-4 text-blue-500 mr-3" />
@@ -153,16 +169,27 @@ export default function Pricing() {
                 <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-lg flex items-center justify-center">
                   <Crown className="w-6 h-6 text-white" />
                 </div>
-                <Badge variant="outline" className="border-purple-500 text-purple-700">Premium</Badge>
+                <Badge
+                  variant="outline"
+                  className="border-purple-500 text-purple-700"
+                >
+                  Premium
+                </Badge>
               </div>
-              <CardTitle className="text-2xl text-purple-900">Executive</CardTitle>
+              <CardTitle className="text-2xl text-purple-900">
+                Executive
+              </CardTitle>
               <div className="text-3xl font-bold text-purple-900">
                 $19.99
-                <span className="text-lg font-normal text-purple-600">/month</span>
+                <span className="text-lg font-normal text-purple-600">
+                  /month
+                </span>
               </div>
             </CardHeader>
             <CardContent className="space-y-4">
-              <p className="text-purple-800">Premium features for executives and senior professionals.</p>
+              <p className="text-purple-800">
+                Premium features for executives and senior professionals.
+              </p>
               <ul className="space-y-3">
                 <li className="flex items-center text-sm">
                   <Check className="w-4 h-4 text-purple-500 mr-3" />
@@ -193,7 +220,10 @@ export default function Pricing() {
                   <span>Priority phone support</span>
                 </li>
               </ul>
-              <Button className="w-full bg-purple-600 hover:bg-purple-700" asChild>
+              <Button
+                className="w-full bg-purple-600 hover:bg-purple-700"
+                asChild
+              >
                 <Link to="/builder">Start 14-Day Free Trial</Link>
               </Button>
             </CardContent>
@@ -212,22 +242,24 @@ export default function Pricing() {
               </CardHeader>
               <CardContent>
                 <p className="text-slate-600">
-                  Yes! You can cancel your subscription at any time. There are no long-term 
-                  contracts or cancellation fees. Your access continues until the end of 
-                  your billing period.
+                  Yes! You can cancel your subscription at any time. There are
+                  no long-term contracts or cancellation fees. Your access
+                  continues until the end of your billing period.
                 </p>
               </CardContent>
             </Card>
 
             <Card>
               <CardHeader>
-                <CardTitle className="text-lg">What happens to my data?</CardTitle>
+                <CardTitle className="text-lg">
+                  What happens to my data?
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-slate-600">
-                  Your resumes and data remain yours. Even on the free plan, you can 
-                  download your resumes as PDFs. Paid plans offer additional export 
-                  formats and backup options.
+                  Your resumes and data remain yours. Even on the free plan, you
+                  can download your resumes as PDFs. Paid plans offer additional
+                  export formats and backup options.
                 </p>
               </CardContent>
             </Card>
@@ -238,22 +270,24 @@ export default function Pricing() {
               </CardHeader>
               <CardContent>
                 <p className="text-slate-600">
-                  We offer a 30-day money-back guarantee on all paid plans. If you're 
-                  not satisfied with our service, we'll provide a full refund within 
-                  30 days of purchase.
+                  We offer a 30-day money-back guarantee on all paid plans. If
+                  you're not satisfied with our service, we'll provide a full
+                  refund within 30 days of purchase.
                 </p>
               </CardContent>
             </Card>
 
             <Card>
               <CardHeader>
-                <CardTitle className="text-lg">Is my payment information secure?</CardTitle>
+                <CardTitle className="text-lg">
+                  Is my payment information secure?
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-slate-600">
-                  Absolutely. We use Stripe for payment processing, which is PCI DSS 
-                  compliant and trusted by millions of businesses worldwide. We never 
-                  store your payment information on our servers.
+                  Absolutely. We use Stripe for payment processing, which is PCI
+                  DSS compliant and trusted by millions of businesses worldwide.
+                  We never store your payment information on our servers.
                 </p>
               </CardContent>
             </Card>
@@ -267,13 +301,12 @@ export default function Pricing() {
               Ready to Build Your Professional Resume?
             </h2>
             <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-              Join over 100,000 job seekers who have successfully landed their dream jobs 
-              with ResumeAI. Start building your winning resume today.
+              Join over 100,000 job seekers who have successfully landed their
+              dream jobs with ResumeAI. Start building your winning resume
+              today.
             </p>
             <Button size="lg" variant="secondary" asChild>
-              <Link to="/builder">
-                Start Building Now
-              </Link>
+              <Link to="/builder">Start Building Now</Link>
             </Button>
           </CardContent>
         </Card>

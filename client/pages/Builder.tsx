@@ -470,13 +470,14 @@ export default function Builder() {
 
       toast({
         title: `ATS Score: ${atsResult.score}%`,
-        description: `${atsResult.feedback} ${atsResult.suggestions.slice(0, 2).join('. ')}.`,
+        description: `${atsResult.feedback} ${atsResult.suggestions.slice(0, 2).join(". ")}.`,
         duration: 10000,
       });
     } catch (error) {
       toast({
         title: "ATS Check Error",
-        description: "Unable to analyze your resume at this time. Please try again.",
+        description:
+          "Unable to analyze your resume at this time. Please try again.",
         variant: "destructive",
       });
     } finally {
@@ -555,10 +556,11 @@ export default function Builder() {
           ...edu,
           id: edu.id || Date.now().toString(),
         })),
-        projects: loadedResume.projects?.map((proj) => ({
-          ...proj,
-          id: proj.id || Date.now().toString(),
-        })) || [],
+        projects:
+          loadedResume.projects?.map((proj) => ({
+            ...proj,
+            id: proj.id || Date.now().toString(),
+          })) || [],
         skills: loadedResume.skills,
       });
 
@@ -1018,7 +1020,11 @@ export default function Builder() {
                             <Input
                               value={project.name}
                               onChange={(e) =>
-                                updateProject(project.id, "name", e.target.value)
+                                updateProject(
+                                  project.id,
+                                  "name",
+                                  e.target.value,
+                                )
                               }
                               placeholder="My Awesome Project"
                             />
@@ -1114,7 +1120,9 @@ export default function Builder() {
                             size="sm"
                             className="mt-2"
                             onClick={() => handleAIOptimizeProject(project.id)}
-                            disabled={isLoadingAI || !project.description.trim()}
+                            disabled={
+                              isLoadingAI || !project.description.trim()
+                            }
                           >
                             {isLoadingAI ? (
                               <Loader2 className="w-4 h-4 mr-2 animate-spin" />
@@ -1441,7 +1449,9 @@ export default function Builder() {
                                 </h3>
                                 <span className="text-sm text-slate-600">
                                   {project.startDate} -{" "}
-                                  {project.current ? "Present" : project.endDate}
+                                  {project.current
+                                    ? "Present"
+                                    : project.endDate}
                                 </span>
                               </div>
                               {project.technologies.length > 0 && (
@@ -1456,12 +1466,8 @@ export default function Builder() {
                                 </p>
                               )}
                               <div className="flex space-x-4 text-xs text-blue-600">
-                                {project.url && (
-                                  <span>🔗 Live Demo</span>
-                                )}
-                                {project.githubUrl && (
-                                  <span>📁 GitHub</span>
-                                )}
+                                {project.url && <span>🔗 Live Demo</span>}
+                                {project.githubUrl && <span>📁 GitHub</span>}
                               </div>
                             </div>
                           ))}

@@ -182,7 +182,7 @@ export class AIService {
   // Mock ATS optimization score
   async getATSScore(
     resumeData: any,
-  ): Promise<{ score: number; suggestions: string[], feedback: string }> {
+  ): Promise<{ score: number; suggestions: string[]; feedback: string }> {
     await new Promise((resolve) => setTimeout(resolve, 500));
 
     const suggestions: string[] = [];
@@ -225,12 +225,15 @@ export class AIService {
     }
 
     // Check for quantifiable achievements
-    const hasMetrics = resumeData.experience.some((exp: any) =>
-      exp.description && /\d+(%|%|\$|x|times)/.test(exp.description)
+    const hasMetrics = resumeData.experience.some(
+      (exp: any) =>
+        exp.description && /\d+(%|%|\$|x|times)/.test(exp.description),
     );
 
     if (!hasMetrics) {
-      suggestions.push("Add quantifiable achievements (numbers, percentages, dollar amounts)");
+      suggestions.push(
+        "Add quantifiable achievements (numbers, percentages, dollar amounts)",
+      );
       score -= 10;
     }
 

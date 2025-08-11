@@ -2,7 +2,16 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
-import { ArrowLeft, TrendingUp, Users, DollarSign, Calendar, MessageCircle, Search, Target } from "lucide-react";
+import {
+  ArrowLeft,
+  TrendingUp,
+  Users,
+  DollarSign,
+  Calendar,
+  MessageCircle,
+  Search,
+  Target,
+} from "lucide-react";
 
 export default function CareerAdvice() {
   return (
@@ -38,7 +47,7 @@ export default function CareerAdvice() {
             Expert Career Guidance
           </h1>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Navigate your career journey with confidence using proven strategies 
+            Navigate your career journey with confidence using proven strategies
             from hiring managers, recruiters, and career coaches.
           </p>
         </div>
@@ -46,7 +55,9 @@ export default function CareerAdvice() {
         {/* Career Journey Timeline */}
         <Card className="mb-8">
           <CardHeader>
-            <CardTitle className="text-2xl text-center">Your Career Success Roadmap</CardTitle>
+            <CardTitle className="text-2xl text-center">
+              Your Career Success Roadmap
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid md:grid-cols-5 gap-4">
@@ -54,36 +65,48 @@ export default function CareerAdvice() {
                 <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto text-white mb-3">
                   <Search className="w-8 h-8" />
                 </div>
-                <h3 className="font-semibold text-slate-900 mb-1">Job Search</h3>
-                <p className="text-xs text-slate-600">Find and apply to the right opportunities</p>
+                <h3 className="font-semibold text-slate-900 mb-1">
+                  Job Search
+                </h3>
+                <p className="text-xs text-slate-600">
+                  Find and apply to the right opportunities
+                </p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full flex items-center justify-center mx-auto text-white mb-3">
                   <MessageCircle className="w-8 h-8" />
                 </div>
                 <h3 className="font-semibold text-slate-900 mb-1">Interview</h3>
-                <p className="text-xs text-slate-600">Ace your interviews with confidence</p>
+                <p className="text-xs text-slate-600">
+                  Ace your interviews with confidence
+                </p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto text-white mb-3">
                   <DollarSign className="w-8 h-8" />
                 </div>
                 <h3 className="font-semibold text-slate-900 mb-1">Negotiate</h3>
-                <p className="text-xs text-slate-600">Secure the best compensation package</p>
+                <p className="text-xs text-slate-600">
+                  Secure the best compensation package
+                </p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto text-white mb-3">
                   <Calendar className="w-8 h-8" />
                 </div>
                 <h3 className="font-semibold text-slate-900 mb-1">Onboard</h3>
-                <p className="text-xs text-slate-600">Start strong in your new role</p>
+                <p className="text-xs text-slate-600">
+                  Start strong in your new role
+                </p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-rose-500 rounded-full flex items-center justify-center mx-auto text-white mb-3">
                   <TrendingUp className="w-8 h-8" />
                 </div>
                 <h3 className="font-semibold text-slate-900 mb-1">Advance</h3>
-                <p className="text-xs text-slate-600">Grow and excel in your career</p>
+                <p className="text-xs text-slate-600">
+                  Grow and excel in your career
+                </p>
               </div>
             </div>
           </CardContent>
@@ -103,33 +126,47 @@ export default function CareerAdvice() {
             <CardContent className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-4">
-                  <h4 className="font-semibold text-slate-900">Where to Search:</h4>
+                  <h4 className="font-semibold text-slate-900">
+                    Where to Search:
+                  </h4>
                   <div className="space-y-3">
                     <div className="flex items-start space-x-3">
                       <div className="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
                       <div>
-                        <h5 className="font-medium text-slate-800">Company Websites</h5>
-                        <p className="text-sm text-slate-600">70% of jobs are never posted publicly</p>
+                        <h5 className="font-medium text-slate-800">
+                          Company Websites
+                        </h5>
+                        <p className="text-sm text-slate-600">
+                          70% of jobs are never posted publicly
+                        </p>
                       </div>
                     </div>
                     <div className="flex items-start space-x-3">
                       <div className="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
                       <div>
                         <h5 className="font-medium text-slate-800">LinkedIn</h5>
-                        <p className="text-sm text-slate-600">Use advanced search and set up job alerts</p>
+                        <p className="text-sm text-slate-600">
+                          Use advanced search and set up job alerts
+                        </p>
                       </div>
                     </div>
                     <div className="flex items-start space-x-3">
                       <div className="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
                       <div>
-                        <h5 className="font-medium text-slate-800">Industry Job Boards</h5>
-                        <p className="text-sm text-slate-600">AngelList for startups, Dice for tech, etc.</p>
+                        <h5 className="font-medium text-slate-800">
+                          Industry Job Boards
+                        </h5>
+                        <p className="text-sm text-slate-600">
+                          AngelList for startups, Dice for tech, etc.
+                        </p>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="space-y-4">
-                  <h4 className="font-semibold text-slate-900">Application Strategy:</h4>
+                  <h4 className="font-semibold text-slate-900">
+                    Application Strategy:
+                  </h4>
                   <ul className="space-y-2 text-slate-600 text-sm">
                     <li>• Apply within 24-48 hours of posting</li>
                     <li>• Target 10-15 quality applications per week</li>
@@ -157,67 +194,102 @@ export default function CareerAdvice() {
               <div className="grid md:grid-cols-3 gap-6">
                 <Card className="bg-blue-50 border-blue-200">
                   <CardHeader>
-                    <CardTitle className="text-lg text-blue-900">Before</CardTitle>
+                    <CardTitle className="text-lg text-blue-900">
+                      Before
+                    </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-2 text-sm">
-                    <p className="text-blue-800"><strong>Research thoroughly:</strong></p>
+                    <p className="text-blue-800">
+                      <strong>Research thoroughly:</strong>
+                    </p>
                     <ul className="text-blue-700 space-y-1">
                       <li>• Company mission and values</li>
                       <li>• Recent news and developments</li>
                       <li>• Interviewer backgrounds (LinkedIn)</li>
                       <li>• Role requirements and challenges</li>
                     </ul>
-                    <p className="text-blue-800 mt-3"><strong>Prepare stories using STAR method</strong></p>
+                    <p className="text-blue-800 mt-3">
+                      <strong>Prepare stories using STAR method</strong>
+                    </p>
                   </CardContent>
                 </Card>
 
                 <Card className="bg-purple-50 border-purple-200">
                   <CardHeader>
-                    <CardTitle className="text-lg text-purple-900">During</CardTitle>
+                    <CardTitle className="text-lg text-purple-900">
+                      During
+                    </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-2 text-sm">
-                    <p className="text-purple-800"><strong>First impressions matter:</strong></p>
+                    <p className="text-purple-800">
+                      <strong>First impressions matter:</strong>
+                    </p>
                     <ul className="text-purple-700 space-y-1">
                       <li>• Arrive 10-15 minutes early</li>
                       <li>• Firm handshake and eye contact</li>
                       <li>• Professional attire</li>
                       <li>• Bring copies of your resume</li>
                     </ul>
-                    <p className="text-purple-800 mt-3"><strong>Ask thoughtful questions</strong></p>
+                    <p className="text-purple-800 mt-3">
+                      <strong>Ask thoughtful questions</strong>
+                    </p>
                   </CardContent>
                 </Card>
 
                 <Card className="bg-green-50 border-green-200">
                   <CardHeader>
-                    <CardTitle className="text-lg text-green-900">After</CardTitle>
+                    <CardTitle className="text-lg text-green-900">
+                      After
+                    </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-2 text-sm">
-                    <p className="text-green-800"><strong>Follow up professionally:</strong></p>
+                    <p className="text-green-800">
+                      <strong>Follow up professionally:</strong>
+                    </p>
                     <ul className="text-green-700 space-y-1">
                       <li>• Send thank you email within 24 hours</li>
                       <li>• Reference specific conversation points</li>
                       <li>• Reiterate your interest and fit</li>
                       <li>• Follow up if no response in 1 week</li>
                     </ul>
-                    <p className="text-green-800 mt-3"><strong>Continue your job search</strong></p>
+                    <p className="text-green-800 mt-3">
+                      <strong>Continue your job search</strong>
+                    </p>
                   </CardContent>
                 </Card>
               </div>
 
               <div className="bg-slate-100 p-6 rounded-lg">
-                <h4 className="font-semibold text-slate-900 mb-3">Common Interview Questions & How to Answer:</h4>
+                <h4 className="font-semibold text-slate-900 mb-3">
+                  Common Interview Questions & How to Answer:
+                </h4>
                 <div className="space-y-3 text-sm">
                   <div>
-                    <p className="font-medium text-slate-800">"Tell me about yourself"</p>
-                    <p className="text-slate-600">Formula: Present situation + Past experience + Future goals (as they relate to this role)</p>
+                    <p className="font-medium text-slate-800">
+                      "Tell me about yourself"
+                    </p>
+                    <p className="text-slate-600">
+                      Formula: Present situation + Past experience + Future
+                      goals (as they relate to this role)
+                    </p>
                   </div>
                   <div>
-                    <p className="font-medium text-slate-800">"Why do you want this role?"</p>
-                    <p className="text-slate-600">Connect your skills and interests to their specific needs and company mission</p>
+                    <p className="font-medium text-slate-800">
+                      "Why do you want this role?"
+                    </p>
+                    <p className="text-slate-600">
+                      Connect your skills and interests to their specific needs
+                      and company mission
+                    </p>
                   </div>
                   <div>
-                    <p className="font-medium text-slate-800">"What's your greatest weakness?"</p>
-                    <p className="text-slate-600">Choose a real weakness + explain how you're actively working to improve it</p>
+                    <p className="font-medium text-slate-800">
+                      "What's your greatest weakness?"
+                    </p>
+                    <p className="text-slate-600">
+                      Choose a real weakness + explain how you're actively
+                      working to improve it
+                    </p>
                   </div>
                 </div>
               </div>
@@ -237,17 +309,23 @@ export default function CareerAdvice() {
             <CardContent className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-4">
-                  <h4 className="font-semibold text-slate-900">Research Your Worth:</h4>
+                  <h4 className="font-semibold text-slate-900">
+                    Research Your Worth:
+                  </h4>
                   <ul className="space-y-2 text-slate-600 text-sm">
                     <li>• Use Glassdoor, PayScale, and Levels.fyi</li>
                     <li>• Factor in location, experience, and company size</li>
-                    <li>• Consider total compensation (benefits, stock, etc.)</li>
+                    <li>
+                      • Consider total compensation (benefits, stock, etc.)
+                    </li>
                     <li>• Talk to people in similar roles</li>
                     <li>• Know your minimum acceptable offer</li>
                   </ul>
                 </div>
                 <div className="space-y-4">
-                  <h4 className="font-semibold text-slate-900">Negotiation Strategy:</h4>
+                  <h4 className="font-semibold text-slate-900">
+                    Negotiation Strategy:
+                  </h4>
                   <ul className="space-y-2 text-slate-600 text-sm">
                     <li>• Let them make the first offer</li>
                     <li>• Express enthusiasm for the role first</li>
@@ -259,11 +337,15 @@ export default function CareerAdvice() {
               </div>
 
               <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                <h4 className="font-semibold text-green-800 mb-2">Negotiation Script Template:</h4>
+                <h4 className="font-semibold text-green-800 mb-2">
+                  Negotiation Script Template:
+                </h4>
                 <p className="text-green-700 text-sm">
-                  "Thank you for the offer! I'm very excited about this opportunity and joining the team. 
-                  Based on my research of similar roles in this market and my [X years] of experience in [field], 
-                  I was hoping we could discuss the compensation. Would there be flexibility to move to $[X]?"
+                  "Thank you for the offer! I'm very excited about this
+                  opportunity and joining the team. Based on my research of
+                  similar roles in this market and my [X years] of experience in
+                  [field], I was hoping we could discuss the compensation. Would
+                  there be flexibility to move to $[X]?"
                 </p>
               </div>
             </CardContent>
@@ -275,14 +357,18 @@ export default function CareerAdvice() {
                 <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
                   <Users className="w-5 h-5 text-white" />
                 </div>
-                <CardTitle className="text-xl">Professional Networking</CardTitle>
+                <CardTitle className="text-xl">
+                  Professional Networking
+                </CardTitle>
                 <Badge variant="secondary">Long-term</Badge>
               </div>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-4">
-                  <h4 className="font-semibold text-slate-900">Building Your Network:</h4>
+                  <h4 className="font-semibold text-slate-900">
+                    Building Your Network:
+                  </h4>
                   <ul className="space-y-2 text-slate-600 text-sm">
                     <li>• Attend industry events and meetups</li>
                     <li>• Join professional associations</li>
@@ -293,7 +379,9 @@ export default function CareerAdvice() {
                   </ul>
                 </div>
                 <div className="space-y-4">
-                  <h4 className="font-semibold text-slate-900">LinkedIn Optimization:</h4>
+                  <h4 className="font-semibold text-slate-900">
+                    LinkedIn Optimization:
+                  </h4>
                   <ul className="space-y-2 text-slate-600 text-sm">
                     <li>• Professional headshot photo</li>
                     <li>• Keyword-optimized headline and summary</li>
@@ -309,13 +397,17 @@ export default function CareerAdvice() {
 
           <Card>
             <CardHeader>
-              <CardTitle className="text-xl">Career Transition Strategies</CardTitle>
+              <CardTitle className="text-xl">
+                Career Transition Strategies
+              </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="grid md:grid-cols-3 gap-6">
                 <Card className="bg-blue-50 border-blue-200">
                   <CardHeader>
-                    <CardTitle className="text-lg text-blue-900">Industry Switch</CardTitle>
+                    <CardTitle className="text-lg text-blue-900">
+                      Industry Switch
+                    </CardTitle>
                   </CardHeader>
                   <CardContent className="text-sm space-y-2">
                     <ul className="text-blue-700 space-y-1">
@@ -330,7 +422,9 @@ export default function CareerAdvice() {
 
                 <Card className="bg-purple-50 border-purple-200">
                   <CardHeader>
-                    <CardTitle className="text-lg text-purple-900">Role Change</CardTitle>
+                    <CardTitle className="text-lg text-purple-900">
+                      Role Change
+                    </CardTitle>
                   </CardHeader>
                   <CardContent className="text-sm space-y-2">
                     <ul className="text-purple-700 space-y-1">
@@ -345,7 +439,9 @@ export default function CareerAdvice() {
 
                 <Card className="bg-green-50 border-green-200">
                   <CardHeader>
-                    <CardTitle className="text-lg text-green-900">Career Break Return</CardTitle>
+                    <CardTitle className="text-lg text-green-900">
+                      Career Break Return
+                    </CardTitle>
                   </CardHeader>
                   <CardContent className="text-sm space-y-2">
                     <ul className="text-green-700 space-y-1">
@@ -369,13 +465,11 @@ export default function CareerAdvice() {
               Start Your Career Journey Today
             </h2>
             <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-              A great career starts with a great resume. Build yours today and 
+              A great career starts with a great resume. Build yours today and
               take the first step toward your dream job.
             </p>
             <Button size="lg" variant="secondary" asChild>
-              <Link to="/builder">
-                Build Your Professional Resume
-              </Link>
+              <Link to="/builder">Build Your Professional Resume</Link>
             </Button>
           </CardContent>
         </Card>
