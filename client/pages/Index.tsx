@@ -121,10 +121,10 @@ export default function Index() {
       <section className="bg-gradient-to-br from-cyan-100 via-blue-100 to-indigo-200 py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">
               Why Choose ResumeAI?
             </h2>
-            <p className="text-blue-100 max-w-2xl mx-auto">
+            <p className="text-slate-600 max-w-2xl mx-auto">
               Our AI-powered platform combines advanced technology with
               professional design to help you create resumes that get results.
             </p>
