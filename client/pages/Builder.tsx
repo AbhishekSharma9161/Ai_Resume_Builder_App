@@ -1378,6 +1378,49 @@ export default function Builder() {
                       </div>
                     )}
 
+                    {/* Projects */}
+                    {resumeData.projects.length > 0 && (
+                      <div>
+                        <h2 className="text-lg font-semibold text-slate-900 mb-3">
+                          Projects
+                        </h2>
+                        <div className="space-y-4">
+                          {resumeData.projects.map((project) => (
+                            <div key={project.id}>
+                              <div className="flex justify-between items-start mb-1">
+                                <h3 className="font-medium text-slate-900">
+                                  {project.name || "Project Name"}
+                                </h3>
+                                <span className="text-sm text-slate-600">
+                                  {project.startDate} -{" "}
+                                  {project.current ? "Present" : project.endDate}
+                                </span>
+                              </div>
+                              {project.technologies.length > 0 && (
+                                <div className="text-slate-700 text-sm mb-2">
+                                  <strong>Technologies:</strong>{" "}
+                                  {project.technologies.join(", ")}
+                                </div>
+                              )}
+                              {project.description && (
+                                <p className="text-slate-600 text-sm leading-relaxed mb-2">
+                                  {project.description}
+                                </p>
+                              )}
+                              <div className="flex space-x-4 text-xs text-blue-600">
+                                {project.url && (
+                                  <span>🔗 Live Demo</span>
+                                )}
+                                {project.githubUrl && (
+                                  <span>📁 GitHub</span>
+                                )}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
                     {/* Education */}
                     {resumeData.education.length > 0 && (
                       <div>
