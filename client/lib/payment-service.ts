@@ -127,18 +127,33 @@ class PaymentService {
 
   // Get user subscription status
   async getSubscription(userId: string): Promise<Subscription | null> {
-    await new Promise(resolve => setTimeout(resolve, 500));
+    try {
+      const response = await fetch(`/api/users/${userId}/subscription`);
 
-    // Mock subscription - in production, fetch from your backend
-    const mockSubscription: Subscription = {
-      id: 'sub_' + Math.random().toString(36).substr(2, 9),
-      planId: 'free',
-      status: 'active',
-      currentPeriodEnd: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
-      cancelAtPeriodEnd: false
-    };
+      if (!response.ok) {
+        if (response.status === 404) return null;
+        throw new Error('Failed to fetch subscription');
+      }
 
-    return mockSubscription;
+      const data = await response.json();
+      return {
+        id: data.id,
+        planId: data.planId,
+        status: data.status,
+        currentPeriodEnd: new Date(data.currentPeriodEnd),
+        cancelAtPeriodEnd: data.cancelAtPeriodEnd
+      };
+    } catch (error) {
+      console.error('Failed to get subscription:', error);
+      // Return free plan as fallback
+      return {
+        id: 'free_subscription',
+        planId: 'free',
+        status: 'active',
+        currentPeriodEnd: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
+        cancelAtPeriodEnd: false
+      };
+    }
   }
 
   // Cancel subscription
