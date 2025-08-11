@@ -118,16 +118,17 @@ export default function Index() {
       </section>
 
       {/* Features Section */}
-      <section className="container mx-auto px-4 py-16">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-slate-900 mb-4">
-            Why Choose ResumeAI?
-          </h2>
-          <p className="text-slate-600 max-w-2xl mx-auto">
-            Our AI-powered platform combines advanced technology with
-            professional design to help you create resumes that get results.
-          </p>
-        </div>
+      <section className="bg-gradient-to-br from-slate-600 via-blue-800 to-indigo-900 py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-white mb-4">
+              Why Choose ResumeAI?
+            </h2>
+            <p className="text-blue-100 max-w-2xl mx-auto">
+              Our AI-powered platform combines advanced technology with
+              professional design to help you create resumes that get results.
+            </p>
+          </div>
 
         <div className="grid md:grid-cols-3 gap-8">
           <Card className="border-0 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group relative overflow-hidden">
@@ -274,6 +275,7 @@ export default function Index() {
               </CardDescription>
             </CardHeader>
           </Card>
+        </div>
         </div>
       </section>
 
