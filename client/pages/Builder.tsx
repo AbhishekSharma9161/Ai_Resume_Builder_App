@@ -65,6 +65,9 @@ export default function Builder() {
   });
 
   const [currentSkill, setCurrentSkill] = useState("");
+  const [isLoadingAI, setIsLoadingAI] = useState(false);
+  const [isExporting, setIsExporting] = useState(false);
+  const { toast } = useToast();
 
   const addExperience = () => {
     const newExp: Experience = {
