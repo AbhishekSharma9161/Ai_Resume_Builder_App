@@ -82,47 +82,23 @@ class PaymentService {
     return PaymentService.instance;
   }
 
-  // Create checkout session
+  // Create checkout session (demo implementation)
   async createCheckoutSession(planId: string, userId: string): Promise<PaymentSession> {
     const plan = paymentPlans.find(p => p.id === planId);
     if (!plan || plan.price === 0) {
       throw new Error('Invalid plan selected');
     }
 
-    try {
-      const response = await fetch('/api/payments/create-checkout-session', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          planId,
-          userId,
-          successUrl: `${window.location.origin}/payment/success?session_id={CHECKOUT_SESSION_ID}`,
-          cancelUrl: `${window.location.origin}/pricing`,
-        }),
-      });
+    // Demo implementation - simulate payment processing
+    await new Promise(resolve => setTimeout(resolve, 1000));
 
-      if (!response.ok) {
-        throw new Error('Failed to create checkout session');
-      }
+    const mockSession: PaymentSession = {
+      sessionId: `cs_demo_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+      url: `/payment/success?session_id=cs_demo_${Date.now()}&plan=${planId}`,
+      planId
+    };
 
-      const session = await response.json();
-
-      // For demo, redirect to success page after a delay
-      setTimeout(() => {
-        window.location.href = session.url;
-      }, 2000);
-
-      return {
-        sessionId: session.sessionId,
-        url: session.url,
-        planId
-      };
-    } catch (error) {
-      console.error('Checkout session creation failed:', error);
-      throw error;
-    }
+    return mockSession;
   }
 
   // Get user subscription status
