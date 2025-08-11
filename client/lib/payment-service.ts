@@ -158,16 +158,40 @@ class PaymentService {
 
   // Cancel subscription
   async cancelSubscription(subscriptionId: string): Promise<void> {
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    // In production, call your backend to cancel the Stripe subscription
-    console.log('Subscription cancelled:', subscriptionId);
+    try {
+      const response = await fetch(`/api/subscriptions/${subscriptionId}/cancel`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to cancel subscription');
+      }
+    } catch (error) {
+      console.error('Failed to cancel subscription:', error);
+      throw error;
+    }
   }
 
   // Resume subscription
   async resumeSubscription(subscriptionId: string): Promise<void> {
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    // In production, call your backend to resume the Stripe subscription
-    console.log('Subscription resumed:', subscriptionId);
+    try {
+      const response = await fetch(`/api/subscriptions/${subscriptionId}/resume`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to resume subscription');
+      }
+    } catch (error) {
+      console.error('Failed to resume subscription:', error);
+      throw error;
+    }
   }
 
   // Get plan by ID
