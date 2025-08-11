@@ -69,6 +69,11 @@ export default function Builder() {
   const [currentSkill, setCurrentSkill] = useState("");
   const [isLoadingAI, setIsLoadingAI] = useState(false);
   const [isExporting, setIsExporting] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
+  const [currentUser, setCurrentUser] = useState<{ id: string; email: string; name: string } | null>(null);
+  const [currentResumeId, setCurrentResumeId] = useState<string | null>(null);
+  const [resumeTitle, setResumeTitle] = useState("My Resume");
+  const [showSaveDialog, setShowSaveDialog] = useState(false);
   const { toast } = useToast();
 
   const addExperience = () => {
