@@ -6,7 +6,7 @@ import { ArrowRight, Brain, Download, FileText, Sparkles, Star, Users, Zap } fro
 
 export default function Index() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+    <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-blue-50 to-indigo-100">
       {/* Navigation */}
       <nav className="container mx-auto px-4 py-6">
         <div className="flex items-center justify-between">
