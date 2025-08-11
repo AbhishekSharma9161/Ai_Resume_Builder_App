@@ -381,8 +381,18 @@ export default function Builder() {
                         placeholder="Write a brief summary of your professional background and goals..."
                         rows={4}
                       />
-                      <Button variant="outline" size="sm" className="mt-2">
-                        <Brain className="w-4 h-4 mr-2" />
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="mt-2"
+                        onClick={handleAISummaryGeneration}
+                        disabled={isLoadingAI}
+                      >
+                        {isLoadingAI ? (
+                          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                        ) : (
+                          <Brain className="w-4 h-4 mr-2" />
+                        )}
                         AI Suggestions
                       </Button>
                     </div>
