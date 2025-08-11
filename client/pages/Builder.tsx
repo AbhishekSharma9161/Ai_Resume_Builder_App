@@ -713,20 +713,36 @@ export default function Builder() {
                         <p className="text-sm">Add skills that are relevant to your target job</p>
                       </div>
                     )}
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="w-full"
-                      onClick={handleAISkillSuggestions}
-                      disabled={isLoadingAI}
-                    >
-                      {isLoadingAI ? (
-                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                      ) : (
-                        <Brain className="w-4 h-4 mr-2" />
-                      )}
-                      AI Skill Suggestions
-                    </Button>
+                    <div className="space-y-2">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="w-full"
+                        onClick={handleAISkillSuggestions}
+                        disabled={isLoadingAI}
+                      >
+                        {isLoadingAI ? (
+                          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                        ) : (
+                          <Brain className="w-4 h-4 mr-2" />
+                        )}
+                        AI Skill Suggestions
+                      </Button>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="w-full"
+                        onClick={handleAISkillsOptimization}
+                        disabled={isLoadingAI || resumeData.skills.length === 0}
+                      >
+                        {isLoadingAI ? (
+                          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                        ) : (
+                          <Brain className="w-4 h-4 mr-2" />
+                        )}
+                        AI Optimize & ATS Score
+                      </Button>
+                    </div>
                   </CardContent>
                 </Card>
               </TabsContent>
