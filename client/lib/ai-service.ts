@@ -182,20 +182,26 @@ export class AIService {
   // Mock ATS optimization score
   async getATSScore(
     resumeData: any,
-  ): Promise<{ score: number; suggestions: string[] }> {
+  ): Promise<{ score: number; suggestions: string[], feedback: string }> {
     await new Promise((resolve) => setTimeout(resolve, 500));
 
     const suggestions: string[] = [];
-    let score = 85;
+    let score = 95;
 
+    // Check required fields
     if (!resumeData.personalInfo.fullName) {
       suggestions.push("Add your full name");
-      score -= 10;
+      score -= 15;
     }
 
     if (!resumeData.personalInfo.email) {
       suggestions.push("Add your email address");
       score -= 10;
+    }
+
+    if (!resumeData.personalInfo.phone) {
+      suggestions.push("Add your phone number");
+      score -= 5;
     }
 
     if (!resumeData.summary) {
@@ -205,7 +211,7 @@ export class AIService {
 
     if (resumeData.experience.length === 0) {
       suggestions.push("Add work experience");
-      score -= 20;
+      score -= 25;
     }
 
     if (resumeData.skills.length < 5) {
@@ -213,14 +219,54 @@ export class AIService {
       score -= 10;
     }
 
+    if (resumeData.skills.length > 15) {
+      suggestions.push("Consider reducing skills to most relevant ones");
+      score -= 5;
+    }
+
+    // Check for quantifiable achievements
+    const hasMetrics = resumeData.experience.some((exp: any) =>
+      exp.description && /\d+(%|%|\$|x|times)/.test(exp.description)
+    );
+
+    if (!hasMetrics) {
+      suggestions.push("Add quantifiable achievements (numbers, percentages, dollar amounts)");
+      score -= 10;
+    }
+
+    // Check experience descriptions
     if (resumeData.experience.some((exp: any) => !exp.description)) {
       suggestions.push("Add descriptions to all work experiences");
-      score -= 10;
+      score -= 15;
+    }
+
+    // Check for projects (bonus points)
+    if (resumeData.projects && resumeData.projects.length > 0) {
+      score += 5; // Bonus for having projects
+    }
+
+    // Check education
+    if (resumeData.education.length === 0) {
+      suggestions.push("Consider adding education information");
+      score -= 5;
+    }
+
+    // Generate feedback based on score
+    let feedback = "";
+    if (score >= 90) {
+      feedback = "Excellent! Your resume is well-optimized for ATS systems.";
+    } else if (score >= 80) {
+      feedback = "Good! A few improvements will make your resume ATS-ready.";
+    } else if (score >= 70) {
+      feedback = "Your resume needs some optimization for ATS systems.";
+    } else {
+      feedback = "Important improvements needed for ATS compatibility.";
     }
 
     return {
       score: Math.max(score, 0),
       suggestions,
+      feedback,
     };
   }
 }
