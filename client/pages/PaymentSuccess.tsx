@@ -41,23 +41,23 @@ export default function PaymentSuccess() {
           {/* Subscription Details */}
           <div className="bg-green-50 border border-green-200 rounded-lg p-4">
             <div className="flex items-center justify-between mb-3">
-              <h3 className="font-semibold text-green-800">Professional Plan</h3>
+              <h3 className="font-semibold text-green-800">{planName} Plan</h3>
               <Badge className="bg-green-600">Active</Badge>
             </div>
             <div className="space-y-2 text-sm text-green-700">
               <div className="flex justify-between">
                 <span>Free trial period:</span>
-                <span className="font-medium">7 days</span>
+                <span className="font-medium">{trialDays} days</span>
               </div>
               <div className="flex justify-between">
                 <span>Trial ends:</span>
                 <span className="font-medium">
-                  {new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toLocaleDateString()}
+                  {new Date(Date.now() + trialDays * 24 * 60 * 60 * 1000).toLocaleDateString()}
                 </span>
               </div>
               <div className="flex justify-between">
                 <span>Monthly charge:</span>
-                <span className="font-medium">$9.99/month</span>
+                <span className="font-medium">{monthlyPrice}/month</span>
               </div>
             </div>
           </div>
