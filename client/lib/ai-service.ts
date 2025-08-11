@@ -53,16 +53,58 @@ export class AIService {
   async optimizeJobDescription(description: string, jobTitle: string): Promise<AIJobSuggestion[]> {
     await new Promise(resolve => setTimeout(resolve, 800));
 
+    // Convert to bullet points and add metrics
+    let optimizedContent = description;
+
+    // Add bullet points if not present
+    if (!description.includes('•') && !description.includes('-')) {
+      optimizedContent = description
+        .split('.')
+        .filter(sentence => sentence.trim().length > 0)
+        .map(sentence => `• ${sentence.trim().replace(/^(I |My |The )/, '')}`)
+        .join('\n');
+    }
+
+    // Add quantifiable achievements based on job title
+    const achievementTemplates = {
+      'Software Engineer': [
+        '• Improved application performance by 40% through code optimization',
+        '• Reduced bug reports by 60% by implementing comprehensive testing',
+        '• Collaborated with 5+ team members to deliver features 2 weeks ahead of schedule'
+      ],
+      'Product Manager': [
+        '• Increased user engagement by 35% through data-driven feature prioritization',
+        '• Led cross-functional teams of 8+ members across design, engineering, and marketing',
+        '• Reduced time-to-market by 25% by streamlining product development processes'
+      ],
+      'Designer': [
+        '• Improved user satisfaction by 45% through user-centered design improvements',
+        '• Reduced design-to-development handoff time by 30% with detailed design systems',
+        '• Increased conversion rates by 20% through A/B testing and iterative design'
+      ]
+    };
+
+    const relevantAchievements = achievementTemplates[jobTitle as keyof typeof achievementTemplates] || [
+      '• Exceeded performance targets by 25% through strategic planning and execution',
+      '• Collaborated with cross-functional teams to deliver projects ahead of schedule',
+      '• Implemented process improvements that increased efficiency by 30%'
+    ];
+
     const suggestions: AIJobSuggestion[] = [
       {
-        content: description.replace(/I /g, '• ').replace(/\./g, '\n• ') + '\n• Collaborated with cross-functional teams to deliver projects 20% ahead of schedule',
-        reason: "Added quantifiable achievement and bullet points for better readability",
+        content: optimizedContent + '\n' + relevantAchievements[0],
+        reason: "Added quantifiable achievements and improved formatting with bullet points",
         confidence: 0.92
       },
       {
-        content: description + ' Utilized industry best practices to improve code quality and reduce technical debt by 30%.',
-        reason: "Added specific metrics and technical improvement",
+        content: optimizedContent + '\n' + relevantAchievements[1],
+        reason: "Enhanced with team collaboration and leadership metrics",
         confidence: 0.88
+      },
+      {
+        content: optimizedContent + '\n' + relevantAchievements[2],
+        reason: "Added process improvement and efficiency metrics",
+        confidence: 0.85
       }
     ];
 
