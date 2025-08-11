@@ -118,6 +118,7 @@ export default function Builder() {
   const [currentResumeId, setCurrentResumeId] = useState<string | null>(null);
   const [resumeTitle, setResumeTitle] = useState("My Resume");
   const [showSaveDialog, setShowSaveDialog] = useState(false);
+  const [userPlan, setUserPlan] = useState("free"); // In production, get from auth context
   const { toast } = useToast();
 
   const addExperience = () => {
