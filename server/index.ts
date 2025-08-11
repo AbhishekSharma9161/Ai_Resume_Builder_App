@@ -2,6 +2,8 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import { handleDemo } from "./routes/demo";
+import { createResume, getUserResumes, getResume, updateResume, deleteResume } from "./routes/resumes";
+import { createUser, getUserByEmail, getUser } from "./routes/users";
 
 export function createServer() {
   const app = express();
@@ -18,6 +20,18 @@ export function createServer() {
   });
 
   app.get("/api/demo", handleDemo);
+
+  // User routes
+  app.post("/api/users", createUser);
+  app.get("/api/users/email/:email", getUserByEmail);
+  app.get("/api/users/:id", getUser);
+
+  // Resume routes
+  app.post("/api/resumes", createResume);
+  app.get("/api/users/:userId/resumes", getUserResumes);
+  app.get("/api/resumes/:id", getResume);
+  app.put("/api/resumes/:id", updateResume);
+  app.delete("/api/resumes/:id", deleteResume);
 
   return app;
 }
