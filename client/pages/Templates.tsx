@@ -231,7 +231,7 @@ export default function Templates() {
 
         {/* Templates Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {templates.map((template) => (
+          {filteredTemplates.map((template) => (
             <Card key={template.id} className="overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
               <div className="relative">
                 <div className="aspect-[3/4] bg-gradient-to-br from-white to-slate-50 border-2 border-slate-200 flex flex-col items-center justify-start p-4 text-xs leading-tight">
