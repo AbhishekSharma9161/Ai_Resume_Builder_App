@@ -103,40 +103,49 @@ export default function Index() {
         </div>
         
         <div className="grid md:grid-cols-3 gap-8">
-          <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300">
-            <CardHeader>
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <Brain className="w-6 h-6 text-blue-600" />
+          <Card className="border-0 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group relative overflow-hidden">
+            {/* Background pattern */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-cyan-50 opacity-50"></div>
+            <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-blue-200/30 to-transparent rounded-bl-3xl"></div>
+            <CardHeader className="relative z-10">
+              <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <Brain className="w-6 h-6 text-white" />
               </div>
-              <CardTitle>AI-Powered Content</CardTitle>
+              <CardTitle className="group-hover:text-blue-600 transition-colors">AI-Powered Content</CardTitle>
               <CardDescription>
-                Get intelligent suggestions for job descriptions, skills, and achievements 
+                Get intelligent suggestions for job descriptions, skills, and achievements
                 tailored to your industry.
               </CardDescription>
             </CardHeader>
           </Card>
 
-          <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300">
-            <CardHeader>
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                <Zap className="w-6 h-6 text-purple-600" />
+          <Card className="border-0 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group relative overflow-hidden">
+            {/* Background pattern */}
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-50 to-indigo-50 opacity-50"></div>
+            <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-purple-200/30 to-transparent rounded-bl-3xl"></div>
+            <CardHeader className="relative z-10">
+              <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <Zap className="w-6 h-6 text-white" />
               </div>
-              <CardTitle>ATS Optimization</CardTitle>
+              <CardTitle className="group-hover:text-purple-600 transition-colors">ATS Optimization</CardTitle>
               <CardDescription>
-                Our AI ensures your resume passes Applicant Tracking Systems with 
+                Our AI ensures your resume passes Applicant Tracking Systems with
                 optimized formatting and keywords.
               </CardDescription>
             </CardHeader>
           </Card>
 
-          <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300">
-            <CardHeader>
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                <FileText className="w-6 h-6 text-green-600" />
+          <Card className="border-0 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group relative overflow-hidden">
+            {/* Background pattern */}
+            <div className="absolute inset-0 bg-gradient-to-br from-green-50 to-emerald-50 opacity-50"></div>
+            <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-green-200/30 to-transparent rounded-bl-3xl"></div>
+            <CardHeader className="relative z-10">
+              <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <FileText className="w-6 h-6 text-white" />
               </div>
-              <CardTitle>Professional Templates</CardTitle>
+              <CardTitle className="group-hover:text-green-600 transition-colors">Professional Templates</CardTitle>
               <CardDescription>
-                Choose from dozens of professionally designed templates that work 
+                Choose from dozens of professionally designed templates that work
                 across all industries and career levels.
               </CardDescription>
             </CardHeader>
