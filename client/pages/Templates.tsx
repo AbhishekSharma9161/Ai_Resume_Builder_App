@@ -123,39 +123,77 @@ export default function Templates() {
         {/* Templates Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {templates.map((template) => (
-            <Card key={template.id} className="overflow-hidden hover:shadow-lg transition-all duration-300 group">
+            <Card key={template.id} className="overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
               <div className="relative">
-                <div className="aspect-[3/4] bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center">
-                  <FileText className="w-16 h-16 text-slate-400" />
+                <div className="aspect-[3/4] bg-gradient-to-br from-white to-slate-50 border-2 border-slate-200 flex flex-col items-center justify-start p-4 text-xs leading-tight">
+                  {/* Mock Resume Content */}
+                  <div className="w-full text-center mb-2">
+                    <div className="h-2 bg-slate-800 rounded mb-1"></div>
+                    <div className="h-1 bg-slate-400 rounded w-2/3 mx-auto mb-1"></div>
+                    <div className="h-1 bg-slate-400 rounded w-1/2 mx-auto"></div>
+                  </div>
+                  <div className="h-px bg-slate-300 w-full mb-2"></div>
+                  <div className="w-full space-y-1 mb-2">
+                    <div className="h-1 bg-slate-600 rounded w-1/4"></div>
+                    <div className="h-1 bg-slate-400 rounded w-full"></div>
+                    <div className="h-1 bg-slate-400 rounded w-3/4"></div>
+                    <div className="h-1 bg-slate-400 rounded w-5/6"></div>
+                  </div>
+                  <div className="w-full space-y-1 mb-2">
+                    <div className="h-1 bg-slate-600 rounded w-1/3"></div>
+                    <div className="h-1 bg-slate-400 rounded w-full"></div>
+                    <div className="h-1 bg-slate-400 rounded w-4/5"></div>
+                  </div>
+                  <div className="w-full space-y-1">
+                    <div className="h-1 bg-slate-600 rounded w-1/4"></div>
+                    <div className="flex space-x-1">
+                      <div className="h-1 bg-blue-400 rounded flex-1"></div>
+                      <div className="h-1 bg-green-400 rounded flex-1"></div>
+                      <div className="h-1 bg-purple-400 rounded flex-1"></div>
+                    </div>
+                  </div>
                 </div>
                 {template.featured && (
-                  <Badge className="absolute top-3 left-3 bg-gradient-to-r from-blue-600 to-purple-600">
+                  <Badge className="absolute top-3 left-3 bg-gradient-to-r from-blue-600 to-purple-600 shadow-lg">
+                    <Star className="w-3 h-3 mr-1" />
                     Featured
                   </Badge>
                 )}
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <Button asChild>
-                    <Link to="/builder">Use This Template</Link>
-                  </Button>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div className="space-y-2">
+                    <Button asChild className="w-full">
+                      <Link to="/builder">Use This Template</Link>
+                    </Button>
+                    <Button variant="outline" size="sm" className="w-full text-white border-white hover:bg-white hover:text-black">
+                      Preview
+                    </Button>
+                  </div>
                 </div>
               </div>
               <CardHeader>
                 <div className="flex items-start justify-between">
                   <div>
-                    <CardTitle className="text-lg">{template.name}</CardTitle>
+                    <CardTitle className="text-lg group-hover:text-blue-600 transition-colors">{template.name}</CardTitle>
                     <CardDescription>{template.description}</CardDescription>
                   </div>
                 </div>
                 <div className="flex items-center justify-between text-sm text-slate-600">
                   <div className="flex items-center space-x-1">
                     <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                    <span>{template.rating}</span>
+                    <span className="font-medium">{template.rating}</span>
                   </div>
-                  <span>{template.downloads} downloads</span>
+                  <span className="text-slate-500">{template.downloads} downloads</span>
                 </div>
-                <Badge variant="outline" className="w-fit">
-                  {template.category}
-                </Badge>
+                <div className="flex items-center justify-between">
+                  <Badge variant="outline" className="w-fit">
+                    {template.category}
+                  </Badge>
+                  <Button size="sm" variant="ghost" asChild>
+                    <Link to="/builder">
+                      Select <ArrowRight className="w-3 h-3 ml-1" />
+                    </Link>
+                  </Button>
+                </div>
               </CardHeader>
             </Card>
           ))}
