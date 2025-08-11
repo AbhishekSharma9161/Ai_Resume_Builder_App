@@ -646,6 +646,20 @@ export default function Builder() {
               </Button>
 
               <Button
+                variant="outline"
+                size="sm"
+                onClick={handleATSCheck}
+                disabled={isLoadingAI}
+              >
+                {isLoadingAI ? (
+                  <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                ) : (
+                  <Brain className="w-4 h-4 mr-2" />
+                )}
+                ATS Check
+              </Button>
+
+              <Button
                 size="sm"
                 onClick={handleExportPDF}
                 disabled={isExporting}
