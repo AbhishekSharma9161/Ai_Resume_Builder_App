@@ -245,24 +245,24 @@ export default function Index() {
             <div>
               <h3 className="font-semibold mb-4">Resources</h3>
               <ul className="space-y-2 text-slate-400">
-                <li><a href="#" className="hover:text-white transition-colors">Resume Tips</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Cover Letters</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Career Advice</a></li>
+                <li><Link to="/tips" className="hover:text-white transition-colors">Resume Tips</Link></li>
+                <li><Link to="/cover-letters" className="hover:text-white transition-colors">Cover Letters</Link></li>
+                <li><Link to="/career-advice" className="hover:text-white transition-colors">Career Advice</Link></li>
               </ul>
             </div>
-            
+
             <div>
               <h3 className="font-semibold mb-4">Company</h3>
               <ul className="space-y-2 text-slate-400">
-                <li><a href="#" className="hover:text-white transition-colors">About</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Privacy</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Terms</a></li>
+                <li><Link to="/about" className="hover:text-white transition-colors">About</Link></li>
+                <li><Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link></li>
+                <li><Link to="/terms" className="hover:text-white transition-colors">Terms</Link></li>
               </ul>
             </div>
           </div>
-          
+
           <div className="border-t border-slate-800 mt-8 pt-8 text-center text-slate-400">
-            <p>&copy; 2024 ResumeAI. All rights reserved.</p>
+            <p>&copy; 2025 ResumeAI. All rights reserved.</p>
           </div>
         </div>
       </footer>
