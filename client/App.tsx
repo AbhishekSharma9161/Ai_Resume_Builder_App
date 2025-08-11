@@ -11,6 +11,12 @@ import Builder from "./pages/Builder";
 import Templates from "./pages/Templates";
 import Examples from "./pages/Examples";
 import Pricing from "./pages/Pricing";
+import Tips from "./pages/Tips";
+import CoverLetters from "./pages/CoverLetters";
+import CareerAdvice from "./pages/CareerAdvice";
+import About from "./pages/About";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
