@@ -280,13 +280,8 @@ export default function Index() {
       </section>
 
       {/* How It Works Section */}
-      <section className="bg-white py-16 relative overflow-hidden">
-        {/* Background elements */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 to-blue-50/30"></div>
-        <div className="absolute top-10 left-10 w-32 h-32 bg-blue-100/30 rounded-full blur-2xl"></div>
-        <div className="absolute bottom-10 right-10 w-40 h-40 bg-purple-100/30 rounded-full blur-2xl"></div>
-
-        <div className="container mx-auto px-4 relative z-10">
+      <section className="bg-white py-16">
+        <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-slate-900 mb-4">
               How It Works
