@@ -58,7 +58,7 @@ export default function Index() {
       </nav>
 
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-16 text-center relative overflow-hidden bg-gradient-to-br from-cyan-100 via-blue-200 to-indigo-300">
+      <section className="px-6 py-16 text-center relative overflow-hidden bg-gradient-to-br from-cyan-100 via-blue-200 to-indigo-300">
         {/* Background decoration */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl"></div>
@@ -119,7 +119,7 @@ export default function Index() {
 
       {/* Features Section */}
       <section className="bg-gradient-to-br from-cyan-100 via-blue-100 to-indigo-200 py-16">
-        <div className="container mx-auto px-4">
+        <div className="px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-slate-900 mb-4">
               Why Choose ResumeAI?
@@ -281,7 +281,7 @@ export default function Index() {
 
       {/* How It Works Section */}
       <section className="bg-white py-16">
-        <div className="container mx-auto px-4">
+        <div className="px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-slate-900 mb-4">
               How It Works
@@ -352,7 +352,7 @@ export default function Index() {
 
       {/* CTA Section */}
       <section className="bg-gradient-to-r from-blue-600 to-purple-600 py-16">
-        <div className="container mx-auto px-4 text-center">
+        <div className="px-6 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
             Ready to Build Your Dream Resume?
           </h2>
@@ -375,7 +375,7 @@ export default function Index() {
 
       {/* Footer */}
       <footer className="bg-slate-900 text-white py-12">
-        <div className="container mx-auto px-4">
+        <div className="px-6">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
