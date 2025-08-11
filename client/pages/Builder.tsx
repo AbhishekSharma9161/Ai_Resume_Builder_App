@@ -8,7 +8,10 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Download, Eye, FileText, Plus, Trash2, Brain } from "lucide-react";
+import { ArrowLeft, Download, Eye, FileText, Plus, Trash2, Brain, Loader2 } from "lucide-react";
+import { aiService } from "@/lib/ai-service";
+import { exportToPDF } from "@/lib/pdf-export";
+import { useToast } from "@/hooks/use-toast";
 
 interface Experience {
   id: string;
