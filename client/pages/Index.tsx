@@ -34,43 +34,58 @@ export default function Index() {
       </nav>
 
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-16 text-center">
-        <Badge variant="secondary" className="mb-4">
-          <Sparkles className="w-3 h-3 mr-1" />
-          AI-Powered Resume Builder
-        </Badge>
-        <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 leading-tight">
-          Build Your Perfect Resume with{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-            AI Magic
-          </span>
-        </h1>
-        <p className="text-xl text-slate-600 mb-8 max-w-3xl mx-auto">
-          Create professional, ATS-optimized resumes in minutes with our AI-powered builder. 
-          Get personalized suggestions, smart formatting, and industry-specific content.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button asChild size="lg" className="text-base">
-            <Link to="/builder">
-              Start Building Free <ArrowRight className="w-4 h-4 ml-2" />
-            </Link>
-          </Button>
-          <Button variant="outline" size="lg" className="text-base">
-            View Examples
-          </Button>
+      <section className="container mx-auto px-4 py-16 text-center relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl"></div>
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-cyan-400/20 to-blue-400/20 rounded-full blur-3xl"></div>
         </div>
-        <div className="flex items-center justify-center gap-6 mt-8 text-sm text-slate-500">
-          <div className="flex items-center gap-1">
-            <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-            <span>4.9/5 rating</span>
+
+        <div className="relative z-10">
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-slate-800/90 backdrop-blur-sm text-cyan-300 text-sm font-medium mb-6 shadow-lg">
+            <Sparkles className="w-3 h-3 mr-2 text-cyan-400" />
+            AI-Powered Resume Builder
           </div>
-          <div className="flex items-center gap-1">
-            <Users className="w-4 h-4" />
-            <span>50K+ users</span>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-800 via-blue-600 to-purple-600">
+              Build Your Perfect Resume with{" "}
+            </span>
+            <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 animate-pulse">
+              <span className="relative z-10">AI Magic</span>
+              <span className="absolute inset-0 animate-ping text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-400 opacity-75">AI Magic</span>
+              {/* Sparkle effects */}
+              <span className="absolute -top-1 -right-1 w-2 h-2 bg-yellow-400 rounded-full animate-ping"></span>
+              <span className="absolute -bottom-1 -left-1 w-1.5 h-1.5 bg-cyan-400 rounded-full animate-ping delay-100"></span>
+              <span className="absolute top-1/2 -right-2 w-1 h-1 bg-purple-400 rounded-full animate-ping delay-200"></span>
+            </span>
+          </h1>
+          <p className="text-xl text-slate-600 mb-8 max-w-3xl mx-auto">
+            Create professional, ATS-optimized resumes in minutes with our AI-powered builder.
+            Get personalized suggestions, smart formatting, and industry-specific content.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button asChild size="lg" className="text-base">
+              <Link to="/builder">
+                Start Building Free <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </Button>
+            <Button variant="outline" size="lg" className="text-base" asChild>
+              <Link to="/examples">View Examples</Link>
+            </Button>
           </div>
-          <div className="flex items-center gap-1">
-            <Download className="w-4 h-4" />
-            <span>100K+ downloads</span>
+          <div className="flex items-center justify-center gap-6 mt-8 text-sm text-slate-500">
+            <div className="flex items-center gap-1">
+              <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+              <span>4.9/5 rating</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <Users className="w-4 h-4" />
+              <span>50K+ users</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <Download className="w-4 h-4" />
+              <span>100K+ downloads</span>
+            </div>
           </div>
         </div>
       </section>
