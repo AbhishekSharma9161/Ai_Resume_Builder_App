@@ -66,12 +66,12 @@ export default function Index() {
         </div>
 
         <div className="relative z-10">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm text-cyan-200 text-sm font-medium mb-6 shadow-lg">
-            <Sparkles className="w-3 h-3 mr-2 text-cyan-300" />
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-slate-800/90 backdrop-blur-sm text-cyan-300 text-sm font-medium mb-6 shadow-lg">
+            <Sparkles className="w-3 h-3 mr-2 text-cyan-400" />
             AI-Powered Resume Builder
           </div>
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-200 to-blue-200">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-800 via-blue-600 to-purple-600">
               Build Your Perfect Resume with{" "}
             </span>
             <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">
@@ -85,7 +85,7 @@ export default function Index() {
               <span className="absolute top-0 -left-2 w-1 h-1 bg-green-400 rounded-full animate-ping delay-700"></span>
             </span>
           </h1>
-          <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+          <p className="text-xl text-slate-600 mb-8 max-w-3xl mx-auto">
             Create professional, ATS-optimized resumes in minutes with our
             AI-powered builder. Get personalized suggestions, smart formatting,
             and industry-specific content.
@@ -100,7 +100,7 @@ export default function Index() {
               <Link to="/examples">View Examples</Link>
             </Button>
           </div>
-          <div className="flex items-center justify-center gap-6 mt-8 text-sm text-blue-200">
+          <div className="flex items-center justify-center gap-6 mt-8 text-sm text-slate-500">
             <div className="flex items-center gap-1">
               <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
               <span>4.9/5 rating</span>
