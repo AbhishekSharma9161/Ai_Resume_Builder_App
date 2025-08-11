@@ -234,31 +234,41 @@ export default function Templates() {
           {filteredTemplates.map((template) => (
             <Card key={template.id} className="overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
               <div className="relative">
-                <div className="aspect-[3/4] bg-gradient-to-br from-white to-slate-50 border-2 border-slate-200 flex flex-col items-center justify-start p-4 text-xs leading-tight">
+                <div className="aspect-[3/4] bg-gradient-to-br from-white to-slate-50 border-2 border-slate-200 flex flex-col items-center justify-start p-4 text-xs leading-tight relative overflow-hidden">
+                  {/* Template specific accent */}
+                  <div className={`absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-${template.colors[0].split('-')[1]}-500 to-${template.colors[1].split('-')[1]}-500`}></div>
+
                   {/* Mock Resume Content */}
-                  <div className="w-full text-center mb-2">
+                  <div className="w-full text-center mb-2 pt-1">
                     <div className="h-2 bg-slate-800 rounded mb-1"></div>
                     <div className="h-1 bg-slate-400 rounded w-2/3 mx-auto mb-1"></div>
                     <div className="h-1 bg-slate-400 rounded w-1/2 mx-auto"></div>
                   </div>
                   <div className="h-px bg-slate-300 w-full mb-2"></div>
+
+                  {/* Professional Summary */}
                   <div className="w-full space-y-1 mb-2">
-                    <div className="h-1 bg-slate-600 rounded w-1/4"></div>
+                    <div className={`h-1 ${template.colors[0]} rounded w-1/4`}></div>
                     <div className="h-1 bg-slate-400 rounded w-full"></div>
                     <div className="h-1 bg-slate-400 rounded w-3/4"></div>
                     <div className="h-1 bg-slate-400 rounded w-5/6"></div>
                   </div>
+
+                  {/* Experience Section */}
                   <div className="w-full space-y-1 mb-2">
-                    <div className="h-1 bg-slate-600 rounded w-1/3"></div>
+                    <div className={`h-1 ${template.colors[1]} rounded w-1/3`}></div>
                     <div className="h-1 bg-slate-400 rounded w-full"></div>
                     <div className="h-1 bg-slate-400 rounded w-4/5"></div>
+                    <div className="h-1 bg-slate-300 rounded w-2/3"></div>
                   </div>
+
+                  {/* Skills Section */}
                   <div className="w-full space-y-1">
-                    <div className="h-1 bg-slate-600 rounded w-1/4"></div>
+                    <div className={`h-1 ${template.colors[0]} rounded w-1/4`}></div>
                     <div className="flex space-x-1">
-                      <div className="h-1 bg-blue-400 rounded flex-1"></div>
-                      <div className="h-1 bg-green-400 rounded flex-1"></div>
-                      <div className="h-1 bg-purple-400 rounded flex-1"></div>
+                      <div className={`h-1 ${template.colors[0]} rounded flex-1`}></div>
+                      <div className={`h-1 ${template.colors[1]} rounded flex-1`}></div>
+                      <div className="h-1 bg-slate-400 rounded flex-1"></div>
                     </div>
                   </div>
                 </div>
