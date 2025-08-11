@@ -470,8 +470,8 @@ export default function Builder() {
 
       toast({
         title: `ATS Score: ${atsResult.score}%`,
-        description: `${atsResult.feedback} ${atsResult.suggestions.slice(0, 2).join(' ')}`,
-        duration: 8000,
+        description: `${atsResult.feedback} ${atsResult.suggestions.slice(0, 2).join('. ')}.`,
+        duration: 10000,
       });
     } catch (error) {
       toast({
