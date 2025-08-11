@@ -444,10 +444,56 @@ export default function Builder() {
               </div>
             </div>
             <div className="flex items-center space-x-2">
+              <Dialog open={showSaveDialog} onOpenChange={setShowSaveDialog}>
+                <DialogTrigger asChild>
+                  <Button variant="outline" size="sm">
+                    <Save className="w-4 h-4 mr-2" />
+                    Save
+                  </Button>
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>Save Resume</DialogTitle>
+                    <DialogDescription>
+                      Enter a name for your resume to save it to the database.
+                    </DialogDescription>
+                  </DialogHeader>
+                  <div className="space-y-4">
+                    <div>
+                      <Label htmlFor="resume-title">Resume Title</Label>
+                      <Input
+                        id="resume-title"
+                        value={resumeTitle}
+                        onChange={(e) => setResumeTitle(e.target.value)}
+                        placeholder="e.g., Software Engineer Resume"
+                      />
+                    </div>
+                    <Button
+                      onClick={handleSaveResume}
+                      disabled={isSaving || !resumeTitle.trim()}
+                      className="w-full"
+                    >
+                      {isSaving ? (
+                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                      ) : (
+                        <Save className="w-4 h-4 mr-2" />
+                      )}
+                      {currentResumeId ? 'Update Resume' : 'Save Resume'}
+                    </Button>
+                  </div>
+                </DialogContent>
+              </Dialog>
+
+              <Button variant="outline" size="sm">
+                <FolderOpen className="w-4 h-4 mr-2" />
+                Load
+              </Button>
+
               <Button variant="outline" size="sm">
                 <Eye className="w-4 h-4 mr-2" />
                 Preview
               </Button>
+
               <Button size="sm" onClick={handleExportPDF} disabled={isExporting}>
                 {isExporting ? (
                   <Loader2 className="w-4 h-4 mr-2 animate-spin" />
