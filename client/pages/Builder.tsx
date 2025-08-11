@@ -170,6 +170,44 @@ export default function Builder() {
     }));
   };
 
+  const addProject = () => {
+    const newProject: Project = {
+      id: Date.now().toString(),
+      name: "",
+      description: "",
+      technologies: [],
+      url: "",
+      githubUrl: "",
+      startDate: "",
+      endDate: "",
+      current: false,
+    };
+    setResumeData((prev) => ({
+      ...prev,
+      projects: [...prev.projects, newProject],
+    }));
+  };
+
+  const removeProject = (id: string) => {
+    setResumeData((prev) => ({
+      ...prev,
+      projects: prev.projects.filter((project) => project.id !== id),
+    }));
+  };
+
+  const updateProject = (
+    id: string,
+    field: keyof Project,
+    value: string | boolean | string[],
+  ) => {
+    setResumeData((prev) => ({
+      ...prev,
+      projects: prev.projects.map((project) =>
+        project.id === id ? { ...project, [field]: value } : project,
+      ),
+    }));
+  };
+
   const removeEducation = (id: string) => {
     setResumeData((prev) => ({
       ...prev,
