@@ -46,5 +46,12 @@ export function createServer() {
   app.put("/api/resumes/:id", updateResume);
   app.delete("/api/resumes/:id", deleteResume);
 
+  // Payment routes
+  app.post("/api/payments/create-checkout-session", createCheckoutSession);
+  app.post("/api/payments/webhook", handleWebhook);
+  app.get("/api/users/:userId/subscription", getUserSubscription);
+  app.post("/api/subscriptions/:subscriptionId/cancel", cancelSubscription);
+  app.post("/api/subscriptions/:subscriptionId/resume", resumeSubscription);
+
   return app;
 }
