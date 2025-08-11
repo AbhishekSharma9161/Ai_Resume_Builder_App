@@ -291,40 +291,19 @@ export default function Index() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 relative">
-            {/* Connection lines for desktop */}
-            <div className="hidden md:block absolute top-8 left-1/6 right-1/6 h-0.5 bg-gradient-to-r from-blue-200 via-purple-200 to-blue-200 opacity-50"></div>
-
+          <div className="grid md:grid-cols-3 gap-8">
             {/* Step 1 */}
-            <div className="text-center group cursor-pointer">
-              <div className="relative mb-6">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto text-white font-bold text-xl group-hover:scale-110 transition-all duration-300 shadow-lg group-hover:shadow-2xl">
-                  1
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full animate-ping opacity-20 group-hover:opacity-40"></div>
-                </div>
-                {/* Interactive elements around the circle */}
-                <div className="absolute -top-2 -right-2 w-6 h-6 bg-blue-100 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full m-2"></div>
-                </div>
-                <div className="absolute -bottom-2 -left-2 w-4 h-4 bg-purple-100 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse delay-100">
-                  <div className="w-1.5 h-1.5 bg-purple-500 rounded-full m-1"></div>
-                </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto text-white font-bold text-xl mb-6 shadow-lg">
+                1
               </div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
+              <h3 className="text-xl font-semibold text-slate-900 mb-3">
                 Add Your Information
               </h3>
-              <p className="text-slate-600 group-hover:text-slate-700 transition-colors">
+              <p className="text-slate-600">
                 Simply input your basic details, work experience, and skills.
                 Our AI will help optimize everything.
               </p>
-              {/* Interactive preview */}
-              <div className="mt-4 p-3 bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                <div className="space-y-2">
-                  <div className="h-2 bg-blue-200 rounded w-3/4 mx-auto"></div>
-                  <div className="h-1.5 bg-purple-200 rounded w-1/2 mx-auto"></div>
-                  <div className="h-1.5 bg-blue-200 rounded w-2/3 mx-auto"></div>
-                </div>
-              </div>
             </div>
 
             {/* Step 2 */}
