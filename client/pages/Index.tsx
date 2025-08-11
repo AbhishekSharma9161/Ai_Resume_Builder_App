@@ -1,62 +1,247 @@
-import { DemoResponse } from "@shared/api";
-import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
+import { ArrowRight, Brain, Download, FileText, Sparkles, Star, Users, Zap } from "lucide-react";
 
 export default function Index() {
-  const [exampleFromServer, setExampleFromServer] = useState("");
-  // Fetch users on component mount
-  useEffect(() => {
-    fetchDemo();
-  }, []);
-
-  // Example of how to fetch data from the server (if needed)
-  const fetchDemo = async () => {
-    try {
-      const response = await fetch("/api/demo");
-      const data = (await response.json()) as DemoResponse;
-      setExampleFromServer(data.message);
-    } catch (error) {
-      console.error("Error fetching hello:", error);
-    }
-  };
-
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200">
-      <div className="text-center">
-        {/* TODO: FUSION_GENERATION_APP_PLACEHOLDER replace everything here with the actual app! */}
-        <h1 className="text-2xl font-semibold text-slate-800 flex items-center justify-center gap-3">
-          <svg
-            className="animate-spin h-8 w-8 text-slate-400"
-            viewBox="0 0 50 50"
-          >
-            <circle
-              className="opacity-30"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-            />
-            <circle
-              className="text-slate-600"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-              strokeDasharray="100"
-              strokeDashoffset="75"
-            />
-          </svg>
-          Generating your app...
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+      {/* Navigation */}
+      <nav className="container mx-auto px-4 py-6">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-2">
+            <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+              <FileText className="w-4 h-4 text-white" />
+            </div>
+            <span className="text-xl font-bold text-slate-900">ResumeAI</span>
+          </div>
+          <div className="hidden md:flex items-center space-x-6">
+            <Link to="/templates" className="text-slate-600 hover:text-slate-900 transition-colors">
+              Templates
+            </Link>
+            <Link to="/examples" className="text-slate-600 hover:text-slate-900 transition-colors">
+              Examples
+            </Link>
+            <Link to="/pricing" className="text-slate-600 hover:text-slate-900 transition-colors">
+              Pricing
+            </Link>
+            <Button asChild size="sm">
+              <Link to="/builder">Get Started</Link>
+            </Button>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="container mx-auto px-4 py-16 text-center">
+        <Badge variant="secondary" className="mb-4">
+          <Sparkles className="w-3 h-3 mr-1" />
+          AI-Powered Resume Builder
+        </Badge>
+        <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 leading-tight">
+          Build Your Perfect Resume with{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+            AI Magic
+          </span>
         </h1>
-        <p className="mt-4 text-slate-600 max-w-md">
-          Watch the chat on the left for updates that might need your attention
-          to finish generating
+        <p className="text-xl text-slate-600 mb-8 max-w-3xl mx-auto">
+          Create professional, ATS-optimized resumes in minutes with our AI-powered builder. 
+          Get personalized suggestions, smart formatting, and industry-specific content.
         </p>
-        <p className="mt-4 hidden max-w-md">{exampleFromServer}</p>
-      </div>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button asChild size="lg" className="text-base">
+            <Link to="/builder">
+              Start Building Free <ArrowRight className="w-4 h-4 ml-2" />
+            </Link>
+          </Button>
+          <Button variant="outline" size="lg" className="text-base">
+            View Examples
+          </Button>
+        </div>
+        <div className="flex items-center justify-center gap-6 mt-8 text-sm text-slate-500">
+          <div className="flex items-center gap-1">
+            <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+            <span>4.9/5 rating</span>
+          </div>
+          <div className="flex items-center gap-1">
+            <Users className="w-4 h-4" />
+            <span>50K+ users</span>
+          </div>
+          <div className="flex items-center gap-1">
+            <Download className="w-4 h-4" />
+            <span>100K+ downloads</span>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="container mx-auto px-4 py-16">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-slate-900 mb-4">
+            Why Choose ResumeAI?
+          </h2>
+          <p className="text-slate-600 max-w-2xl mx-auto">
+            Our AI-powered platform combines advanced technology with professional design 
+            to help you create resumes that get results.
+          </p>
+        </div>
+        
+        <div className="grid md:grid-cols-3 gap-8">
+          <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300">
+            <CardHeader>
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                <Brain className="w-6 h-6 text-blue-600" />
+              </div>
+              <CardTitle>AI-Powered Content</CardTitle>
+              <CardDescription>
+                Get intelligent suggestions for job descriptions, skills, and achievements 
+                tailored to your industry.
+              </CardDescription>
+            </CardHeader>
+          </Card>
+
+          <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300">
+            <CardHeader>
+              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                <Zap className="w-6 h-6 text-purple-600" />
+              </div>
+              <CardTitle>ATS Optimization</CardTitle>
+              <CardDescription>
+                Our AI ensures your resume passes Applicant Tracking Systems with 
+                optimized formatting and keywords.
+              </CardDescription>
+            </CardHeader>
+          </Card>
+
+          <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300">
+            <CardHeader>
+              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                <FileText className="w-6 h-6 text-green-600" />
+              </div>
+              <CardTitle>Professional Templates</CardTitle>
+              <CardDescription>
+                Choose from dozens of professionally designed templates that work 
+                across all industries and career levels.
+              </CardDescription>
+            </CardHeader>
+          </Card>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section className="bg-white py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">
+              How It Works
+            </h2>
+            <p className="text-slate-600 max-w-2xl mx-auto">
+              Create your perfect resume in just three simple steps
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">
+                1
+              </div>
+              <h3 className="text-xl font-semibold text-slate-900 mb-2">Add Your Information</h3>
+              <p className="text-slate-600">
+                Simply input your basic details, work experience, and skills. Our AI will help optimize everything.
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">
+                2
+              </div>
+              <h3 className="text-xl font-semibold text-slate-900 mb-2">Choose a Template</h3>
+              <p className="text-slate-600">
+                Select from our collection of professional templates designed for different industries and roles.
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">
+                3
+              </div>
+              <h3 className="text-xl font-semibold text-slate-900 mb-2">Download & Apply</h3>
+              <p className="text-slate-600">
+                Get your polished resume in multiple formats and start applying to your dream jobs immediately.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="bg-gradient-to-r from-blue-600 to-purple-600 py-16">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold text-white mb-4">
+            Ready to Build Your Dream Resume?
+          </h2>
+          <p className="text-blue-100 mb-8 max-w-2xl mx-auto text-lg">
+            Join thousands of job seekers who've landed their dream jobs with ResumeAI. 
+            Start building your professional resume today.
+          </p>
+          <Button asChild size="lg" variant="secondary" className="text-base font-semibold">
+            <Link to="/builder">
+              Get Started for Free <ArrowRight className="w-4 h-4 ml-2" />
+            </Link>
+          </Button>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-slate-900 text-white py-12">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-4 gap-8">
+            <div>
+              <div className="flex items-center space-x-2 mb-4">
+                <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                  <FileText className="w-4 h-4 text-white" />
+                </div>
+                <span className="text-xl font-bold">ResumeAI</span>
+              </div>
+              <p className="text-slate-400">
+                Build professional resumes with the power of AI
+              </p>
+            </div>
+            
+            <div>
+              <h3 className="font-semibold mb-4">Product</h3>
+              <ul className="space-y-2 text-slate-400">
+                <li><Link to="/builder" className="hover:text-white transition-colors">Resume Builder</Link></li>
+                <li><Link to="/templates" className="hover:text-white transition-colors">Templates</Link></li>
+                <li><Link to="/examples" className="hover:text-white transition-colors">Examples</Link></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h3 className="font-semibold mb-4">Resources</h3>
+              <ul className="space-y-2 text-slate-400">
+                <li><a href="#" className="hover:text-white transition-colors">Resume Tips</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Cover Letters</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Career Advice</a></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h3 className="font-semibold mb-4">Company</h3>
+              <ul className="space-y-2 text-slate-400">
+                <li><a href="#" className="hover:text-white transition-colors">About</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Privacy</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Terms</a></li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="border-t border-slate-800 mt-8 pt-8 text-center text-slate-400">
+            <p>&copy; 2024 ResumeAI. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
