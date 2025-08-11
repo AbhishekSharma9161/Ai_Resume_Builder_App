@@ -50,13 +50,15 @@ export default function Index() {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-800 via-blue-600 to-purple-600">
               Build Your Perfect Resume with{" "}
             </span>
-            <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 animate-pulse">
-              <span className="relative z-10">AI Magic</span>
-              <span className="absolute inset-0 animate-ping text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-400 opacity-75">AI Magic</span>
-              {/* Sparkle effects */}
-              <span className="absolute -top-1 -right-1 w-2 h-2 bg-yellow-400 rounded-full animate-ping"></span>
-              <span className="absolute -bottom-1 -left-1 w-1.5 h-1.5 bg-cyan-400 rounded-full animate-ping delay-100"></span>
-              <span className="absolute top-1/2 -right-2 w-1 h-1 bg-purple-400 rounded-full animate-ping delay-200"></span>
+            <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">
+              AI Magic
+              {/* Static sparkle effects around the text */}
+              <span className="absolute -top-2 -right-3 w-2 h-2 bg-yellow-400 rounded-full animate-ping"></span>
+              <span className="absolute -bottom-2 -left-3 w-1.5 h-1.5 bg-cyan-400 rounded-full animate-ping delay-100"></span>
+              <span className="absolute top-1/2 -right-4 w-1 h-1 bg-purple-400 rounded-full animate-ping delay-200"></span>
+              <span className="absolute -top-3 left-1/4 w-1 h-1 bg-pink-400 rounded-full animate-ping delay-300"></span>
+              <span className="absolute -bottom-3 right-1/4 w-1.5 h-1.5 bg-blue-400 rounded-full animate-ping delay-500"></span>
+              <span className="absolute top-0 -left-2 w-1 h-1 bg-green-400 rounded-full animate-ping delay-700"></span>
             </span>
           </h1>
           <p className="text-xl text-slate-600 mb-8 max-w-3xl mx-auto">
