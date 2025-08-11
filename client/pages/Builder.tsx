@@ -555,6 +555,10 @@ export default function Builder() {
           ...edu,
           id: edu.id || Date.now().toString(),
         })),
+        projects: loadedResume.projects?.map((proj) => ({
+          ...proj,
+          id: proj.id || Date.now().toString(),
+        })) || [],
         skills: loadedResume.skills,
       });
 
