@@ -550,8 +550,18 @@ export default function Builder() {
                             placeholder="Describe your responsibilities and achievements..."
                             rows={3}
                           />
-                          <Button variant="outline" size="sm" className="mt-2">
-                            <Brain className="w-4 h-4 mr-2" />
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="mt-2"
+                            onClick={() => handleAIOptimizeExperience(exp.id)}
+                            disabled={isLoadingAI || !exp.description.trim()}
+                          >
+                            {isLoadingAI ? (
+                              <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                            ) : (
+                              <Brain className="w-4 h-4 mr-2" />
+                            )}
                             AI Optimize
                           </Button>
                         </div>
