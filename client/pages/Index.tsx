@@ -307,66 +307,31 @@ export default function Index() {
             </div>
 
             {/* Step 2 */}
-            <div className="text-center group cursor-pointer">
-              <div className="relative mb-6">
-                <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full flex items-center justify-center mx-auto text-white font-bold text-xl group-hover:scale-110 transition-all duration-300 shadow-lg group-hover:shadow-2xl">
-                  2
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-indigo-400 rounded-full animate-ping opacity-20 group-hover:opacity-40"></div>
-                </div>
-                <div className="absolute -top-2 -right-2 w-6 h-6 bg-purple-100 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse">
-                  <div className="w-2 h-2 bg-purple-500 rounded-full m-2"></div>
-                </div>
-                <div className="absolute -bottom-2 -left-2 w-4 h-4 bg-indigo-100 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse delay-100">
-                  <div className="w-1.5 h-1.5 bg-indigo-500 rounded-full m-1"></div>
-                </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full flex items-center justify-center mx-auto text-white font-bold text-xl mb-6 shadow-lg">
+                2
               </div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-3 group-hover:text-purple-600 transition-colors">
+              <h3 className="text-xl font-semibold text-slate-900 mb-3">
                 Choose a Template
               </h3>
-              <p className="text-slate-600 group-hover:text-slate-700 transition-colors">
+              <p className="text-slate-600">
                 Select from our collection of professional templates designed
                 for different industries and roles.
               </p>
-              <div className="mt-4 p-3 bg-gradient-to-br from-purple-50 to-indigo-50 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                <div className="grid grid-cols-3 gap-1">
-                  <div className="h-8 bg-purple-200 rounded"></div>
-                  <div className="h-8 bg-indigo-200 rounded"></div>
-                  <div className="h-8 bg-purple-300 rounded"></div>
-                </div>
-              </div>
             </div>
 
             {/* Step 3 */}
-            <div className="text-center group cursor-pointer">
-              <div className="relative mb-6">
-                <div className="w-16 h-16 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full flex items-center justify-center mx-auto text-white font-bold text-xl group-hover:scale-110 transition-all duration-300 shadow-lg group-hover:shadow-2xl">
-                  3
-                  <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-emerald-400 rounded-full animate-ping opacity-20 group-hover:opacity-40"></div>
-                </div>
-                <div className="absolute -top-2 -right-2 w-6 h-6 bg-green-100 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse">
-                  <div className="w-2 h-2 bg-green-500 rounded-full m-2"></div>
-                </div>
-                <div className="absolute -bottom-2 -left-2 w-4 h-4 bg-emerald-100 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse delay-100">
-                  <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full m-1"></div>
-                </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full flex items-center justify-center mx-auto text-white font-bold text-xl mb-6 shadow-lg">
+                3
               </div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-3 group-hover:text-green-600 transition-colors">
+              <h3 className="text-xl font-semibold text-slate-900 mb-3">
                 Download & Apply
               </h3>
-              <p className="text-slate-600 group-hover:text-slate-700 transition-colors">
+              <p className="text-slate-600">
                 Get your polished resume in multiple formats and start applying
                 to your dream jobs immediately.
               </p>
-              <div className="mt-4 p-3 bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                <div className="flex justify-center space-x-2">
-                  <div className="w-6 h-8 bg-green-200 rounded flex items-center justify-center">
-                    <FileText className="w-3 h-3 text-green-600" />
-                  </div>
-                  <div className="w-6 h-8 bg-emerald-200 rounded flex items-center justify-center">
-                    <Download className="w-3 h-3 text-emerald-600" />
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
 
@@ -375,7 +340,7 @@ export default function Index() {
             <Button
               asChild
               size="lg"
-              className="text-base animate-pulse hover:animate-none"
+              className="text-base"
             >
               <Link to="/builder">
                 Get Started Now <ArrowRight className="w-4 h-4 ml-2" />
