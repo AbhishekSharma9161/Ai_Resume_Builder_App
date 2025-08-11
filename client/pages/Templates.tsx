@@ -172,6 +172,12 @@ const templates = [
 const categories = ["All", "Professional", "Creative", "Technology", "Executive", "Academic", "Startup"];
 
 export default function Templates() {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
+  const filteredTemplates = selectedCategory === "All"
+    ? templates
+    : templates.filter(template => template.category === selectedCategory);
+
   return (
     <div className="min-h-screen bg-slate-50">
       {/* Header */}
