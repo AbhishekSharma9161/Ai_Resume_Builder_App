@@ -118,7 +118,7 @@ export default function Index() {
       </section>
 
       {/* Features Section */}
-      <section className="bg-gradient-to-br from-slate-600 via-blue-800 to-indigo-900 py-16">
+      <section className="bg-gradient-to-br from-cyan-100 via-blue-100 to-indigo-200 py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white mb-4">
