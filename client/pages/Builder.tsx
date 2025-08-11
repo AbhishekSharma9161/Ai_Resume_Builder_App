@@ -271,6 +271,23 @@ export default function Builder() {
       return;
     }
 
+    // Check for premium feature access
+    if (!paymentService.hasFeatureAccess(userPlan, "advanced_ai")) {
+      toast({
+        title: "Premium Feature",
+        description: "Advanced AI suggestions are available with Professional plan.",
+        action: (
+          <Button asChild size="sm" className="bg-blue-600 hover:bg-blue-700">
+            <a href="/pricing">
+              <Crown className="w-3 h-3 mr-1" />
+              Upgrade
+            </a>
+          </Button>
+        ),
+      });
+      return;
+    }
+
     setIsLoadingAI(true);
     try {
       const jobTitle = resumeData.experience[0]?.position || "Professional";
