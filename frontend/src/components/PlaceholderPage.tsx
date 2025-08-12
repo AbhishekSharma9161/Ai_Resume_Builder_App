@@ -68,10 +68,10 @@ export default function PlaceholderPage({
             )}
             <div className="space-y-2">
               <Button asChild>
-                <Link to="/builder">Start Building Your Resume Now</Link>
+                <Link href="/builder">Start Building Your Resume Now</Link>
               </Button>
               <Button variant="outline" asChild>
-                <Link to="/templates">Browse Templates</Link>
+                <Link href="/templates">Browse Templates</Link>
               </Button>
             </div>
           </CardContent>
