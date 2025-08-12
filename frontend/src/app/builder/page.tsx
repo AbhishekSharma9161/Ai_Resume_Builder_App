@@ -25,8 +25,28 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Checkbox } from "@/components/ui/checkbox";
-import { ATSScoreChecker } from "@/components/ATSScoreChecker";
 import Link from "next/link";
+import dynamic from "next/dynamic";
+
+// Lazy load heavy components
+const ATSScoreChecker = dynamic(() => import("@/components/ATSScoreChecker").then(mod => ({ default: mod.ATSScoreChecker })), {
+  loading: () => (
+    <Card className="cursor-pointer border-2 border-dashed border-blue-300 bg-gradient-to-br from-blue-50 to-indigo-50">
+      <CardContent className="pt-6">
+        <div className="flex items-center justify-center space-x-3">
+          <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center">
+            <Loader2 className="w-6 h-6 text-white animate-spin" />
+          </div>
+          <div className="text-center">
+            <h3 className="font-semibold text-slate-900">Loading ATS Checker...</h3>
+            <p className="text-sm text-slate-600">Please wait</p>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  ),
+  ssr: false
+});
 import {
   ArrowLeft,
   Download,
