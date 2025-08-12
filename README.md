@@ -122,44 +122,63 @@ git clone <repository-url>
 cd resumeai
 ```
 
-### 2. Backend Setup
+### 2. Install Dependencies (All Projects)
+```bash
+# Install all dependencies at once
+npm run install:all
+
+# Or install individually:
+npm install              # Root dependencies
+npm install --prefix frontend
+npm install --prefix backend
+```
+
+### 3. Environment Setup
+
+**Backend Environment Variables (.env in backend folder):**
+```bash
+cd backend
+cp .env.example .env
+# Edit .env with your database URL, API keys, etc.
+```
+
+**Frontend Environment Variables (.env.local in frontend folder):**
+```bash
+cd frontend
+cp .env.local.example .env.local
+# Edit .env.local with your API URLs
+```
+
+### 4. Database Setup
 ```bash
 cd backend
 
-# Install dependencies
-npm install
-
-# Set up environment variables
-cp .env.example .env
-# Edit .env with your database URL, API keys, etc.
-
-# Set up the database
+# Generate Prisma client
 npm run db:generate
+
+# Push schema to database
 npm run db:push
+
+# Seed the database (optional)
 npm run db:seed
-
-# Start the development server
-npm run dev
 ```
 
-The backend will run on `http://localhost:5000`
+### 5. Start Development Servers
 
-### 3. Frontend Setup
+**Option 1: Start both servers simultaneously (Recommended)**
 ```bash
-cd frontend
-
-# Install dependencies
-npm install
-
-# Set up environment variables
-cp .env.local.example .env.local
-# Edit .env.local with your API URLs
-
-# Start the development server
+# From root directory
 npm run dev
 ```
 
-The frontend will run on `http://localhost:3000`
+**Option 2: Start servers individually**
+```bash
+# Backend (Terminal 1)
+npm run dev:backend    # Runs on http://localhost:5000
+
+# Frontend (Terminal 2)
+npm run dev:frontend   # Runs on http://localhost:3000
+```
 
 ## 🔧 Environment Variables
 
