@@ -25,6 +25,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Checkbox } from "@/components/ui/checkbox";
+import { ATSScoreChecker } from "@/components/ATSScoreChecker";
 import Link from "next/link";
 import {
   ArrowLeft,
@@ -197,6 +198,55 @@ export default function BuilderPage() {
       ...prev,
       skills: prev.skills.filter(skill => skill !== skillToRemove)
     }));
+  };
+
+  // AI Enhancement for Experience
+  const enhanceExperienceDescription = async (experienceId?: string) => {
+    setIsGenerating(true);
+    try {
+      const currentExp = experienceId
+        ? resumeData.experience.find(exp => exp.id === experienceId)
+        : experienceForm;
+
+      const response = await fetch('/api/ai/enhance-experience', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          description: currentExp?.description || '',
+          position: currentExp?.position || '',
+          company: currentExp?.company || '',
+          skills: resumeData.skills,
+        }),
+      });
+
+      if (response.ok) {
+        const { enhancedDescription } = await response.json();
+
+        if (experienceId) {
+          // Update existing experience in resume data
+          setResumeData(prev => ({
+            ...prev,
+            experience: prev.experience.map(exp =>
+              exp.id === experienceId
+                ? { ...exp, description: enhancedDescription }
+                : exp
+            )
+          }));
+        } else {
+          // Update form for new experience
+          setExperienceForm(prev => ({
+            ...prev,
+            description: enhancedDescription
+          }));
+        }
+      }
+    } catch (error) {
+      console.error('Experience enhancement failed:', error);
+    } finally {
+      setIsGenerating(false);
+    }
   };
 
   // Experience Management
