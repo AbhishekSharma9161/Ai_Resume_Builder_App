@@ -883,6 +883,19 @@ export default function BuilderPage() {
                               <Button
                                 variant="ghost"
                                 size="sm"
+                                onClick={() => enhanceProjectDescription(project.id)}
+                                disabled={isGenerating}
+                                title="AI Enhance"
+                              >
+                                {isGenerating ? (
+                                  <Loader2 className="w-3 h-3 animate-spin" />
+                                ) : (
+                                  <Brain className="w-3 h-3" />
+                                )}
+                              </Button>
+                              <Button
+                                variant="ghost"
+                                size="sm"
                                 onClick={() => openProjectDialog(project)}
                               >
                                 <Edit3 className="w-3 h-3" />
