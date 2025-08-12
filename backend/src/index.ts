@@ -17,6 +17,7 @@ import {
   cancelSubscription,
   resumeSubscription,
 } from "./routes/payments.js";
+import { enhanceSummary, generateJobDescription } from "./routes/ai.js";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -60,6 +61,10 @@ app.post("/api/payments/webhook", handleWebhook);
 app.get("/api/users/:userId/subscription", getUserSubscription);
 app.post("/api/subscriptions/:subscriptionId/cancel", cancelSubscription);
 app.post("/api/subscriptions/:subscriptionId/resume", resumeSubscription);
+
+// AI routes
+app.post("/api/ai/enhance-summary", enhanceSummary);
+app.post("/api/ai/generate-job-description", generateJobDescription);
 
 // Start server
 app.listen(PORT, () => {
