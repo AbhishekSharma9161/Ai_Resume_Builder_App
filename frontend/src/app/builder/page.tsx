@@ -390,12 +390,14 @@ export default function BuilderPage() {
   };
 
   // Download PDF
-  const downloadPDF = () => {
-    // This would integrate with a PDF generation service
-    const element = document.getElementById('resume-preview');
-    if (element) {
-      // Use html2canvas + jsPDF or similar library
-      alert('PDF download functionality would be implemented here');
+  const downloadPDF = async () => {
+    try {
+      const { exportToPDF } = await import('@/lib/pdf-export');
+      const filename = `${resumeData.personalInfo.fullName || 'Resume'}_Resume.pdf`;
+      await exportToPDF('resume-preview', filename);
+    } catch (error) {
+      console.error('PDF download failed:', error);
+      alert('Failed to download PDF. Please try again.');
     }
   };
 
