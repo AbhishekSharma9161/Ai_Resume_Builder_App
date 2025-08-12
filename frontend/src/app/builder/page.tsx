@@ -980,7 +980,7 @@ export default function BuilderPage() {
 
         {/* Main Content - Resume Preview */}
         <div className="flex-1 bg-slate-50 p-6 overflow-y-auto">
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-2xl mx-auto space-y-6">
             <Card id="resume-preview" className="bg-white shadow-lg">
               <CardContent className="p-8">
                 <div className="space-y-6">
@@ -1159,6 +1159,9 @@ export default function BuilderPage() {
                 </div>
               </CardContent>
             </Card>
+
+            {/* ATS Score Checker */}
+            <ATSScoreChecker resumeData={resumeData} />
           </div>
         </div>
       </div>
