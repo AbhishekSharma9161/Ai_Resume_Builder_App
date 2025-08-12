@@ -286,7 +286,7 @@ export default function ExamplesPage() {
                         Preview
                       </Button>
                       <Button size="sm" className="flex-1" asChild>
-                        <Link href="/builder">
+                        <Link href="/builder" prefetch={true}>
                           Use Template
                         </Link>
                       </Button>
@@ -308,7 +308,7 @@ export default function ExamplesPage() {
             Choose from professional templates and get personalized suggestions.
           </p>
           <Button size="lg" variant="secondary" asChild>
-            <Link href="/builder">
+            <Link href="/builder" prefetch={true}>
               Start Building Now
             </Link>
           </Button>
