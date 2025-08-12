@@ -15,7 +15,7 @@ interface PlaceholderPageProps {
   features?: string[];
 }
 
-export default function PlaceholderPage({
+export function PlaceholderPage({
   title,
   description,
   features = [],

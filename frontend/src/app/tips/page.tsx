@@ -5,7 +5,6 @@ export default function TipsPage() {
     <PlaceholderPage
       title="Resume Tips"
       description="Expert tips and advice for creating outstanding resumes"
-      icon="Lightbulb"
     />
   );
 }
