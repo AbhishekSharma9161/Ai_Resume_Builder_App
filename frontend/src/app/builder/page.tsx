@@ -942,6 +942,22 @@ export default function BuilderPage() {
                         <Plus className="w-4 h-4" />
                       </Button>
                     </div>
+                    <div className="mb-3">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="w-full"
+                        disabled={isGenerating}
+                        onClick={suggestSkills}
+                      >
+                        {isGenerating ? (
+                          <Loader2 className="w-3 h-3 mr-2 animate-spin" />
+                        ) : (
+                          <Brain className="w-3 h-3 mr-2" />
+                        )}
+                        AI Suggest Skills
+                      </Button>
+                    </div>
                     <div className="flex flex-wrap gap-2">
                       {resumeData.skills.map((skill, index) => (
                         <Badge key={index} variant="secondary" className="cursor-pointer">
