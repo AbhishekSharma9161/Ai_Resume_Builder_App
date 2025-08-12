@@ -64,7 +64,7 @@ export default function Index() {
       </nav>
 
       {/* Hero Section */}
-      <section className="px-6 py-20 min-h-screen flex items-center text-center relative overflow-hidden bg-gradient-to-br from-cyan-100 via-blue-200 to-indigo-300">
+      <section className="px-6 py-20 min-h-[calc(100vh-80px)] flex items-center text-center relative overflow-hidden bg-gradient-to-br from-cyan-100 via-blue-200 to-indigo-300">
         {/* Background decoration */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl"></div>
