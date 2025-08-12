@@ -5,7 +5,6 @@ export default function PrivacyPage() {
     <PlaceholderPage
       title="Privacy Policy"
       description="How we protect and handle your personal information"
-      icon="Shield"
     />
   );
 }

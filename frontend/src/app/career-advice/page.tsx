@@ -5,7 +5,6 @@ export default function CareerAdvicePage() {
     <PlaceholderPage
       title="Career Advice"
       description="Professional guidance for advancing your career"
-      icon="TrendingUp"
     />
   );
 }

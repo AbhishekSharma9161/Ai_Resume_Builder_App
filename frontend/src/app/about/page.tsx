@@ -5,7 +5,6 @@ export default function AboutPage() {
     <PlaceholderPage
       title="About ResumeAI"
       description="Learn more about our mission to help you build better resumes"
-      icon="Info"
     />
   );
 }

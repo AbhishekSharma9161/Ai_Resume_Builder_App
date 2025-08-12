@@ -5,7 +5,6 @@ export default function AccountPage() {
     <PlaceholderPage
       title="Account"
       description="Manage your account settings and preferences"
-      icon="User"
     />
   );
 }

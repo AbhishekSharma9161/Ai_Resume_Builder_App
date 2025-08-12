@@ -5,7 +5,6 @@ export default function TermsPage() {
     <PlaceholderPage
       title="Terms of Service"
       description="Terms and conditions for using ResumeAI"
-      icon="FileText"
     />
   );
 }

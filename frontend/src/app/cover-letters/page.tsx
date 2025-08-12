@@ -5,7 +5,6 @@ export default function CoverLettersPage() {
     <PlaceholderPage
       title="Cover Letters"
       description="Create compelling cover letters that complement your resume"
-      icon="Mail"
     />
   );
 }
