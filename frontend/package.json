@@ -5,7 +5,7 @@
   "scripts": {
     "setup": "node setup.js",
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit"
