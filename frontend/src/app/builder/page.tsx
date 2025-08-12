@@ -347,6 +347,94 @@ export default function BuilderPage() {
     }));
   };
 
+  // AI Enhancement for Projects
+  const enhanceProjectDescription = async (projectId?: string) => {
+    setIsGenerating(true);
+    try {
+      const currentProject = projectId
+        ? resumeData.projects.find(proj => proj.id === projectId)
+        : projectForm;
+
+      const response = await fetch('/api/ai/enhance-project', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          description: currentProject?.description || '',
+          name: currentProject?.name || '',
+          technologies: currentProject?.technologies || [],
+        }),
+      });
+
+      if (response.ok) {
+        const { enhancedDescription } = await response.json();
+
+        if (projectId) {
+          // Update existing project in resume data
+          setResumeData(prev => ({
+            ...prev,
+            projects: prev.projects.map(proj =>
+              proj.id === projectId
+                ? { ...proj, description: enhancedDescription }
+                : proj
+            )
+          }));
+        } else {
+          // Update form for new project
+          setProjectForm(prev => ({
+            ...prev,
+            description: enhancedDescription
+          }));
+        }
+      }
+    } catch (error) {
+      console.error('Project enhancement failed:', error);
+    } finally {
+      setIsGenerating(false);
+    }
+  };
+
+  // AI Enhancement for Skills
+  const suggestSkills = async () => {
+    setIsGenerating(true);
+    try {
+      const response = await fetch('/api/ai/suggest-skills', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          currentSkills: resumeData.skills,
+          experience: resumeData.experience,
+          projects: resumeData.projects,
+        }),
+      });
+
+      if (response.ok) {
+        const { suggestedSkills } = await response.json();
+
+        // Add suggested skills that aren't already in the list
+        const newSkills = suggestedSkills.filter(skill =>
+          !resumeData.skills.some(existing =>
+            existing.toLowerCase() === skill.toLowerCase()
+          )
+        );
+
+        if (newSkills.length > 0) {
+          setResumeData(prev => ({
+            ...prev,
+            skills: [...prev.skills, ...newSkills.slice(0, 5)] // Add up to 5 suggestions
+          }));
+        }
+      }
+    } catch (error) {
+      console.error('Skills suggestion failed:', error);
+    } finally {
+      setIsGenerating(false);
+    }
+  };
+
   // Project Management
   const openProjectDialog = (project?: Project) => {
     if (project) {
