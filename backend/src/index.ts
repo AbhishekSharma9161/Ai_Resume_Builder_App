@@ -17,7 +17,14 @@ import {
   cancelSubscription,
   resumeSubscription,
 } from "./routes/payments.js";
-import { enhanceSummary, generateJobDescription } from "./routes/ai.js";
+import {
+  enhanceSummary,
+  enhanceExperience,
+  enhanceProject,
+  suggestSkills,
+  calculateATSScore,
+  generateJobDescription
+} from "./routes/ai.js";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -64,6 +71,10 @@ app.post("/api/subscriptions/:subscriptionId/resume", resumeSubscription);
 
 // AI routes
 app.post("/api/ai/enhance-summary", enhanceSummary);
+app.post("/api/ai/enhance-experience", enhanceExperience);
+app.post("/api/ai/enhance-project", enhanceProject);
+app.post("/api/ai/suggest-skills", suggestSkills);
+app.post("/api/ai/calculate-ats-score", calculateATSScore);
 app.post("/api/ai/generate-job-description", generateJobDescription);
 
 // Start server
