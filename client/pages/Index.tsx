@@ -71,7 +71,7 @@ export default function Index() {
           <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-cyan-400/20 to-blue-400/20 rounded-full blur-3xl"></div>
         </div>
 
-        <div className="relative z-10">
+        <div className="relative z-10 w-full max-w-6xl mx-auto">
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-slate-800/90 backdrop-blur-sm text-cyan-300 text-sm font-medium mb-6 shadow-lg">
             <Sparkles className="w-3 h-3 mr-2 text-cyan-400" />
             AI-Powered Resume Builder
