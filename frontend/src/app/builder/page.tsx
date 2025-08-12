@@ -760,6 +760,19 @@ export default function BuilderPage() {
                               <Button
                                 variant="ghost"
                                 size="sm"
+                                onClick={() => enhanceExperienceDescription(exp.id)}
+                                disabled={isGenerating}
+                                title="AI Enhance"
+                              >
+                                {isGenerating ? (
+                                  <Loader2 className="w-3 h-3 animate-spin" />
+                                ) : (
+                                  <Brain className="w-3 h-3" />
+                                )}
+                              </Button>
+                              <Button
+                                variant="ghost"
+                                size="sm"
                                 onClick={() => openExperienceDialog(exp)}
                               >
                                 <Edit3 className="w-3 h-3" />
