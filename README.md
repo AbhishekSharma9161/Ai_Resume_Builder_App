@@ -71,20 +71,23 @@ This project is built with a modern, scalable architecture:
 ```
 ├── frontend/                 # Next.js frontend application
 │   ├── src/
-│   │   ├── app/             # App router pages
+│   │   ├── app/             # Next.js App router pages
 │   │   │   ├── page.tsx     # Homepage
-│   │   │   ├── builder/     # Resume builder
+│   │   │   ├── builder/     # Resume builder page
 │   │   │   ├── templates/   # Template gallery
 │   │   │   ├── pricing/     # Pricing plans
-│   │   │   └── ...
+│   │   │   └── ...          # Other pages
 │   │   ├── components/      # Reusable React components
 │   │   │   ├── ui/          # shadcn/ui components
+│   │   │   ├── Checkout.tsx # Payment components
 │   │   │   └── ...
 │   │   ├── lib/             # Utility functions and services
 │   │   └── hooks/           # Custom React hooks
+│   ├── public/              # Static assets
 │   ├── package.json
 │   ├── next.config.js
-│   └── tailwind.config.ts
+│   ├── tailwind.config.ts
+│   └── tsconfig.json
 │
 ├── backend/                  # Express.js backend API
 │   ├── src/
@@ -92,15 +95,17 @@ This project is built with a modern, scalable architecture:
 │   │   │   ├── users.ts     # User management
 │   │   │   ├── resumes.ts   # Resume CRUD operations
 │   │   │   ├── payments.ts  # Stripe payment handling
-│   │   │   └── ...
+│   │   │   └── demo.ts      # Demo endpoints
 │   │   ├── lib/             # Shared utilities
 │   │   └── index.ts         # Express server setup
 │   ├── prisma/              # Database schema and migrations
+│   ├── scripts/             # Database seeding scripts
 │   ├── package.json
 │   └── tsconfig.json
 │
-├── README.md                 # This file
-└── ...
+├── package.json              # Root workspace configuration
+├── README.md                 # This documentation
+└── .gitignore               # Git ignore rules
 ```
 
 ## 🚀 Getting Started
