@@ -6,7 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { ArrowLeft, FileText, Construction } from "lucide-react";
 
 interface PlaceholderPageProps {
