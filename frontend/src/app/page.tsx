@@ -35,12 +35,14 @@ export default function HomePage() {
             <Link
               href="/templates"
               className="text-slate-600 hover:text-slate-900 transition-colors"
+              prefetch={true}
             >
               Templates
             </Link>
             <Link
               href="/examples"
               className="text-slate-600 hover:text-slate-900 transition-colors"
+              prefetch={true}
             >
               Examples
             </Link>
@@ -57,7 +59,7 @@ export default function HomePage() {
               Account
             </Link>
             <Button asChild size="sm">
-              <Link href="/builder">Get Started</Link>
+              <Link href="/builder" prefetch={true}>Get Started</Link>
             </Button>
           </div>
         </div>
@@ -98,12 +100,12 @@ export default function HomePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="text-base">
-              <Link href="/builder">
+              <Link href="/builder" prefetch={true}>
                 Start Building Free <ArrowRight className="w-4 h-4 ml-2" />
               </Link>
             </Button>
             <Button variant="outline" size="lg" className="text-base" asChild>
-              <Link href="/examples">View Examples</Link>
+              <Link href="/examples" prefetch={true}>View Examples</Link>
             </Button>
           </div>
           <div className="flex items-center justify-center gap-6 mt-8 text-sm text-slate-500">
@@ -345,7 +347,7 @@ export default function HomePage() {
           {/* CTA Button */}
           <div className="text-center mt-12">
             <Button asChild size="lg" className="text-base">
-              <Link href="/builder">
+              <Link href="/builder" prefetch={true}>
                 Get Started Now <ArrowRight className="w-4 h-4 ml-2" />
               </Link>
             </Button>
@@ -369,7 +371,7 @@ export default function HomePage() {
             variant="secondary"
             className="text-base font-semibold"
           >
-            <Link href="/builder">
+            <Link href="/builder" prefetch={true}>
               Get Started for Free <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
           </Button>
