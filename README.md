@@ -167,22 +167,23 @@ npm run db:seed
 
 **Frontend Development (Primary)**
 ```bash
-# The dev server runs the Next.js frontend automatically
-# Access your app at: http://localhost:3000
+# The main dev server runs the Next.js frontend automatically
+# Access your app through the dev server proxy
 ```
 
 **Start Backend API Server (Optional)**
 ```bash
-# In a separate terminal, start the backend API
+# In a separate terminal, start the backend API server
 ./start-backend.sh
 # Or manually:
 cd backend && npm run dev    # Runs on http://localhost:5000
 ```
 
 **Development Workflow:**
-- Frontend (Next.js) runs on `http://localhost:3000` (main dev server)
+- Frontend (Next.js) runs on `http://localhost:3000` (proxied through dev server)
 - Backend (Express.js) runs on `http://localhost:5000` (API server)
-- For full functionality, run both servers simultaneously
+- Frontend works standalone; backend needed for full API functionality
+- Use the dev server proxy URL for development
 
 ## 🔧 Environment Variables
 
