@@ -1189,7 +1189,23 @@ export default function BuilderPage() {
               </div>
             </div>
             <div>
-              <Label htmlFor="description">Description</Label>
+              <div className="flex items-center justify-between mb-2">
+                <Label htmlFor="description">Description</Label>
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  disabled={isGenerating}
+                  onClick={() => enhanceExperienceDescription()}
+                >
+                  {isGenerating ? (
+                    <Loader2 className="w-3 h-3 mr-2 animate-spin" />
+                  ) : (
+                    <Brain className="w-3 h-3 mr-2" />
+                  )}
+                  AI Enhance
+                </Button>
+              </div>
               <Textarea
                 id="description"
                 value={experienceForm.description}
