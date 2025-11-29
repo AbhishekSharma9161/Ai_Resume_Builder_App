@@ -3,6 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
+    unoptimized: true,
     domains: ['cdn.builder.io'],
   },
   async rewrites() {
@@ -16,6 +17,10 @@ const nextConfig = {
   },
   typescript: {
     ignoreBuildErrors: false,
+  },
+  onDemandEntries: {
+    maxInactiveAge: 60 * 60 * 1000,
+    pagesBufferLength: 5,
   },
 };
 
