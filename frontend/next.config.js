@@ -2,6 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  output: 'standalone',
   images: {
     unoptimized: true,
     domains: ['cdn.builder.io'],
@@ -14,13 +15,6 @@ const nextConfig = {
         destination: `${apiUrl}/api/:path*`,
       },
     ];
-  },
-  typescript: {
-    ignoreBuildErrors: false,
-  },
-  onDemandEntries: {
-    maxInactiveAge: 60 * 60 * 1000,
-    pagesBufferLength: 5,
   },
 };
 
