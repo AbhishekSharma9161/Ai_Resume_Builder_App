@@ -14,6 +14,14 @@ const nextConfig = {
       },
     ];
   },
+  experimental: {
+    isrMemoryCacheSize: 0,
+  },
+  onError: async (err) => {
+    if (err.code === 'NEXT_STATIC_GEN_TIMEOUT') {
+      // ignore timeout error during build
+    }
+  },
 };
 
 module.exports = nextConfig;
